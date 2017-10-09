@@ -5,7 +5,7 @@ import SignUpModal from '../components/SignInPage/SignUpModal';
 class SignInPage extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <LoginForm />
         <SignUpModal />
       </div>

@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import './App.css';
 
 import SignInPage from './views/SignInPage';
@@ -6,37 +11,15 @@ import Homepage from './views/Homepage';
 import ArtistPage from './views/ArtistPage';
 
 
-// const App = () => (
-//   <Router>
-//     <div>
-//       <ul>
-//         <li><Link to="/">Sign In</Link></li>
-//         <li><Link to="/index">Home</Link></li>
-//         <li><Link to="/artist">Artist</Link></li>
-//       </ul>
-//
-//       <hr/>
-//
-//       <Route exact path="/" component={Home}/>
-//       <Route path="/about" component={About}/>
-//       <Route path="/topics" component={Topics}/>
-//     </div>
-//   </Router>
-// )
-// export default App;
+const App = () => (
+  <Router>
+    <div>
 
 
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <ArtistPage />
-        <Homepage />
-        <SignInPage />
-      </div>
-    );
-  }
-}
-
+      <Route exact path="/" component={SignInPage}/>
+      <Route path="/home" component={Homepage}/>
+      <Route path="/artist" component={ArtistPage}/>
+    </div>
+  </Router>
+)
 export default App;
