@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 const SignUpModal = () => {
   return (
@@ -19,17 +24,17 @@ const SignUpModal = () => {
             <div className="modal-body">
               <form>
                 <div className="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                  <label for="SignUpEmail">Email address</label>
+                  <input type="email" className="form-control" id="SignUpEmail" aria-describedby="emailHelp" placeholder="Enter email" />
                 </div>
                 <div className="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                  <label for="SignUpPassword">Password</label>
+                  <input type="password" className="form-control" id="SignUpPassword" placeholder="Password" />
                 </div>
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary">Sign Up</button>
+              <button type="submit" className="btn btn-primary" data-dismiss='modal'>Sign Up</button>
             </div>
           </div>
         </div>

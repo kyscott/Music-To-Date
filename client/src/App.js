@@ -14,8 +14,6 @@ import ArtistPage from './views/ArtistPage';
 const App = () => (
   <Router>
     <div>
-
-
       <Route exact path="/" component={SignInPage}/>
       <Route path="/home" component={Homepage}/>
       <Route path="/artist" component={ArtistPage}/>
