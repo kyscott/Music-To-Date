@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 const GridContainer = () => {
   return (
-    <p>
-      Grid Container
-    </p>
+<div className="container-fluid">
+   <div className="row">
+   </div>
+</div>
+
   )
 }
 

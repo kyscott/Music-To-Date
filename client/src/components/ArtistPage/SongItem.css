@@ -1,0 +1,27 @@
+.grid-content-container {
+   margin: 1% 3.25% 0 3.25%;
+   display: inline;
+}
+
+.top-songs-container {
+   text-align: center;
+   margin: 1.5em auto;
+   padding: 0;
+}
+
+.top-song-img {
+   width: 125px;
+   height: 125px;
+   margin: 0 auto;
+}
+
+.card {
+   text-align: center;
+   display: inline-block;
+}
+
+.stream-link {
+   margin: 1em auto;
+display: block;
+background-color: black;
+}
