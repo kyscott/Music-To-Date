@@ -1,0 +1,14 @@
+.well {
+	padding: 5px;
+	height: 775px;
+	text-align:center;
+	color: black;
+	margin: 0 0 50% 0;
+}
+
+.sidebar {
+	width: 12%;
+	padding: 0 0 0 0px;
+	margin: 0 2em 2em 2em ;
+}
+

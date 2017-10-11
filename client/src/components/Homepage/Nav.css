@@ -1,0 +1,32 @@
+.navbar-icon {
+   height: 50px;
+   width: 50px;
+   margin: .25em auto .25em 1em;
+   float: left;
+}
+
+.navbar {
+   border-radius: 0;
+}
+
+.navbar-header {
+	width: 100%;
+}
+
+.form-inline {
+	margin: 1em 1em;
+   color: black;
+   float: right;
+}
+
+.btn-default {
+	margin: 0 0 0 1em;
+}
+
+nav {
+   width: 100%;
+   top: 0;
+   position: fixed;
+   background-color: white;
+   z-index: 9999;
+}
