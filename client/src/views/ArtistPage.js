@@ -13,7 +13,7 @@ class ArtistPage extends Component {
       <div>
         <Nav />
         {/*<Tweets />*/}
-        <ArtistJumbotron />
+        <ArtistJumbotron/>
         <SongItem />
         <SimilarArtistItem />
         <GridContainer />
@@ -23,4 +23,3 @@ class ArtistPage extends Component {
 };
 
 export default ArtistPage;
-
