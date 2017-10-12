@@ -1,7 +1,9 @@
 import React from 'react';
+import './Nav.css'
 
 const Nav = props => {
   return (
+<<<<<<< HEAD
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">Navbar</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +22,22 @@ const Nav = props => {
         </form>
       </div>
     </nav>
+=======
+<div>
+   <nav class="navbar navbar-default">
+      <div class="navbar-header">
+         <a href="#">
+            <img className="navbar-icon" alt="Home" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Circle-icons-volume.svg/1000px-Circle-icons-volume.svg.png"/>
+         </a>
+
+         <div className="form-inline">
+            <input type="text" placeholder="Search"/>
+            <input type="button" className="btn btn-default btn-sm" value="Search"/>
+         </div>
+      </div>
+   </nav>
+</div>
+>>>>>>> 3d7f9a81f016a7c7c317fdfbc194374f43834970
   )
 }
 
