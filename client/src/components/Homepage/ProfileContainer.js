@@ -1,11 +1,8 @@
 import React from 'react';
 
-const ProfileContainer = () => {
-  return (
-    <p>
-      Profile Container
-    </p>
-  )
-}
+const ProfileContainer = props =>
+      <p>
+        {props.artistName}
+      </p>;
 
 export default ProfileContainer;
