@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import ArtistJumbotron from '../components/ArtistPage/ArtistJumbotron';
 import EventModal from '../components/ArtistPage/EventModal';
 import GridContainer from '../components/ArtistPage/GridContainer';
-import GridItem from '../components/ArtistPage/GridItem';
+import SongItem from '../components/ArtistPage/SongItem';
+import SimilarArtistItem from '../components/ArtistPage/SimilarArtistItem';
 import Tweets from '../components/ArtistPage/Tweets';
+import Nav from '../components/Homepage/Nav';
 
 class ArtistPage extends Component {
   render() {
     return (
-      <div className="App">
-        <ArtistJumbotron />
-        <EventModal />
+      <div>
+        <Nav />
+        {/*<Tweets />*/}
+        <ArtistJumbotron/>
+        <SongItem />
+        <SimilarArtistItem />
         <GridContainer />
-        <GridItem />
-        <Tweets />
       </div>
     );
   }

@@ -1,10 +1,38 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import './Nav.css';
 
-const Nav = () => {
+const Nav = props => {
   return (
-    <p>
-      Nav
-    </p>
+    <div>
+       <nav className="navbar navbar-default">
+          <div className="navbar-header">
+          // Changed this to use react-router
+             <Link to="/home">
+                <img className="navbar-icon" alt="Home" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Circle-icons-volume.svg/1000px-Circle-icons-volume.svg.png"/>
+             </Link>
+
+             <div className="form-inline">
+                <input
+                  onChange={props.handleInputChange}
+                  value={props.value}
+                  type="text"
+                  placeholder="Search"
+                />
+                <input
+                  onClick={props.handleFormSubmit}
+                  type="button"
+                  className="btn btn-default btn-sm"
+                  value="Search"
+                />
+             </div>
+          </div>
+       </nav>
+    </div>
   )
 }
 
