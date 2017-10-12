@@ -1,0 +1,13 @@
+.artist-img {
+   margin: 1em 0 0 0;
+   height: 200px;
+   width: 200px;
+   border-radius: 100px;
+}
+
+
+.favorite-artists-container {
+   text-align: center;
+   margin: 1.5em auto 5em auto;
+   padding: 0;
+}

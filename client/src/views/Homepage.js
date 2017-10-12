@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Nav from '../components/Homepage/Nav';
 import Artist from '../components/Homepage/Artist';
-import ProfileContainer from '../components/Homepage/ProfileContainer';
+import ArtistList from '../components/Homepage/ArtistList';
+import ArtistGridContainer from '../components/Homepage/ArtistGridContainer'
 
 import axios from 'axios';
 const BASEURL = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=';
@@ -50,7 +51,7 @@ class Homepage extends Component {
           handleFormSubmit={this.handleFormSubmit}
         />
         <Artist />
-        <ProfileContainer artistName={this.state.result.name}/>
+        <ArtistList artistName={this.state.result.name}/>
       </div>
     );
   }
