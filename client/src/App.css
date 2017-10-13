@@ -58,3 +58,13 @@ body {
 .btn-primary {
    margin: .5em auto;
 }
+
+.btn {
+   cursor: pointer;
+}
+
+.col-md-3 {
+   float: left;
+}
+
+

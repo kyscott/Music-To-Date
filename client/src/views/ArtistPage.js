@@ -12,8 +12,7 @@ class ArtistPage extends Component {
     return (
 <div>
    <Nav />
-
-         {/*<Tweets />*/}
+         <Tweets />
          <ArtistJumbotron/>
          <SongItem />
          <SimilarArtistItem />
