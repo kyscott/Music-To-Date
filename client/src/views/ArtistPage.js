@@ -31,32 +31,13 @@ class ArtistPage extends Component {
   render() {
     console.log(this.state.result);
     return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div>
-   <Nav />
-         <Tweets />
-         <ArtistJumbotron/>
-         <SongItem />
-         <SimilarArtistItem />
-</div>
-=======
-=======
-
->>>>>>> 2e1129ca6b5a60b95722178bc1b1bcd9b35128ae
       <div>
         <Nav />
-        {/*<Tweets />*/}
+        <Tweets />
         <ArtistJumbotron artistName={this.state.result.name} bio={this.state.result.bio? this.state.result.bio.content: ''}/>
         <SongItem />
         <SimilarArtistItem />
-        <GridContainer />
       </div>
-<<<<<<< HEAD
-
->>>>>>> 6dc3ba28354b96479c582c12b1b673c33da35eda
-=======
->>>>>>> 2e1129ca6b5a60b95722178bc1b1bcd9b35128ae
     );
   }
 };
