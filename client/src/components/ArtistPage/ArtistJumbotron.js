@@ -10,11 +10,16 @@ import './ArtistJumbotron.css';
 
 const ArtistJumbotron = props => {
   return (
-    <div className="col-md-10 text-center main-artist-container">
+    <div className="col-md-9 main-artist-container">
       <h1>Artist Name</h1>
       <a href="#">
         <img className="main-artist-image" src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="main artist image"/>
       </a>
+      <br/>
+      <br/>
+
+      <button className='heart favs'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
+<button className='delete favs'><i className="fa fa-1x" aria-hidden="true"></i> Unfavorite</button>
     </div>
   )
 }

@@ -8,7 +8,7 @@ import './SimilarArtistItem.css';
 
 const SimilarArtistItem = () => {
   return (
-<div className="col-md-10 similar-artists-container">
+<div className="col-md-9 similar-artists-container">
 	<div className="card grid-content-container">
 	   <h3>Artist Name</h3>
 	   <img className='similar-artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-2"/>

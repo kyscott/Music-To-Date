@@ -8,7 +8,7 @@ import './SongItem.css'
 
 const SongItem = () => {
   return (
-<div className="col-md-10 top-songs-container">
+<div className="col-md-9 top-songs-container">
 	<div className="card grid-content-container">
 	   <h3>Song Name</h3>
 	   <img className='similar-artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-2"/>

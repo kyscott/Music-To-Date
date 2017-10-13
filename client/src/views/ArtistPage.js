@@ -10,14 +10,14 @@ import Nav from '../components/Homepage/Nav';
 class ArtistPage extends Component {
   render() {
     return (
-      <div>
-        <Nav />
-        {/*<Tweets />*/}
-        <ArtistJumbotron/>
-        <SongItem />
-        <SimilarArtistItem />
-        <GridContainer />
-      </div>
+<div>
+   <Nav />
+
+         {/*<Tweets />*/}
+         <ArtistJumbotron/>
+         <SongItem />
+         <SimilarArtistItem />
+</div>
     );
   }
 };
