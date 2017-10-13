@@ -1,14 +1,16 @@
 .well {
 	padding: 5px;
-	height: 775px;
+	height: 25px;
 	text-align:center;
 	color: black;
-	margin: 0 0 50% 0;
+	margin: 1.5em 0 50% 0;
+	background-color: white;
+	border-radius: 1em;
 }
 
 .sidebar {
-	width: 12%;
+	width: 15%;
 	padding: 0 0 0 0px;
-	margin: 0 2em 2em 2em ;
+	margin: 0 2em 0 2em ;
 }
 
