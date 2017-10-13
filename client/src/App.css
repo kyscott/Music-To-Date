@@ -63,8 +63,11 @@ body {
    cursor: pointer;
 }
 
-.col-md-3 {
-   float: left;
+
+h4 {
+text-align: center;
+margin: 0em % .5em 5%;
+word-wrap: break-word;
 }
 
 

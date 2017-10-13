@@ -19,8 +19,7 @@ class ArtistPage extends Component {
 
 componentDidMount() {
     this.searchArtists(this.props.match.params.artistName);
-    // this.searchSimilarArtists()
-    // this.searchTopAlbums()
+    // this.searchTopAlbums(this.props.match.params.artistName);
   }
  
   searchArtists = query => {
@@ -32,16 +31,6 @@ componentDidMount() {
       )
       .catch(err => console.log(err));
   };
- 
-// searchSimilarArtists = query => {
-//     const queryURL = similarArtistsUrl + query + key;
-//     console.log(queryURL);
-//     axios.get(queryURL)
-//       .then(
-//         res => this.setState({ result: res.data.artist })
-//       )
-//       .catch(err => console.log(err));
-//   };
  
 // searchTopAlbums = query => {
 //     const queryURL = topAlbumsUrl + query + key;
@@ -59,10 +48,15 @@ componentDidMount() {
       <div>
         <Nav />
         <Tweets />
-        <ArtistJumbotron artistName={this.state.result.name} />
+             <ArtistJumbotron artistUrl={this.state.result.url} artistName={this.state.result.name} artistImage={this.state.result.image ? this.state.result.image[3]["#text"]: ''}/>
         {/*bio={this.state.result.bio? this.state.result.bio.content: ''} */}
+        {/*artistImage={this.state.result.image[3]["#text"]}*/}
         <SongItem />
-        <SimilarArtistItem />
+
+        <SimilarArtistItem 
+        similarArtistUrl={this.state.result.similar ? this.state.result.similar.artist[0].url: ''} 
+        similarArtist={this.state.result.similar ? this.state.result.similar.artist[0].name: ''}
+        similarArtistImage={this.state.result.similar ? this.state.result.similar.artist[0].image[2]["#text"]: ''}/>
       </div>
     );
   }
