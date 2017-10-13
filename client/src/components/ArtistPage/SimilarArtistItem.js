@@ -12,31 +12,31 @@ const SimilarArtistItem = props => {
 
    <div className="card grid-content-container">
       <h4>{props.similarArtist}</h4>
-      <a href={props.similarArtist} target="_blank"><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
+      <a href={props.similarArtist}><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
       </a>
    </div>
 
    <div className="card grid-content-container">
       <h4>{props.similarArtist}</h4>
-      <a href={props.similarArtist} target="_blank"><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
+      <a href={props.similarArtist}><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
       </a>
    </div>
 
    <div className="card grid-content-container">
       <h4>{props.similarArtist}</h4>
-      <a href={props.similarArtist} target="_blank"><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
+      <a href={props.similarArtist}><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
       </a>
    </div>
 
    <div className="card grid-content-container">
       <h4>{props.similarArtist}</h4>
-      <a href={props.similarArtist} target="_blank"><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
+      <a href={props.similarArtist}><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
       </a>
    </div>
 
    <div className="card grid-content-container">
       <h4>{props.similarArtist}</h4>
-      <a href={props.similarArtist} target="_blank"><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
+      <a href={props.similarArtist}><img className='similar-artist-img' src={props.similarArtistImage} alt={props.similarArtist}/>
       </a>
    </div>
 
