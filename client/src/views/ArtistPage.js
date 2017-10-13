@@ -31,6 +31,7 @@ class ArtistPage extends Component {
   render() {
     console.log(this.state.result);
     return (
+
       <div>
         <Nav />
         {/*<Tweets />*/}
@@ -39,7 +40,6 @@ class ArtistPage extends Component {
         <SimilarArtistItem />
         <GridContainer />
       </div>
-
     );
   }
 };
