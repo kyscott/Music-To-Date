@@ -5,7 +5,7 @@
 
 .top-songs-container {
    text-align: center;
-   margin: 1.5em auto;
+   margin: .5em auto;
    padding: 0;
 }
 
@@ -13,6 +13,7 @@
    width: 125px;
    height: 125px;
    margin: 0 auto;
+   border-radius: 10px;
 }
 
 .card {

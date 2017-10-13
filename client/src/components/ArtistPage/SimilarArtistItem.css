@@ -1,6 +1,3 @@
-   h3 {
-      margin: .25em auto;
-   } 
    .grid-content-container {
    margin: 1% 3.25% 2em 3.25%;
       display: inline;
@@ -8,7 +5,7 @@
    
    .similar-artists-container {
       text-align: center;
-      margin: 1.5em auto 5em auto;
+      margin: .5em auto 10em auto;
       padding: 0;
    }
    
@@ -16,6 +13,7 @@
       width: 125px;
       height: 125px;
       margin: 0 auto;
+      border-radius: 10px;
    }
    
    .card {

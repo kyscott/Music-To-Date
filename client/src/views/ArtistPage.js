@@ -39,6 +39,7 @@ class ArtistPage extends Component {
         <SimilarArtistItem />
         <GridContainer />
       </div>
+
     );
   }
 };
