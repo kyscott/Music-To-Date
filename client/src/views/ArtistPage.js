@@ -31,14 +31,12 @@ class ArtistPage extends Component {
   render() {
     console.log(this.state.result);
     return (
-
       <div>
         <Nav />
-        {/*<Tweets />*/}
+        <Tweets />
         <ArtistJumbotron artistName={this.state.result.name} bio={this.state.result.bio? this.state.result.bio.content: ''}/>
         <SongItem />
         <SimilarArtistItem />
-        <GridContainer />
       </div>
     );
   }
