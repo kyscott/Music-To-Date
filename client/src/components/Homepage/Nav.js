@@ -23,12 +23,10 @@ const Nav = props => {
                   type="text"
                   placeholder="Search"
                 />
-                <input
-                  onClick={props.handleFormSubmit}
+            <Link to={`/artist/${props.value}`}><input
                   type="button"
                   className="btn btn-default btn-sm"
-                  value="Search"
-                />
+                  value="Search" /></Link>
              </div>
           </div>
        </nav>
