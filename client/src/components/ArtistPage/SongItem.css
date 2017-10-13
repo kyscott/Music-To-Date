@@ -1,20 +1,15 @@
-.grid-content-container {
-   margin: 1% 2.25% 0 2.25%;
-   display: inline;
-}
-
 .top-songs-container {
    text-align: center;
-   margin: 0 auto;
+   margin: .25em auto 0 auto;
    padding: 0;
    float: left;
 }
 
 .top-song-img {
-   width: 15px;
-   height: 15px;
+   width: 130px;
+   height: 130px;
    margin: 0 auto;
-   border-radius: 10px;
+   border-radius: 100px;
 }
 
 .card {
