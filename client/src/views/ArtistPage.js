@@ -48,9 +48,10 @@ componentDidMount() {
       <div>
         <Nav />
         <Tweets />
-             <ArtistJumbotron artistUrl={this.state.result.url} artistName={this.state.result.name} artistImage={this.state.result.image ? this.state.result.image[3]["#text"]: ''}/>
-        {/*bio={this.state.result.bio? this.state.result.bio.content: ''} */}
-        {/*artistImage={this.state.result.image[3]["#text"]}*/}
+             <ArtistJumbotron 
+             artistUrl={this.state.result.url} 
+             artistName={this.state.result.name} 
+             artistImage={this.state.result.image ? this.state.result.image[3]["#text"]: ''}/>
         <SongItem />
 
         <SimilarArtistItem 
