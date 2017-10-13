@@ -7,19 +7,24 @@ import SimilarArtistItem from '../components/ArtistPage/SimilarArtistItem';
 import Tweets from '../components/ArtistPage/Tweets';
 import Nav from '../components/Homepage/Nav';
 import axios from 'axios';
-const BASEURL = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=';
-const APIKEYURL = '&api_key=d66187414773dbf6291ba5b784512236&format=json';
+const artistInfoUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=';
+const similarArtistsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getSimilar&artist=';
+const topAlbumsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getTopAlbums&artist=';
+const key = '&api_key=d66187414773dbf6291ba5b784512236&format=json&autocorrect=1';
 
 class ArtistPage extends Component {
   state= {
     result: {}
   };
-  componentDidMount() {
-    this.searchArtists(this.props.match.params.artistName);
-  }
 
+componentDidMount() {
+    this.searchArtists(this.props.match.params.artistName);
+    // this.searchSimilarArtists()
+    // this.searchTopAlbums()
+  }
+ 
   searchArtists = query => {
-    const queryURL = BASEURL + query + APIKEYURL;
+    const queryURL = artistInfoUrl + query + key;
     console.log(queryURL);
     axios.get(queryURL)
       .then(
@@ -27,6 +32,26 @@ class ArtistPage extends Component {
       )
       .catch(err => console.log(err));
   };
+ 
+// searchSimilarArtists = query => {
+//     const queryURL = similarArtistsUrl + query + key;
+//     console.log(queryURL);
+//     axios.get(queryURL)
+//       .then(
+//         res => this.setState({ result: res.data.artist })
+//       )
+//       .catch(err => console.log(err));
+//   };
+ 
+// searchTopAlbums = query => {
+//     const queryURL = topAlbumsUrl + query + key;
+//     console.log(queryURL);
+//     axios.get(queryURL)
+//       .then(
+//         res => this.setState({ result: res.data.artist })
+//       )
+//       .catch(err => console.log(err));
+//   };
 
   render() {
     console.log(this.state.result);
@@ -34,7 +59,8 @@ class ArtistPage extends Component {
       <div>
         <Nav />
         <Tweets />
-        <ArtistJumbotron artistName={this.state.result.name} bio={this.state.result.bio? this.state.result.bio.content: ''}/>
+        <ArtistJumbotron artistName={this.state.result.name} />
+        {/*bio={this.state.result.bio? this.state.result.bio.content: ''} */}
         <SongItem />
         <SimilarArtistItem />
       </div>
