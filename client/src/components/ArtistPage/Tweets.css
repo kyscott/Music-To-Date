@@ -3,7 +3,7 @@
 	height: 800px;
 	text-align:center;
 	color: black;
-	margin: 5em 0 0 0;
+	margin: 4.5em 0 0 0;
 	background-color: white;
 	border-radius: 1em;
 }
@@ -11,6 +11,7 @@
 .sidebar {
 	width: 15%;
 	padding: 0 0 0 0px;
-	margin: 0 2em 0 2em ;
+	margin: 0 2em 0 2em;
+	float: left;
 }
 
