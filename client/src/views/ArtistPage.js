@@ -55,7 +55,6 @@ componentDidMount() {
         <SongItem />
 
         <SimilarArtistItem 
-        similarArtistUrl={this.state.result.similar ? this.state.result.similar.artist[0].url: ''} 
         similarArtist={this.state.result.similar ? this.state.result.similar.artist[0].name: ''}
         similarArtistImage={this.state.result.similar ? this.state.result.similar.artist[0].image[2]["#text"]: ''}/>
       </div>

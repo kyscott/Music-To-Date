@@ -25,6 +25,12 @@ body {
    background-color: white;
 }
 
+.grid-content-container {
+   width: 15%;
+   margin: 1% 2.25% 0 2.25%;
+   display: inline;
+}
+
 .heart {
    padding: .5em;
    border-radius: .5em;
@@ -63,10 +69,10 @@ body {
    cursor: pointer;
 }
 
-
 h4 {
 text-align: center;
-margin: 0em % .5em 5%;
+width: 90%;
+margin: 0em auto .5em auto;
 word-wrap: break-word;
 }
 

@@ -1,8 +1,3 @@
-   .grid-content-container {
-   margin: 1% 3.25% 2em 3.25%;
-      display: inline;
-   }
-   
    .similar-artists-container {
       text-align: center;
       margin: .5em auto 10em auto;
@@ -11,10 +6,10 @@
    }
    
    .similar-artist-img {
-      width: 125px;
-      height: 125px;
+      width: 130px;
+      height: 130px;
       margin: 0 auto;
-      border-radius: 10px;
+      border-radius: 100px;
    }
    
    .card {
