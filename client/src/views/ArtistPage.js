@@ -19,7 +19,7 @@ class ArtistPage extends Component {
 
 componentDidMount() {
     this.searchArtists(this.props.match.params.artistName);
-    // this.searchTopAlbums(this.props.match.params.artistName);
+    this.searchTopAlbums(this.props.match.params.artistName);
   }
  
   searchArtists = query => {
@@ -32,47 +32,51 @@ componentDidMount() {
       .catch(err => console.log(err));
   };
  
-// searchTopAlbums = query => {
-//     const queryURL = topAlbumsUrl + query + key;
-//     console.log(queryURL);
-//     axios.get(queryURL)
-//       .then(
-//         res => this.setState({ result: res.data.artist })
-//       )
-//       .catch(err => console.log(err));
-//   };
+searchTopAlbums = query => {
+    const queryURL = topAlbumsUrl + query + key;
+    console.log(queryURL);
+    axios.get(queryURL)
+      .then(
+        res => this.setState({ result: res.data.artist })
+      )
+      .catch(err => console.log(err));
+  };
 
   render() {
     console.log(this.state.result);
     return (
       <div>
+
         <Nav />
+
         <Tweets />
-             <ArtistJumbotron 
-             artistUrl={this.state.result.url} 
 
-             artistName={this.state.result.name} 
+        <ArtistJumbotron 
+        artistUrl = {this.state.result.url} 
+        artistName = {this.state.result.name} 
+        artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
+        />
 
-             artistImage={this.state.result.image ? this.state.result.image[3]["#text"]: ''}
-             />
-
-        <SongItem />
+        <SongItem 
+        /*topSongName1 = {}*/
+        /*topSongImage1 = {}*/
+        />
 
         <SimilarArtistItem 
-        similarArtist1={this.state.result.similar ? this.state.result.similar.artist[0].name: ''}
-        similarArtistImage1={this.state.result.similar ? this.state.result.similar.artist[0].image[2]["#text"]: ''}
+        similarArtist1 = {this.state.result.similar ? this.state.result.similar.artist[0].name: ''}
+        similarArtistImage1 = {this.state.result.similar ? this.state.result.similar.artist[0].image[2]["#text"]: ''}
 
-        similarArtist2={this.state.result.similar ? this.state.result.similar.artist[1].name: ''}
-        similarArtistImage2={this.state.result.similar ? this.state.result.similar.artist[1].image[2]["#text"]: ''}
+        similarArtist2 = {this.state.result.similar ? this.state.result.similar.artist[1].name: ''}
+        similarArtistImage2 = {this.state.result.similar ? this.state.result.similar.artist[1].image[2]["#text"]: ''}
 
-        similarArtist3={this.state.result.similar ? this.state.result.similar.artist[2].name: ''}
-        similarArtistImage3={this.state.result.similar ? this.state.result.similar.artist[2].image[2]["#text"]: ''}
+        similarArtist3 = {this.state.result.similar ? this.state.result.similar.artist[2].name: ''}
+        similarArtistImage3 = {this.state.result.similar ? this.state.result.similar.artist[2].image[2]["#text"]: ''}
 
-        similarArtist4={this.state.result.similar ? this.state.result.similar.artist[3].name: ''}
-        similarArtistImage4={this.state.result.similar ? this.state.result.similar.artist[3].image[2]["#text"]: ''}
+        similarArtist4 = {this.state.result.similar ? this.state.result.similar.artist[3].name: ''}
+        similarArtistImage4 = {this.state.result.similar ? this.state.result.similar.artist[3].image[2]["#text"]: ''}
 
-        similarArtist5={this.state.result.similar ? this.state.result.similar.artist[4].name: ''}
-        similarArtistImage5={this.state.result.similar ? this.state.result.similar.artist[4].image[2]["#text"]: ''}
+        similarArtist5 = {this.state.result.similar ? this.state.result.similar.artist[4].name: ''}
+        similarArtistImage5 = {this.state.result.similar ? this.state.result.similar.artist[4].image[2]["#text"]: ''}
         />
 
       </div>
