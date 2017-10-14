@@ -6,6 +6,10 @@ body {
    color: white;
 }
 
+.App {
+   text-align: center;
+}
+
 .heart-active {
    color: red;
    background-color: white;
