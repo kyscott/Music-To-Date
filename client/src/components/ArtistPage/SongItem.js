@@ -39,6 +39,7 @@ const SongItem = props => {
 	   <img className='top-song-img' src={props.albumImage5} alt={props.albumName5}/>
 	   <a className="stream-link" href="#"><i className="fa fa-music"></i> Listen Here</a>
 	</div>
+	
 </div>
   )
 }

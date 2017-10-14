@@ -105,3 +105,25 @@ a:hover {
 }
 
 a:active {}
+
+body.loading {
+    overflow: hidden;   
+}
+
+body.loading .modal {
+    display: block;
+}
+
+ .modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: white 
+                url('https://thumbs.gfycat.com/ImpoliteLivelyGenet-max-1mb.gif') 
+                50% 50% 
+                no-repeat;
+}
