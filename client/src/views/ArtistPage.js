@@ -43,18 +43,15 @@ searchTopAlbums = query => {
       .catch(err => console.log(err));
   };
 
- 
-// searchTopAlbums = query => {
-//     const queryURL = topAlbumsUrl + query + key;
-//     console.log(queryURL);
-//     axios.get(queryURL)
-//       .then(res => {
-//         console.log(res.data.topalbums.album[0].name)
-//         console.log(res.data.topalbums.album[0].image[2]["#text"])
-//       }
-//       )
-//       .catch(err => console.log(err));
-//   };
+  // getTweets = query => {
+  //   const queryURL = '';
+  //       axios.get(queryURL)
+  //     .then(res => { 
+  //         console.log('');
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     console.log(this.state.result);
