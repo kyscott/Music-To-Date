@@ -7,6 +7,7 @@ import SimilarArtistItem from '../components/ArtistPage/SimilarArtistItem';
 import Tweets from '../components/ArtistPage/Tweets';
 import Nav from '../components/Homepage/Nav';
 import axios from 'axios';
+
 const artistInfoUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=';
 const similarArtistsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getSimilar&artist=';
 const topAlbumsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getTopAlbums&artist=';
@@ -37,10 +38,23 @@ searchTopAlbums = query => {
     console.log(queryURL);
     axios.get(queryURL)
       .then(
-        res => this.setState({ result: res.data.artist })
+        res => this.setState({ albumResult: res.data.topalbums})
       )
       .catch(err => console.log(err));
   };
+
+ 
+// searchTopAlbums = query => {
+//     const queryURL = topAlbumsUrl + query + key;
+//     console.log(queryURL);
+//     axios.get(queryURL)
+//       .then(res => {
+//         console.log(res.data.topalbums.album[0].name)
+//         console.log(res.data.topalbums.album[0].image[2]["#text"])
+//       }
+//       )
+//       .catch(err => console.log(err));
+//   };
 
   render() {
     console.log(this.state.result);
@@ -58,8 +72,20 @@ searchTopAlbums = query => {
         />
 
         <SongItem 
-        /*topSongName1 = {}*/
-        /*topSongImage1 = {}*/
+        albumName1 = {this.state.albumResult ? this.state.albumResult.album[0].name: ''}
+        albumImage1 = {this.state.albumResult ? this.state.albumResult.album[0].image[2]["#text"]: ''}
+
+        albumName2 = {this.state.albumResult ? this.state.albumResult.album[1].name: ''}
+        albumImage2 = {this.state.albumResult ? this.state.albumResult.album[1].image[2]["#text"]: ''}
+
+        albumName3 = {this.state.albumResult ? this.state.albumResult.album[2].name: ''}
+        albumImage3 = {this.state.albumResult ? this.state.albumResult.album[2].image[2]["#text"]: ''}
+
+        albumName4 = {this.state.albumResult ? this.state.albumResult.album[3].name: ''}
+        albumImage4 = {this.state.albumResult ? this.state.albumResult.album[3].image[2]["#text"]: ''}
+
+        albumName5 = {this.state.albumResult ? this.state.albumResult.album[4].name: ''}
+        albumImage5 = {this.state.albumResult ? this.state.albumResult.album[4].image[2]["#text"]: ''}
         />
 
         <SimilarArtistItem 
