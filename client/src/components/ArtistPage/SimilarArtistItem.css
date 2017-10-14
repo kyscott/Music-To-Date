@@ -1,6 +1,6 @@
    .similar-artists-container {
       text-align: center;
-      margin: .5em auto 10em auto;
+      margin: 1.5em auto auto auto;
       padding: 0;
       float: left;
    }
@@ -15,5 +15,6 @@
    .card {
       text-align: center;
       display: inline-block;
-      background-color: black;
+      background-color: transparent;
+      border: 0;
    }

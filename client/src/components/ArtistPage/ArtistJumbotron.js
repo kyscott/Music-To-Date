@@ -17,7 +17,7 @@ const ArtistJumbotron = props => {
       <br/>
       <br/>
       <button className='heart favs'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
-      <button className='delete favs'><i className="fa fa-1x" aria-hidden="true"></i> Unfavorite</button>
+      <button className='delete favs'><i className="fa fa-times fa-1x" aria-hidden="true"></i> Unfavorite</button>
     </div>
   )
 }
