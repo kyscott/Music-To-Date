@@ -1,6 +1,10 @@
 import React from 'react'
-import './Loader.css'
+import './css/Loader.css'
 
-const Loader = () => <div className="loader text-center"></div>
+const Loader = () => {
+	return ( 
+				<div className="loader text-center"></div>
+		)
+}
 
 export default Loader

@@ -4,9 +4,9 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import './SimilarArtistItem.css';
+import './css/SimilarArtists.css';
 
-const SimilarArtistItem = props => {
+const SimilarArtists = props => {
   return (
 <div className="col-md-9 similar-artists-container">
 
@@ -45,4 +45,4 @@ const SimilarArtistItem = props => {
   )
 }
 
-export default SimilarArtistItem;
+export default SimilarArtists;

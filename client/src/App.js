@@ -10,7 +10,6 @@ import SignInPage from './views/SignInPage';
 import Homepage from './views/Homepage';
 import ArtistPage from './views/ArtistPage';
 
-
 const App = () => (
   <Router>
     <div>
@@ -20,4 +19,5 @@ const App = () => (
     </div>
   </Router>
 )
+
 export default App;
