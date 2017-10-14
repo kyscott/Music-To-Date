@@ -4,9 +4,9 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import './SongItem.css'
+import './css/TopSongs.css'
 
-const SongItem = props => {
+const TopSongs = props => {
   return (
 <div className="col-md-9 top-songs-container">
 
@@ -44,4 +44,4 @@ const SongItem = props => {
   )
 }
 
-export default SongItem;
+export default TopSongs;

@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 
-import './ArtistJumbotron.css';
+import './css/ArtistJumbotron.css';
 
 const ArtistJumbotron = props => {
   return (

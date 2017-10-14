@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 
-import './Tweets.css'
+import './css/Tweets.css'
 
 
 const Tweets = () => {

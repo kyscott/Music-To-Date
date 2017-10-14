@@ -11,7 +11,6 @@ const GridContainer = () => {
    <div className="row">
    </div>
 </div>
-
   )
 }
 

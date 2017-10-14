@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+
+import Nav from '../components/Homepage/Nav';
 import ArtistJumbotron from '../components/ArtistPage/ArtistJumbotron';
+import TopSongs from '../components/ArtistPage/TopSongs';
+import SimilarArtists from '../components/ArtistPage/SimilarArtists';
 import EventModal from '../components/ArtistPage/EventModal';
 import GridContainer from '../components/ArtistPage/GridContainer';
-import SongItem from '../components/ArtistPage/SongItem';
-import SimilarArtistItem from '../components/ArtistPage/SimilarArtistItem';
 import Tweets from '../components/ArtistPage/Tweets';
 import Loader from '../components/ArtistPage/Loader';
-import Nav from '../components/Homepage/Nav';
+
 import axios from 'axios';
 
 const artistInfoUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=';
@@ -22,9 +24,10 @@ class ArtistPage extends Component {
 componentDidMount() {
     this.searchArtists(this.props.match.params.artistName);
     this.searchTopAlbums(this.props.match.params.artistName);
+    // this.getTweets(this.props.match.params.artistName);
   }
  
-  searchArtists = query => {
+searchArtists = query => {
     const queryURL = artistInfoUrl + query + key;
     console.log(queryURL);
     axios.get(queryURL)
@@ -45,10 +48,10 @@ searchTopAlbums = query => {
   };
 
   // getTweets = query => {
-  //   const queryURL = '';
+  //   const queryURL = `http://aamirafridi.com/twitter/?q=${query}&count=20`;
   //       axios.get(queryURL)
   //     .then(res => { 
-  //         console.log('');
+  //         // console.log(res.data);
   //     }
   //     )
   //     .catch(err => console.log(err));
@@ -61,8 +64,8 @@ searchTopAlbums = query => {
       <div>
 
         <Nav />
-                {/*<Loader />*/}
-
+        
+        {/*<Loader>*/}
         <Tweets />
 
         <ArtistJumbotron 
@@ -71,7 +74,7 @@ searchTopAlbums = query => {
         artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
         />
 
-        <SongItem 
+        <TopSongs 
         albumName1 = {this.state.albumResult ? this.state.albumResult.album[0].name: ''}
         albumImage1 = {this.state.albumResult ? this.state.albumResult.album[0].image[2]["#text"]: ''}
 
@@ -88,7 +91,7 @@ searchTopAlbums = query => {
         albumImage5 = {this.state.albumResult ? this.state.albumResult.album[4].image[2]["#text"]: ''}
         />
 
-        <SimilarArtistItem 
+        <SimilarArtists 
         similarArtist1 = {this.state.result.similar ? this.state.result.similar.artist[0].name: ''}
         similarArtistImage1 = {this.state.result.similar ? this.state.result.similar.artist[0].image[2]["#text"]: ''}
 
@@ -104,6 +107,8 @@ searchTopAlbums = query => {
         similarArtist5 = {this.state.result.similar ? this.state.result.similar.artist[4].name: ''}
         similarArtistImage5 = {this.state.result.similar ? this.state.result.similar.artist[4].image[2]["#text"]: ''}
         />
+
+        {/*</Loader>*/}
 
       </div>
     );
