@@ -5,6 +5,7 @@ import GridContainer from '../components/ArtistPage/GridContainer';
 import SongItem from '../components/ArtistPage/SongItem';
 import SimilarArtistItem from '../components/ArtistPage/SimilarArtistItem';
 import Tweets from '../components/ArtistPage/Tweets';
+import Loader from '../components/ArtistPage/Loader';
 import Nav from '../components/Homepage/Nav';
 import axios from 'axios';
 
@@ -55,10 +56,12 @@ searchTopAlbums = query => {
 
   render() {
     console.log(this.state.result);
+    console.log(this.state.albumResult);
     return (
       <div>
 
         <Nav />
+                {/*<Loader />*/}
 
         <Tweets />
 
