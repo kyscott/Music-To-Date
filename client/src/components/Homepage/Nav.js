@@ -11,11 +11,14 @@ const Nav = props => {
     <div>
        <nav className="navbar navbar-default">
           <div className="navbar-header">
-          // Changed this to use react-router
+
              <Link to="/home">
                 <img className="navbar-icon" alt="Home" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Circle-icons-volume.svg/1000px-Circle-icons-volume.svg.png"/>
              </Link>
 
+             <div className="logout">Logout</div>
+
+            <div className="logo-container">App Name</div>
              <div className="form-inline">
                 <input
                   onChange={props.handleInputChange}
