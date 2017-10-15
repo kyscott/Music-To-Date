@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Nav from '../components/Homepage/Nav';
 import MainArtistHeader from '../components/ArtistPage/MainArtistHeader';
 import TopSongs from '../components/ArtistPage/TopSongs';
@@ -11,10 +10,8 @@ import Loader from '../components/ArtistPage/Loader';
 
 import axios from 'axios';
 
-const artistInfoUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=';
-const similarArtistsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getSimilar&artist=';
-const topAlbumsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getTopAlbums&artist=';
-const key = '&api_key=d66187414773dbf6291ba5b784512236&format=json&autocorrect=1';
+const key = 'd66187414773dbf6291ba5b784512236';
+const ytKey = ''
 
 class ArtistPage extends Component {
    state = {
@@ -22,39 +19,88 @@ class ArtistPage extends Component {
    };
 
    componentDidMount() {
-      this.lastFM.searchArtists(this.props.match.params.artistName);
-      this.lastFM.searchTopAlbums(this.props.match.params.artistName);
-      // this.getTweets(this.props.match.params.artistName);
+      this.API.searchArtists(this.props.match.params.artistName);
+      this.API.searchTopAlbums(this.props.match.params.artistName);
+      // this.API.getTweets(this.props.match.params.artistName);
+      // this.API.getYoutubeLink(this.props.match.params.artistName)
+      // this.API.getEvents(this.props.match.params.artistName)
    };
 
-   lastFM = {
-      searchArtists: query => {
-         const queryURL = artistInfoUrl + query + key;
-         console.log(queryURL);
-         axios.get(queryURL)
-            .then(
-               res => this.setState({ result: res.data.artist }))
-            .catch(err => console.log(err));
-      },
+   API = {
+     searchArtists: query => {
+        axios.get('http://ws.audioscrobbler.com/2.0/', {
+              params: {
+                 method: 'artist.getinfo',
+                 api_key: key,
+                 artist: query,
+                 format: 'json',
+                 autocorrect: '1'
+              }
+           })
+           .then(
+              res => this.setState({ result: res.data.artist }))
+           .catch(err => console.log(err));
+     },
 
-      searchTopAlbums: query => {
-         const queryURL = topAlbumsUrl + query + key;
-         console.log(queryURL);
-         axios.get(queryURL)
-            .then(
-               res => this.setState({ albumResult: res.data.topalbums }))
-            .catch(err => console.log(err));
-      },
+     searchTopAlbums: query => {
+        axios.get('http://ws.audioscrobbler.com/2.0/', {
+              params: {
+                 method: 'artist.getTopAlbums',
+                 api_key: key,
+                 artist: query,
+                 format: 'json',
+                 autocorrect: '1'
+              }
+           })
+           .then(
+              res => this.setState({ albumResult: res.data.topalbums }))
+           .catch(err => console.log(err));
+     },
 
-      // getTweets = query => {
-      //   const queryURL = `http://aamirafridi.com/twitter/?q=${query}&count=20`;
-      //       axios.get(queryURL)
-      //     .then(res => { 
-      //         // console.log(res.data);
-      //     })
-      //     .catch(err => console.log(err));
-      // };
-   };
+     getTweets: query => {
+        axios.get('', {
+              params: {
+                 track: query,
+              }
+           })
+           .then(res => {
+              console.log(res.data);
+           })
+           .catch(err => console.log(err));
+     },
+
+     getYoutubeLink: query => {
+
+        axios.get('https://www.googleapis.com/youtube/v3/search', {
+              params: {
+                 key: ytKey,
+                 q: query,
+                 part: 'snippet,id',
+                 order: 'date',
+                 maxResults: 1
+              }
+           })
+           .then(res => {
+
+              console.log(res.data);
+           })
+           // res => this.setState({ ytLink: res.data }))
+           .catch(err => console.log(err));
+     },
+
+     getEvents: query => {
+        axios.get('http://api.songkick.com/api/3.0/artists/', {
+              params: {
+                 mbid: query,
+                 apikey: '',
+              }
+           })
+           .then(res => {
+              console.log(res.data);
+           })
+           .catch(err => console.log(err));
+     }
+  };
 
    render() {
          console.log(this.state.result);
@@ -62,9 +108,7 @@ class ArtistPage extends Component {
          return (
       <div>
           <Nav />
-
               {/*<Loader>*/}
-
                     <Tweets />
 
                     <MainArtistHeader 
@@ -72,10 +116,11 @@ class ArtistPage extends Component {
                     artistName = {this.state.result.name} 
                     artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
                     artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
-                    bio = {this.state.result.bio? this.state.result.bio.content.toString().substring(0, 750): ''}
+                    bio = {this.state.result.bio? this.state.result.bio.content.toString().substring(0, 500): ''}
                     />
 
                     <TopSongs 
+                    artistName = {this.state.result.name} 
                     albumName1 = {this.state.albumResult ? this.state.albumResult.album[0].name: ''}
                     albumImage1 = {this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"]: ''}
 
@@ -110,7 +155,6 @@ class ArtistPage extends Component {
                     />
 
               {/*</Loader>*/}
-
       </div>
     );
   }

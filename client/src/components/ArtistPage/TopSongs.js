@@ -6,6 +6,9 @@ import {
 } from 'react-router-dom';
 import './css/TopSongs.css'
 
+// http://itunes.com/{props.artistName}/{props.albumName[i]}
+
+
 const TopSongs = props => {
   return (
 <div className="col-md-9 top-songs-container">
