@@ -71,6 +71,8 @@ class ArtistPage extends Component {
                     artistUrl = {this.state.result.url} 
                     artistName = {this.state.result.name} 
                     artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
+                    artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
+                    bio = {this.state.result.bio? this.state.result.bio.content.toString().substring(0, 500): ''}
                     />
 
                     <TopSongs 

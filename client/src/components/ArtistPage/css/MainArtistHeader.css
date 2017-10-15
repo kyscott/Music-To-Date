@@ -1,18 +1,32 @@
 	.main-artist-image {
-	   margin: 1em 0 0 0;
+	   margin: 0em 3em 0 3em;
 	   height: 200px;
 	   width: 200px;
 	   border-radius: 5px 75px 5px;
+	   float: left;
 	}
 	
 	.main-artist-container {
 	   margin: 0em auto 1em auto;
-	   text-align: center;
 	   padding: 0;
 	}
 
 	.artist-header {
-   margin-top: 1.5em;
+   margin: 2.5em 0em .5em 3.75em;
+   text-align: left;
+}
+
+.bio {
+	display: inline;
+	text-align: justify;
+}
+
+p {
+	margin: 0 15em 0 26em;
+}
+
+.buttons {
+	text-align: center;
 }
 
 

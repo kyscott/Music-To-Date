@@ -1,6 +1,6 @@
    .similar-artists-container {
       text-align: center;
-      margin: 1.5em auto 3em auto;
+      margin: 3em auto 3em auto;
       padding: 0;
       float: left;
    }
@@ -16,5 +16,6 @@
       text-align: center;
       display: inline-block;
       background-color: transparent;
-      border: 0;
+      border: 1px solid white;
+      paddng: 50px;
    }

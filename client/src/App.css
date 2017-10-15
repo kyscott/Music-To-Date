@@ -24,43 +24,62 @@ body {
    background-color: white;
 }
 
-.heart {
+.fav-btn {
    padding: .5em;
    border-radius: 5em;
    border: 1px solid black;
    background-color: white;
-   transition: .5s ease-in-out;
+   transition: 1s ease-in-out;
 }
 
-.heart:hover {
+.fav-btn:hover {
    cursor: pointer;
-   background-color: lightgray;
+   background-color: black;
    color: #bc0707;
 }
 
-.heart:focus {
+.fav-btn:focus {
    outline: none;
 }
 
-.delete {
+.unfav-btn {
    padding: .5em;
    border-radius: 5em;
    border: 1px solid black;
    background-color: white;
-   transition: .5s ease-in-out;
+   transition: 1s ease-in-out;
 }
 
-.delete:hover {
+.unfav-btn:hover {
    cursor: pointer;
-   background-color: lightgray;
+   background-color: black;
+   color: white;
 }
 
-.delete:focus {
+.unfav-btn:focus {
+   outline: none;
+}
+
+.tour-btn {
+   padding: .5em;
+   border-radius: 5em;
+   border: 1px solid black;
+   background-color: white;
+   transition: 1s ease-in-out;
+}
+
+.tour-btn:hover {
+   cursor: pointer;
+   background-color: black;
+   color: white;
+}
+
+.tour-btn:focus {
    outline: none;
 }
 
 .favs {
-   margin: 0 1%;
+   margin: 0 1.5%;
 }
 
 .btn-primary {
@@ -74,7 +93,7 @@ body {
 h4 {
    text-align: center;
    width: 90%;
-   margin: 0em auto .5em auto;
+   margin: .5em auto .5em auto;
    word-wrap: break-word;
 }
 
