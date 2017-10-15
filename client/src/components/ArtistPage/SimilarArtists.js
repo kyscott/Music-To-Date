@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+
 import './css/SimilarArtists.css';
 
 const SimilarArtists = props => {
