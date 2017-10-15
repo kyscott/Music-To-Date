@@ -5,9 +5,9 @@ import {
   Link
 } from 'react-router-dom';
 
-import './css/ArtistJumbotron.css';
+import './css/MainArtistHeader.css';
 
-const ArtistJumbotron = props => {
+const MainArtistHeader = props => {
   return (
     <div className="col-md-10 text-center main-artist-container">
       <h1 className="artist-header">{props.artistName}</h1>
@@ -22,4 +22,4 @@ const ArtistJumbotron = props => {
   )
 }
 
-export default ArtistJumbotron;
+export default MainArtistHeader;

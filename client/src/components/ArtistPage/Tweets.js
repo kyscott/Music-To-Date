@@ -7,7 +7,6 @@ import {
 
 import './css/Tweets.css'
 
-
 const Tweets = () => {
   return (
 <div className="col-md-3 sidebar">
