@@ -12,11 +12,6 @@
    border-radius: 10px;
 }
 
-.card {
-   text-align: center;
-   display: inline-block;
-}
-
 .stream-link {
    margin: 1em auto;
    display: block;

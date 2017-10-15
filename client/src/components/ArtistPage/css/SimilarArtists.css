@@ -8,14 +8,7 @@
    .similar-artist-img {
       width: 130px;
       height: 130px;
-      margin: 0 auto;
+      margin: 0 auto .55em auto;
       border-radius: 100px;
    }
    
-   .card {
-      text-align: center;
-      display: inline-block;
-      background-color: transparent;
-      border: 1px solid white;
-      paddng: 50px;
-   }
