@@ -5,9 +5,12 @@
    border-radius: 100px;
 }
 
-
 .favorite-artists-container {
    text-align: center;
    margin: 1.5em auto 5em auto;
    padding: 0;
+}
+
+.artist-list {
+  border: 0;
 }

@@ -5,18 +5,28 @@ body {
   /*background-image: url('https://media.giphy.com/media/12zd7J5yCcV476/giphy.gif');*/
    background-color: black;
    color: white;
-   background-size: cover;
+   /*background-size: cover;*/
 }
 
 .App {
    text-align: center;
 }
 
+/*Card container CSS*/
 .grid-content-container {
    width: 15%;
-   margin: 1% 2.25% 0 2.25%;
+   margin: 1% 2.5% 0 2.5%;
    display: inline;
 }
+
+.card {
+   text-align: center;
+   display: inline-block;
+   background-color: transparent;
+   border: 1px solid white;
+   paddng: 50px;
+}
+
 
 /*Button Transition and Hover CSS*/
 .heart-active {
@@ -95,6 +105,7 @@ h4 {
    width: 90%;
    margin: .5em auto .5em auto;
    word-wrap: break-word;
+   font-size: 1.35em;
 }
 
 * {
@@ -148,4 +159,9 @@ body.loading .modal {
                 url('https://thumbs.gfycat.com/ImpoliteLivelyGenet-max-1mb.gif') 
                 50% 50% 
                 no-repeat;
+}
+
+.fa {
+  margin-right: 3px;
+
 }

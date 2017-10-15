@@ -10,19 +10,22 @@ import './css/MainArtistHeader.css';
 const MainArtistHeader = props => {
   return (
     <div className="col-md-9 main-artist-container">
-      <h1 className="artist-header">{props.artistName}</h1>
       <a href={props.artistUrl} target="_blank">
+      <h1 className="artist-header">{props.artistName}</h1>
         <img className="main-artist-image" src={props.artistImage} alt={props.artistName}/>
       </a>
+
       <div className='bio'>
-      <p className='bio-align'>{props.bio}...</p>
+        <p className='bio-align'>{props.bio}...</p>
       </div>
-      <br/>
-      <br/>
+
+        <br/>
+        <br/>
+        
       <div className='buttons'>
-      <button className='fav-btn favs'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
-      <button className='unfav-btn favs'><i className="fa fa-times fa-1x" aria-hidden="true"></i> Unfavorite</button>
-      <button className='tour-btn favs'><i className="fa fa-calendar fa-1x" aria-hidden="true"></i> Tour Dates</button>
+        <button className='fav-btn favs'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
+        <button className='unfav-btn favs'><i className="fa fa-times fa-1x" aria-hidden="true"></i> Unfavorite</button>
+        <button className='tour-btn favs'><i className="fa fa-calendar fa-1x" aria-hidden="true"></i> Tour Dates</button>
       </div>
     </div>
   )
