@@ -132,7 +132,12 @@ a:visited {
 }
 
 a:hover {
+   color: white;
+}
+
+a:hover .artist-header {
    color: #c12e0d;
+  transition: .5s ease-in-out;
 }
 
 a:active {}
