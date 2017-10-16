@@ -38,7 +38,9 @@ class ArtistPage extends Component {
               }
            })
            .then(
-              res => this.setState({ result: res.data.artist }))
+              res => this.setState({ result: res.data.artist
+                
+              }))
            .catch(err => console.log(err));
      },
 
@@ -117,6 +119,7 @@ class ArtistPage extends Component {
                     artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
                     artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
                     bio = {this.state.result.bio? this.state.result.bio.content.toString().substring(0, 500): ''}
+                    mbid = {this.state.result.mbid}
                     />
 
                     <TopSongs 
