@@ -25,7 +25,7 @@ const MainArtistHeader = props => {
       <div className='buttons'>
         <button className='fav-btn favs'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
         <button className='unfav-btn favs'><i className="fa fa-times fa-1x" aria-hidden="true"></i> Unfavorite</button>
-        <button className='tour-btn favs'><i className="fa fa-calendar fa-1x" aria-hidden="true"></i> Tour Dates</button>
+        <button type="button" className='tour-btn favs' data-toggle='modal' data-target='#eventsModal'><i className="fa fa-calendar fa-1x" aria-hidden="true"></i> Tour Dates</button>
       </div>
     </div>
   )

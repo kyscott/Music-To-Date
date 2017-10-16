@@ -17,7 +17,7 @@ const TopSongs = props => {
 	<a className="stream-link" href="#">
 	   <h4>{props.albumName1}</h4>
 	   <img className='top-song-img' src={props.albumImage1} alt={props.albumName1}/>
-	   <i className="fa fa-music"></i> Listen</a>
+	   <i className="fa fa-music"></i>Listen</a>
 	</div>
 
 	<div className="card grid-content-container hvr-grow">
