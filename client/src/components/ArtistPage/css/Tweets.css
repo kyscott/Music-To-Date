@@ -1,0 +1,28 @@
+.well {
+	padding: 0px;
+	text-align:center;
+	color: black;
+	margin: 4.75em 0 4em 0;
+	background-color: white;
+	border-radius: 1em;
+	height: 900px;
+}
+
+.sidebar {
+		position: relative;
+	width: 17%;
+	padding: 0 0 0 0px;
+	margin: 0 2em 0 2em;
+	float: left;
+}
+
+.tweets {
+	padding: 2.5%;
+	color: black;
+}
+
+.twitter-img {
+	width: 85%;
+	margin: .5em 0 0 0;
+}
+

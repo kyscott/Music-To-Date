@@ -1,60 +1,173 @@
 body {
-   /*background-image: url('EQ-BG.jpg');*/
-   /*background-size: cover;*/
+  /*background-image: url('https://s-media-cache-ak0.pinimg.com/originals/8e/a6/12/8ea612d223a1e2ba443322b41c615111.jpg');*/
+  /*background-size: cover;*/
+  /*background-image: url('http://www.designbolts.com/wp-content/uploads/2012/11/Free-Simple-Black-Seamless-Pattern-for-Website-Background.jpg');*/
+  /*background-image: url('https://media.giphy.com/media/12zd7J5yCcV476/giphy.gif');*/
    background-color: black;
    color: white;
+   font-size: 14px;
+   /*background-size: cover;*/
 }
 
 .App {
    text-align: center;
 }
 
-.App-header {
-   background-color: #222;
-   height: 150px;
-   padding: 20px;
-   color: white;
+/*Card container CSS*/
+.grid-content-container {
+   width: 15%;
+   margin: 1% 2.5% 0 2.5%;
+   display: inline;
 }
 
-.App-intro {
-   font-size: large;
+.card {
+   text-align: center;
+   display: inline-block;
+   background-color: transparent;
+   border: 1px solid white;
+   paddng: 50px;
 }
 
+
+/*Button Transition and Hover CSS*/
 .heart-active {
    color: red;
    background-color: white;
 }
 
-.heart {
+.fav-btn {
    padding: .5em;
-   border-radius: .5em;
+   border-radius: 5em;
    border: 1px solid black;
    background-color: white;
+   transition: 1s ease-in-out;
 }
 
-.heart:hover {
+.fav-btn:hover {
    cursor: pointer;
-   background-color: lightgray;
-   transition: .25s ease-in-out;
+   background-color: black;
+   color: #bc0707;
 }
 
-.delete {
+.fav-btn:focus {
+   outline: none;
+}
+
+.unfav-btn {
    padding: .5em;
-   border-radius: .5em;
+   border-radius: 5em;
    border: 1px solid black;
    background-color: white;
+   transition: 1s ease-in-out;
 }
 
-.delete:hover {
+.unfav-btn:hover {
    cursor: pointer;
-   background-color: lightgray;
-   transition: .25s ease-in-out;
+   background-color: black;
+   color: white;
+}
+
+.unfav-btn:focus {
+   outline: none;
+}
+
+.tour-btn {
+   padding: .5em;
+   border-radius: 5em;
+   border: 1px solid black;
+   background-color: white;
+   transition: 1s ease-in-out;
+}
+
+.tour-btn:hover {
+   cursor: pointer;
+   background-color: black;
+   color: white;
+}
+
+.tour-btn:focus {
+   outline: none;
 }
 
 .favs {
-   margin: 0 1%;
+   margin: 0 1.5%;
 }
 
 .btn-primary {
    margin: .5em auto;
+}
+
+.btn {
+   cursor: pointer;
+}
+
+h4 {
+   text-align: center;
+   width: 90%;
+   margin: .5em auto .5em auto;
+   word-wrap: break-word;
+   font-size: 1.35em;
+}
+
+* {
+   font-family: 'Ubuntu', sans-serif;
+}
+
+
+/*Hover CSS for links*/
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+   text-decoration: none;
+}
+
+a {
+   color: white;
+   transition: .5s ease-in-out;
+}
+
+a:visited {
+   color: white;
+}
+
+a:hover {
+   color: white;
+}
+
+a:hover .artist-header {
+   color: #c12e0d;
+  transition: .5s ease-in-out;
+}
+
+a:active {}
+
+
+/*Loading css*/
+body.loading {
+    overflow: hidden;   
+}
+
+body.loading .modal {
+    display: block;
+}
+
+ .modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: white 
+                url('https://thumbs.gfycat.com/ImpoliteLivelyGenet-max-1mb.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+.fa {
+  margin-right: 3px;
+
 }

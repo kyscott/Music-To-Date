@@ -1,0 +1,14 @@
+   .similar-artists-container {
+      text-align: center;
+      margin: 3em auto 3em auto;
+      padding: 0;
+      float: left;
+   }
+   
+   .similar-artist-img {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto .55em auto;
+      border-radius: 100px;
+   }
+   

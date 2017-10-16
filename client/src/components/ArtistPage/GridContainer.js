@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -11,7 +12,6 @@ const GridContainer = () => {
    <div className="row">
    </div>
 </div>
-
   )
 }
 
