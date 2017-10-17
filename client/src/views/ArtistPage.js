@@ -22,8 +22,8 @@ class ArtistPage extends Component {
       this.API.searchArtists(this.props.match.params.artistName);
       this.API.searchTopAlbums(this.props.match.params.artistName);
       // this.API.getTweets(this.props.match.params.artistName);
-      // this.API.getYoutubeLink(this.props.match.params.artistName)
-      // this.API.getEvents(this.props.match.params.artistName)
+      // this.API.getYoutubeLink(this.props.match.params.artistName);
+      // this.API.getEvents(this.props.match.params.mbid);
    };
 
    API = {
@@ -39,7 +39,7 @@ class ArtistPage extends Component {
            })
            .then(
               res => this.setState({ result: res.data.artist
-                
+
               }))
            .catch(err => console.log(err));
      },
@@ -121,6 +121,7 @@ class ArtistPage extends Component {
                     bio = {this.state.result.bio? this.state.result.bio.content.toString().substring(0, 500): ''}
                     mbid = {this.state.result.mbid}
                     />
+                    <EventModal />
 
                     <TopSongs 
                     artistName = {this.state.result.name} 
