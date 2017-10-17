@@ -9,100 +9,125 @@ import Tweets from '../components/ArtistPage/Tweets';
 import Loader from '../components/ArtistPage/Loader';
 
 import axios from 'axios';
+import Twitter from 'twitter';
 
-const key = 'd66187414773dbf6291ba5b784512236';
-const ytKey = ''
+ const lastfmKey = 'd66187414773dbf6291ba5b784512236';
+ const ytKey = '';
+ const songkickKey = '';
+
+ let twitterHandle = 'Drake';
+
+ const twitterAPI = new Twitter({
+    consumer_key: '7Xsi5lZgIyULqJF7epraOWPSN',
+    consumer_secret: 'fg91FWnmT7MVtYIYAKlIZXAuvz5M00s9YB18LrFDp8olJLxsto',
+    access_token_key: '48905067-AasD27LfJZ3MtwH2hQiSLu0lJ5t8IM3heStupssnd',
+    access_token_secret: 'C1L6qnFOFm2q30Yb7bgr7UJOHq7KcAiZzrciDDJ322t2s',
+});
 
 class ArtistPage extends Component {
    state = {
       result: {}
    };
 
-   componentDidMount() {
-      this.API.searchArtists(this.props.match.params.artistName);
-      this.API.searchTopAlbums(this.props.match.params.artistName);
-      // this.API.getTweets(this.props.match.params.artistName);
-      // this.API.getYoutubeLink(this.props.match.params.artistName);
-      // this.API.getEvents(this.props.match.params.mbid);
-   };
+ componentDidMount() {
+    this.API.lastfm.searchArtists(this.props.match.params.artistName);
+    this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
+    this.API.twitter.getTweets(this.props.match.params.artistName.replace(/ /g,''));
+    // this.API.youtube.getYoutubeLink(this.props.match.params.artistName);
+    // this.API.songkick.getEvents(this.props.match.params.mbid);
+ };
 
    API = {
-     searchArtists: query => {
-        axios.get('http://ws.audioscrobbler.com/2.0/', {
-              params: {
-                 method: 'artist.getinfo',
-                 api_key: key,
-                 artist: query,
-                 format: 'json',
-                 autocorrect: '1'
-              }
-           })
-           .then(
-              res => this.setState({ result: res.data.artist
+       lastfm: {
+          searchArtists: query => {
+             axios.get('http://ws.audioscrobbler.com/2.0/', {
+                   params: {
+                      method: 'artist.getinfo',
+                      api_key: lastfmKey,
+                      artist: query,
+                      format: 'json',
+                      autocorrect: '1'
+                   }
+                })
+                .then(
+                   res => this.setState({
+                      result: res.data.artist
+                   }))
+                .catch(err => console.log(err));
+          },
 
-              }))
-           .catch(err => console.log(err));
-     },
+          searchTopAlbums: query => {
+             axios.get('http://ws.audioscrobbler.com/2.0/', {
+                   params: {
+                      method: 'artist.getTopAlbums',
+                      api_key: lastfmKey,
+                      artist: query,
+                      format: 'json',
+                      autocorrect: '1'
+                   }
+                })
+                .then(
+                   res => this.setState({
+                      albumResult: res.data.topalbums
+                   }))
+                .catch(err => console.log(err));
+          }
+       },
+       
+       twitter: {
+          getTweets: (query) => {
+             let params = {
+                screen_name: query,
+                count: 10
+             };
 
-     searchTopAlbums: query => {
-        axios.get('http://ws.audioscrobbler.com/2.0/', {
-              params: {
-                 method: 'artist.getTopAlbums',
-                 api_key: key,
-                 artist: query,
-                 format: 'json',
-                 autocorrect: '1'
-              }
-           })
-           .then(
-              res => this.setState({ albumResult: res.data.topalbums }))
-           .catch(err => console.log(err));
-     },
+             twitterAPI.get('statuses/user_timeline', params, (error, tweets, response) => {
+                if (!error) {
+                   for (var i = 0; i < tweets.length; i++) {
+                      console.log("");
+                      console.log(tweets[i].created_at + ":");
+                      console.log(tweets[i].text);
+                   }
+                }
+             });
+          }
+        },
 
-     getTweets: query => {
-        axios.get('', {
-              params: {
-                 track: query,
-              }
-           })
-           .then(res => {
-              console.log(res.data);
-           })
-           .catch(err => console.log(err));
-     },
+          youtube: {
+             getYoutubeLink: query => {
+                axios.get('https://www.googleapis.com/youtube/v3/search', {
+                      params: {
+                         key: ytKey,
+                         q: query,
+                         part: 'snippet,id',
+                         type: 'playlist',
+                         maxResults: 1
+                      }
+                   })
+                   .then(res => {
+                      console.log(res.data);
+                   })
+                   // res => this.setState({ ytLink: res.data }))
+                   .catch(err => console.log(err));
+             }
+          },
 
-     getYoutubeLink: query => {
+          songkick: {
+             getEvents: query => {
+                axios.get('http://api.songkick.com/api/3.0/artists/', {
+                      params: {
+                         mbid: query,
+                         apikey: songkickKey
+                      }
+                   })
+                   .then(res => {
+                      console.log(res.data);
+                   })
+                   .catch(err => console.log(err));
+             }
+          }
+       }
 
-        axios.get('https://www.googleapis.com/youtube/v3/search', {
-              params: {
-                 key: ytKey,
-                 q: query,
-                 part: 'snippet,id',
-                 order: 'date',
-                 maxResults: 1
-              }
-           })
-           .then(res => {
-
-              console.log(res.data);
-           })
-           // res => this.setState({ ytLink: res.data }))
-           .catch(err => console.log(err));
-     },
-
-     getEvents: query => {
-        axios.get('http://api.songkick.com/api/3.0/artists/', {
-              params: {
-                 mbid: query,
-                 apikey: '',
-              }
-           })
-           .then(res => {
-              console.log(res.data);
-           })
-           .catch(err => console.log(err));
-     }
-  };
 
    render() {
          console.log(this.state.result);
