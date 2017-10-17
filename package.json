@@ -19,9 +19,13 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
     "express": "^4.15.4",
+    "material-ui": "^0.19.4",
     "mysql": "^2.15.0",
+    "mysql2": "^1.4.2",
     "react-router-dom": "^4.2.2",
+    "react-tap-event-plugin": "^3.0.2",
     "sequelize": "^4.13.8",
     "twitter": "^1.7.1"
   }

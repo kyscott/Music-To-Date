@@ -113,9 +113,9 @@ class ArtistPage extends Component {
               {/*<Loader>*/}
                     <Tweets />
 
-                    <MainArtistHeader 
-                    artistUrl = {this.state.result.url} 
-                    artistName = {this.state.result.name} 
+                    <MainArtistHeader
+                    artistUrl = {this.state.result.url}
+                    artistName = {this.state.result.name}
                     artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
                     artistImage = {this.state.result.image ? this.state.result.image[3]["#text"]: ''}
                     bio = {this.state.result.bio? this.state.result.bio.content.toString().substring(0, 500): ''}
@@ -123,8 +123,8 @@ class ArtistPage extends Component {
                     />
                     <EventModal />
 
-                    <TopSongs 
-                    artistName = {this.state.result.name} 
+                    <TopSongs
+                    artistName = {this.state.result.name}
                     albumName1 = {this.state.albumResult ? this.state.albumResult.album[0].name: ''}
                     albumImage1 = {this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"]: ''}
 
@@ -141,7 +141,7 @@ class ArtistPage extends Component {
                     albumImage5 = {this.state.albumResult ? this.state.albumResult.album[4].image[3]["#text"]: ''}
                     />
 
-                    <SimilarArtists 
+                    <SimilarArtists
                     similarArtist1 = {this.state.result.similar ? this.state.result.similar.artist[0].name: ''}
                     similarArtistImage1 = {this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"]: ''}
 
