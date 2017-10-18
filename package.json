@@ -26,7 +26,7 @@
     "mysql2": "^1.4.2",
     "react-router-dom": "^4.2.2",
     "react-tap-event-plugin": "^3.0.2",
-    "sequelize": "^4.13.8",
+    "sequelize": "^4.15.0",
     "twitter": "^1.7.1"
   }
 }
