@@ -11,8 +11,6 @@ import Loader from '../components/ArtistPage/Loader';
 import axios from 'axios';
 import Twitter from 'twitter';
 
-// const keys = require('./Keys.js')
-
 const keys = require('../Keys.js')
 
 class ArtistPage extends Component {
@@ -23,8 +21,7 @@ class ArtistPage extends Component {
    componentDidMount() {
       this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
-      // this.API.twitter.getTweets(this.props.match.params.artistName.replace(/ /g, ''));
-      // this.API.youtube.getYoutubeLink(this.props.match.params.artistName);
+      // this.API.twitter.getTweets(this.props.match.params.artistName);
       // this.API.songkick.getEvents(this.props.match.params.mbid);
    };
 
@@ -72,7 +69,7 @@ class ArtistPage extends Component {
       //          count: 10
       //       };
 
-      //       twitterAPI.get('statuses/user_timeline', params, (error, tweets, response) => {
+      //       client.get('statuses/user_timeline', params, (error, tweets, response) => {
       //          if (!error) {
       //             for (var i = 0; i < tweets.length; i++) {
       //                console.log("");
