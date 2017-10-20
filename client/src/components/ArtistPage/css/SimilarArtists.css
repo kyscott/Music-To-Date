@@ -6,8 +6,8 @@
    }
    
    .similar-artist-img {
-      width: 130px;
-      height: 130px;
+      width: 90%;
+      height: 90%;
       margin: 0 auto .55em auto;
       border-radius: 100px;
    }

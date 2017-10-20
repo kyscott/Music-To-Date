@@ -11,10 +11,6 @@ class Homepage extends Component {
     search: ""
   };
 
-
-
-
-
   handleInputChange = event => {
     const value = event.target.value;
     const name = event.target.name;
