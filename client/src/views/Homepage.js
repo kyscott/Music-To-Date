@@ -4,17 +4,11 @@ import Artist from '../components/Homepage/Artist';
 import ArtistList from '../components/Homepage/ArtistList';
 import ArtistGridContainer from '../components/Homepage/ArtistGridContainer'
 
-
-
 class Homepage extends Component {
   state = {
     search: ""
   };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> aca33c817f4b9e6d9a6ffb13e3cc756d829379bc
   handleInputChange = event => {
     const value = event.target.value;
     const name = event.target.name;
@@ -26,7 +20,6 @@ class Homepage extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
   };
-
 
   render() {
     return (
