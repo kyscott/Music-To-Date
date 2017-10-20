@@ -1,21 +1,43 @@
 const express = require("express");
 const path = require("path");
-const bodyParser = require("body-parser");
 const axios = require("axios");
-const routes = require("./routes/api-routes");
+const routes = require("./app/routes/api-routes");
+
+const passport   = require('passport')
+const session    = require('express-session')
+const bodyParser = require('body-parser')
 //Express route?
 const app = express();
 const PORT = process.env.PORT || 3001;
+var env = require('dotenv').load();
 
 
 //Require models for syncing to db
-let db = require("./models");
+let db = require("./app/models");
+
+//Routes
+// var authRoute = require('./app/routes/auth.js')(app);
+
+//load passport strategies
+require('./app/config/passport/passport.js')(passport, db.user);
 
 //Express app handle data parsing
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false })); // was true
+app.use(bodyParser.urlencoded({ extended: true })); // was true
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// For Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+//For Handlebars
+app.set('views', './app/views')
+// app.engine('html', exphbs({
+//   extname: '.html'
+// }));
+app.set('view engine', '.html');
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -28,9 +50,14 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
+app.post('/signup', passport.authenticate('local-signup'), (req, res) => {
+  res.send(req.body);
+});
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
+
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);

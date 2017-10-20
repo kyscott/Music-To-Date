@@ -14,9 +14,6 @@ module.exports = function(sequelize, Sequelize) {
 		lastname: {
 			type: Sequelize.STRING,notEmpty: true
 		},
-		username: {
-			type: Sequelize.STRING,notEmpty: true
-		},
 		email: {
 			type:Sequelize.STRING,
 			unique: true,

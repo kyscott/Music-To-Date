@@ -4,43 +4,81 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import axios from 'axios';
 
-const SignUpModal = () => {
-  return (
-    <div>
-      <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#SignUpModal">
-        Create a Login
-      </button>
+class SignUpModal extends React.Component {
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  }
 
-      <div className="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="form-group">
-                  <label for="SignUpEmail">Email address</label>
-                  <input type="email" className="form-control" id="SignUpEmail" aria-describedby="emailHelp" placeholder="Enter email" />
+  attemptSignUp() {
+    const {firstName, lastName, email, password} = this.state;
+    axios.post('/signup', this.state)
+      .then(response => {
+        console.log(response);
+      })
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    console.log(this);
+    this.attemptSignUp();
+  }
+
+  render() {
+    return (
+      <div>
+        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#SignUpModal">
+          Create a Login
+        </button>
+
+        <div className="modal fade" id="SignUpModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Sign up!</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form id="signup" method="post" action="/">
+                <div className="modal-body">
+                  <div className="form-group">
+                    <label htmlFor="SignUpFirstName">First Name</label>
+                    <input name="firstname" onChange={this.handleChange} className="form-control" id="SignUpFirstName" placeholder="First Name"/>
+                  </div>
+                  <div className="form-group">
+                  <label htmlFor="SignUpLastName">Last Name</label>
+                  <input name="lastname" onChange={this.handleChange} className="form-control" id="SignUpLastName" placeholder="Last Name"/>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="SignUpEmail">Email address</label>
+                    <input name="email" onChange={this.handleChange} className="form-control" id="SignUpEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="SignUpPassword">Password</label>
+                    <input type="password" name="password" onChange={this.handleChange} className="form-control" id="SignUpPassword" placeholder="Password" />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label for="SignUpPassword">Password</label>
-                  <input type="password" className="form-control" id="SignUpPassword" placeholder="Password" />
+                <div className="modal-footer">
+                  <button type="submit" onClick={this.handleSubmit} className="btn btn-primary" data-dismiss='modal'>Sign Up</button>
                 </div>
               </form>
-            </div>
-            <div className="modal-footer">
-              <button type="submit" className="btn btn-primary" data-dismiss='modal'>Sign Up</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+
 }
 
 export default SignUpModal;
