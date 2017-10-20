@@ -4,7 +4,6 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-
 import './css/Tweets.css'
 
 const Tweets = () => {
