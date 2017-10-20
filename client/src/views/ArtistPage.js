@@ -22,7 +22,7 @@ class ArtistPage extends Component {
       this.API.lastfm.searchArtists(this.props.match.params.artistName)
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
-         // this.API.twitter.getTweets(this.props.match.params.artistName);
+      // this.API.twitter.getTweets(this.props.match.params.artistName);
    };
 
 API = {
@@ -41,14 +41,7 @@ API = {
                this.setState({
                   result: res.data.artist,
                })
-<<<<<<< HEAD
             }).catch(err => console.log(err));
-=======
-               .then(
-                  res => this.setState({
-                     result: res.data.artist
-                  }))
-               .catch(err => console.log(err));
          },
 
          searchTopAlbums: query => {
@@ -67,7 +60,6 @@ API = {
                   }))
                .catch(err => console.log(err));
          }
->>>>>>> aca33c817f4b9e6d9a6ffb13e3cc756d829379bc
       },
 
       searchTopAlbums: query => {
@@ -86,8 +78,7 @@ API = {
                })
                console.log(this.state.albumResult)
             }).catch(err => console.log(err));
-      }
-   },
+      },
 
    // twitter: {
    //    getTweets: (query) => {
@@ -147,22 +138,22 @@ converter = {
 }
 
    render() {
-<<<<<<< HEAD
-      return ( < div >
-         < Nav / >
+      return ( 
+         <div >
+         <Nav / >
 
-         { /*<Loader>*/ }
+         {/*<Loader>*/}
 
-         < Tweets / >
+         <Tweets / >
 
-         < MainArtistHeader artistUrl = { this.state.result.url }
+         <MainArtistHeader artistUrl = { this.state.result.url }
          artistName = { this.state.result.name }
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
          bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
          mbid = { this.state.result.mbid }
          /> 
 
-         < EventModal artistName = { this.state.result.name }
+         <EventModal artistName = { this.state.result.name }
          eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
          eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
          eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
@@ -171,34 +162,10 @@ converter = {
          venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
          location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
          />
-=======
-      return (
-         < div >
-            < Nav / >
 
-           { /*<Loader>*/ }
+      
 
-         < Tweets / >
-
-         < MainArtistHeader
-            artistUrl = { this.state.result.url }
-            artistName = { this.state.result.name }
-            artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
-            bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
-            mbid = { this.state.result.mbid }
-         />
-
-         < EventModal / >
-
-         < TopSongs
-            artistName = { this.state.result.name }
-
-            albumName1 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
-            albumImage1 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
-            iTunesLink1 = { "http://www.itunes.com/" + this.state.result.name + '/' + ''}
->>>>>>> aca33c817f4b9e6d9a6ffb13e3cc756d829379bc
-
-         < TopSongs artistName = { this.state.result.name }
+         <TopSongs artistName = { this.state.result.name }
          albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
          albumImage01 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
          iTunesLink01 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[0].name : ''}` }
@@ -220,14 +187,10 @@ converter = {
          iTunesLink05 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[4].name : ''}` }
          />
 
-<<<<<<< HEAD
-         < SimilarArtists similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
+
+         <SimilarArtists 
+         similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
          similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
-=======
-         < SimilarArtists
-            similarArtist1 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
-            similarArtistImage1 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
->>>>>>> aca33c817f4b9e6d9a6ffb13e3cc756d829379bc
 
          similarArtist02 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
          similarArtistImage02 = { this.state.result.similar ? this.state.result.similar.artist[1].image[3]["#text"] : '' }
@@ -242,9 +205,9 @@ converter = {
          similarArtistImage05 = { this.state.result.similar ? this.state.result.similar.artist[4].image[3]["#text"] : '' }
          />
 
-         { /*</Loader>*/ }
+         {/*</Loader>*/}
 
-         < /div>
+         </div>
       );
    }
 };
