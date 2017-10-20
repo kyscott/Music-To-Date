@@ -41,7 +41,33 @@ API = {
                this.setState({
                   result: res.data.artist,
                })
+<<<<<<< HEAD
             }).catch(err => console.log(err));
+=======
+               .then(
+                  res => this.setState({
+                     result: res.data.artist
+                  }))
+               .catch(err => console.log(err));
+         },
+
+         searchTopAlbums: query => {
+            axios.get('http://ws.audioscrobbler.com/2.0/', {
+                  params: {
+                     method: 'artist.getTopAlbums',
+                     api_key: keys.lastfm_api_key,
+                     artist: query,
+                     format: 'json',
+                     autocorrect: '1'
+                  }
+               })
+               .then(
+                  res => this.setState({
+                     albumResult: res.data.topalbums
+                  }))
+               .catch(err => console.log(err));
+         }
+>>>>>>> aca33c817f4b9e6d9a6ffb13e3cc756d829379bc
       },
 
       searchTopAlbums: query => {
@@ -121,6 +147,7 @@ converter = {
 }
 
    render() {
+<<<<<<< HEAD
       return ( < div >
          < Nav / >
 
@@ -144,6 +171,32 @@ converter = {
          venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
          location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
          />
+=======
+      return (
+         < div >
+            < Nav / >
+
+           { /*<Loader>*/ }
+
+         < Tweets / >
+
+         < MainArtistHeader
+            artistUrl = { this.state.result.url }
+            artistName = { this.state.result.name }
+            artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
+            bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
+            mbid = { this.state.result.mbid }
+         />
+
+         < EventModal / >
+
+         < TopSongs
+            artistName = { this.state.result.name }
+
+            albumName1 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
+            albumImage1 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
+            iTunesLink1 = { "http://www.itunes.com/" + this.state.result.name + '/' + ''}
+>>>>>>> aca33c817f4b9e6d9a6ffb13e3cc756d829379bc
 
          < TopSongs artistName = { this.state.result.name }
          albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
@@ -167,8 +220,14 @@ converter = {
          iTunesLink05 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[4].name : ''}` }
          />
 
+<<<<<<< HEAD
          < SimilarArtists similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
          similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
+=======
+         < SimilarArtists
+            similarArtist1 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
+            similarArtistImage1 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
+>>>>>>> aca33c817f4b9e6d9a6ffb13e3cc756d829379bc
 
          similarArtist02 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
          similarArtistImage02 = { this.state.result.similar ? this.state.result.similar.artist[1].image[3]["#text"] : '' }

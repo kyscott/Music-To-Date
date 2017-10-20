@@ -7,7 +7,7 @@ import {
 
 const LoginForm = () => {
   return (
-    <form>
+    <form id="signin" name="signin" method="post" action="/">
       <div className="form-group">
         <label htmlFor="SignInEmail">Email address</label>
         <input type="email" className="form-control" id="SignInEmail" aria-describedby="emailHelp" placeholder="Enter email" />
@@ -18,6 +18,7 @@ const LoginForm = () => {
       </div>
       <Link to="/home"><button type="submit" className="btn btn-primary" data-dismiss='modal'>Submit</button></Link>
     </form>
+
   )
 }
 
