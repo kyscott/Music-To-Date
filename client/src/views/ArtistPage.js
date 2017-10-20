@@ -36,11 +36,11 @@ API = {
                format: 'json',
                autocorrect: '1'
             }
-         }).then(
-            res => {
+         }).then(res => {
                this.setState({
                   result: res.data.artist,
                })
+               console.log(this.state.result)
             }).catch(err => console.log(err));
          },
 
@@ -53,31 +53,13 @@ API = {
                      format: 'json',
                      autocorrect: '1'
                   }
-               })
-               .then(
-                  res => this.setState({
+               }).then(res => {
+                  this.setState({
                      albumResult: res.data.topalbums
-                  }))
-               .catch(err => console.log(err));
+                  })
+                  console.log(this.state.albumResult)
+               }).catch(err => console.log(err));
          }
-      },
-
-      searchTopAlbums: query => {
-         return axios.get('http://ws.audioscrobbler.com/2.0/', {
-            params: {
-               method: 'artist.getTopAlbums',
-               api_key: keys.lastfm_api_key,
-               artist: query,
-               format: 'json',
-               autocorrect: '1'
-            }
-         }).then(
-            res => {
-               this.setState({
-                  albumResult: res.data.topalbums
-               })
-               console.log(this.state.albumResult)
-            }).catch(err => console.log(err));
       },
 
    // twitter: {
