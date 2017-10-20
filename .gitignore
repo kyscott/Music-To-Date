@@ -1,6 +1,3 @@
 node_modules/
-<<<<<<< HEAD
 .env
-=======
-keys.js
->>>>>>> 5be054068ff57591226c3849aae09640ee5ad302
+Keys.js

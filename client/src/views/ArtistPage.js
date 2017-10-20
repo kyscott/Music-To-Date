@@ -43,7 +43,7 @@ class ArtistPage extends Component {
                   }))
                .catch(err => console.log(err));
          },
-         
+
          searchTopAlbums: query => {
             axios.get('http://ws.audioscrobbler.com/2.0/', {
                   params: {
@@ -98,25 +98,25 @@ class ArtistPage extends Component {
    }
 
    render() {
-      return ( 
+      return (
          < div >
-            < Nav / > 
+            < Nav / >
 
-           { /*<Loader>*/ } 
+           { /*<Loader>*/ }
 
          < Tweets / >
 
-         < MainArtistHeader 
+         < MainArtistHeader
             artistUrl = { this.state.result.url }
             artistName = { this.state.result.name }
             artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
             bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
             mbid = { this.state.result.mbid }
-         /> 
+         />
 
          < EventModal / >
 
-         < TopSongs 
+         < TopSongs
             artistName = { this.state.result.name }
 
             albumName1 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
@@ -141,8 +141,8 @@ class ArtistPage extends Component {
 
          />
 
-         < SimilarArtists 
-            similarArtist1 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' } 
+         < SimilarArtists
+            similarArtist1 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
             similarArtistImage1 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
 
             similarArtist2 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
@@ -158,7 +158,7 @@ class ArtistPage extends Component {
             similarArtistImage5 = { this.state.result.similar ? this.state.result.similar.artist[4].image[3]["#text"] : '' }
          />
 
-         { /*</Loader>*/ } 
+         { /*</Loader>*/ }
 
          < /div>
       );
