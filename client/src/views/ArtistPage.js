@@ -7,8 +7,8 @@ import EventModal from '../components/ArtistPage/EventModal';
 import GridContainer from '../components/ArtistPage/GridContainer';
 import Tweets from '../components/ArtistPage/Tweets';
 import Loader from '../components/ArtistPage/Loader';
-
 import axios from 'axios';
+
 import Twitter from 'twitter';
 import moment from 'moment';
 
@@ -16,13 +16,14 @@ const keys = require('../Keys.js')
 
 class ArtistPage extends Component {
    state = {
-      result: {},
+      result: {}
    };
 
+// chain these together and have getTweets use response from searchArtists to get the artistName
    componentDidMount() {
-      this.API.lastfm.searchArtists(this.props.match.params.artistName)
+      this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
-      // this.API.twitter.getTweets(this.props.match.params.artistName);
+      this.API.twitter.getTweets();
    };
 
 API = {
@@ -65,6 +66,17 @@ API = {
          }
       },
 
+    twitter: {
+      getTweets: () => {
+        axios.get('/api/get-tweets').then((res) => {
+          this.setState({
+            twitterResult: res.data
+          })
+          console.log(this.state.twitterResult);
+        }).catch(err => console.log(err));
+      }
+    },
+
    songkick: {
       getEvents: query => {
       console.log(query);
@@ -82,18 +94,11 @@ API = {
    }
 }
 
-converter = {
-   convertTime: time => {
-      //return CONVERT TO NORMAL TIME FORMAT
-   },
-
-   convertDate: date => {
-      //return CONVERT TO MM/DD/YYYY
-   }
-}
-
+// {this.state.twitterResult.map((tweet, i) => (
+//    <Tweets twitterPost={tweet} key={i}/ >
+// ))}
    render() {
-      return ( 
+      return (
          <div >
          <Nav / >
 
@@ -107,7 +112,7 @@ converter = {
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
          bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
          mbid = { this.state.result.mbid }
-         /> 
+         />
 
          <EventModal 
          artistName = { this.state.result.name }
@@ -152,7 +157,6 @@ converter = {
          location05 = { this.state.eventResult ? this.state.eventResult[4].location.city : '' }
          />
 
-
          <TopSongs 
          artistName = { this.state.result.name }
          albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
@@ -177,7 +181,7 @@ converter = {
          />
 
 
-         <SimilarArtists 
+         <SimilarArtists
          similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
          similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
 
@@ -196,7 +200,7 @@ converter = {
 
          {/*</Loader>*/}
 
-         </div>
+         </div>   
       );
    }
 };

@@ -16,9 +16,10 @@ class SignUpModal extends React.Component {
 
   attemptSignUp() {
     const {firstName, lastName, email, password} = this.state;
-    axios.post('/signup', this.state)
+    axios.post('/api/signup', this.state)
       .then(response => {
-        console.log(response);
+        this.props.onSuccess(response.email);
+        this.props.history.push('/home');
       })
   }
 

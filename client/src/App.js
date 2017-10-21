@@ -10,14 +10,43 @@ import SignInPage from './views/SignInPage';
 import Homepage from './views/Homepage';
 import ArtistPage from './views/ArtistPage';
 
-const App = () => (
+
+class App extends React.Component {
+  state = {
+  authenticated: false,
+  userEmail: ''
+}
+
+render () { return (
   <Router>
     <div>
-      <Route exact path="/" component={SignInPage}/>
+    <Route exact path='/' render={(props) => {
+         return <SignInPage {...props} onSuccess={(email) => {
+           this.setState({
+             authenticated: true,
+             userEmail: email
+           })
+         }} />
+       }} />
+
       <Route path="/home" component={Homepage}/>
       <Route path="/artist/:artistName" component={ArtistPage}/>
     </div>
   </Router>
-)
+)};
+}
+
+//
+// const App = () => (
+//   <Router>
+//     <div>
+//       <Route exact path="/" component={SignInPage}/>
+//       <Route path="/home" component={Homepage}/>
+//       <Route path="/artist/:artistName" component={ArtistPage}/>
+//     </div>
+//   </Router>
+// )
+
+
 
 export default App;

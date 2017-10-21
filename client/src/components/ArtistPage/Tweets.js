@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import './css/Tweets.css'
 
-const Tweets = () => {
+const Tweets = props => {
   return (
 <div className="col-md-3 sidebar">
    <div className="well"><img className="twitter-img" src="https://1.bp.blogspot.com/-fYzEVSAoYpo/V1BbBMPg7EI/AAAAAAAAAHw/8mUCv6Jzs2MZtFXkwpdLdBFUVrr7FFh9ACLcB/s1600/twitter%2Blogo%2Btransparent%2B234.png" alt="tweets"/>
