@@ -9,7 +9,6 @@ import Tweets from '../components/ArtistPage/Tweets';
 import Loader from '../components/ArtistPage/Loader';
 
 import axios from 'axios';
-import Twitter from 'twitter';
 
 const keys = require('../Keys.js')
 
@@ -22,7 +21,9 @@ class ArtistPage extends Component {
       this.API.lastfm.searchArtists(this.props.match.params.artistName)
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
-      // this.API.twitter.getTweets(this.props.match.params.artistName);
+      fetch('/api/get-tweets').then((res) => {
+        console.log(res);
+      })
    };
 
 API = {
@@ -94,9 +95,9 @@ API = {
             this.state.eventResult.map(function(event) {
                console.log("");
                console.log(`
-                        \n Event Name: ${event.displayName} 
-                        \n Event Link: ${event.uri} 
-                        \n Start Date: ${event.start.date} 
+                        \n Event Name: ${event.displayName}
+                        \n Event Link: ${event.uri}
+                        \n Start Date: ${event.start.date}
                         \n Start Time: ${event.start.time}
                         \n Venue: ${event.venue.displayName}
                         \n Venue Link: ${event.venue.uri}
@@ -120,7 +121,7 @@ converter = {
 }
 
    render() {
-      return ( 
+      return (
          <div >
          <Nav / >
 
@@ -133,7 +134,7 @@ converter = {
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
          bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
          mbid = { this.state.result.mbid }
-         /> 
+         />
 
          <EventModal artistName = { this.state.result.name }
          eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
@@ -145,7 +146,7 @@ converter = {
          location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
          />
 
-      
+
 
          <TopSongs artistName = { this.state.result.name }
          albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
@@ -170,7 +171,7 @@ converter = {
          />
 
 
-         <SimilarArtists 
+         <SimilarArtists
          similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
          similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
 

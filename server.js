@@ -1,13 +1,13 @@
 const express = require("express");
 const path = require("path");
 const axios = require("axios");
-const routes = require("./app/routes/api-routes");
-
 const passport   = require('passport')
 const session    = require('express-session')
 const bodyParser = require('body-parser')
 //Express route?
 const app = express();
+const routes = require("./app/routes/api-routes");
+const router = express.Router();
 const PORT = process.env.PORT || 3001;
 var env = require('dotenv').load();
 
@@ -44,10 +44,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+app.use('/api', routes);
+
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 app.post('/signup', passport.authenticate('local-signup'), (req, res) => {
