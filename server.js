@@ -1,7 +1,9 @@
 const express = require("express");
 const path = require("path");
 const axios = require("axios");
+
 const routes = require("./app/routes/api-routes");
+
 const passport   = require('passport')
 const session    = require('express-session')
 const bodyParser = require('body-parser')
@@ -57,11 +59,11 @@ app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
 // Send every request to the React app
 // Define any API routes before this runs
 
+app.use('/api', routes);
 
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"))
 });
-
 
 
 // Syncing our sequelize models and then starting our Express app
