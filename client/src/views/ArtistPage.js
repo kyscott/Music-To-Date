@@ -7,22 +7,21 @@ import EventModal from '../components/ArtistPage/EventModal';
 import GridContainer from '../components/ArtistPage/GridContainer';
 import Tweets from '../components/ArtistPage/Tweets';
 import Loader from '../components/ArtistPage/Loader';
-
 import axios from 'axios';
-import Twitter from 'twitter';
 
 const keys = require('../Keys.js')
 
 class ArtistPage extends Component {
    state = {
-      result: {},
+      result: {}
    };
 
+// chain these together and have getTweets use response from searchArtists to get the artistName
    componentDidMount() {
-      this.API.lastfm.searchArtists(this.props.match.params.artistName)
+      this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
-      // this.API.twitter.getTweets(this.props.match.params.artistName);
+      this.API.twitter.getTweets();
    };
 
 API = {
@@ -62,24 +61,16 @@ API = {
          }
       },
 
-   // twitter: {
-   //    getTweets: (query) => {
-   //       let params = {
-   //          screen_name: query,
-   //          count: 10
-   //       };
-
-   //       client.get('statuses/user_timeline', params, (error, tweets, response) => {
-   //          if (!error) {
-   //             for (var i = 0; i < tweets.length; i++) {
-   //                console.log("");
-   //                console.log(tweets[i].created_at + ":");
-   //                console.log(tweets[i].text);
-   //             }
-   //          }
-   //       });
-   //    }
-   // },
+    twitter: {
+      getTweets: () => {
+        axios.get('/api/get-tweets').then((res) => {
+          this.setState({
+            twitterResult: res.data[0].text
+          })
+          console.log(this.state.twitterResult);
+        }).catch(err => console.log(err));
+      }
+    },
 
    songkick: {
       getEvents: query => {
@@ -94,9 +85,9 @@ API = {
             this.state.eventResult.map(function(event) {
                console.log("");
                console.log(`
-                        \n Event Name: ${event.displayName} 
-                        \n Event Link: ${event.uri} 
-                        \n Start Date: ${event.start.date} 
+                        \n Event Name: ${event.displayName}
+                        \n Event Link: ${event.uri}
+                        \n Start Date: ${event.start.date}
                         \n Start Time: ${event.start.time}
                         \n Venue: ${event.venue.displayName}
                         \n Venue Link: ${event.venue.uri}
@@ -118,22 +109,26 @@ converter = {
       //return DO SOMETHING
    }
 }
-
+// {this.state.twitterResult.map((tweet, i) => (
+//    <Tweets twitterPost={tweet} key={i}/ >
+// ))}
    render() {
-      return ( 
+      return (
          <div >
          <Nav / >
 
          {/*<Loader>*/}
 
-         <Tweets / >
+         <Tweets twitterPost={this.state.twitterResult} />
+
+
 
          <MainArtistHeader artistUrl = { this.state.result.url }
          artistName = { this.state.result.name }
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
          bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
          mbid = { this.state.result.mbid }
-         /> 
+         />
 
          <EventModal artistName = { this.state.result.name }
          eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
@@ -145,7 +140,7 @@ converter = {
          location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
          />
 
-      
+
 
          <TopSongs artistName = { this.state.result.name }
          albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
@@ -170,7 +165,7 @@ converter = {
          />
 
 
-         <SimilarArtists 
+         <SimilarArtists
          similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
          similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
 
