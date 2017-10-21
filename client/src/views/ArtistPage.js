@@ -119,7 +119,7 @@ converter = {
 
          {/*<Loader>*/}
 
-
+         <Tweets />
 
 
          <MainArtistHeader artistUrl = { this.state.result.url }

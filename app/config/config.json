@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "certifiedG48*",
     "database": "music_db",
     "host": "localhost",
     "dialect": "mysql"
