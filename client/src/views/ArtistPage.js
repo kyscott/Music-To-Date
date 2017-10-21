@@ -65,7 +65,7 @@ API = {
       getTweets: () => {
         axios.get('/api/get-tweets').then((res) => {
           this.setState({
-            twitterResult: res.data[0].text
+            twitterResult: res.data
           })
           console.log(this.state.twitterResult);
         }).catch(err => console.log(err));
@@ -119,7 +119,6 @@ converter = {
 
          {/*<Loader>*/}
 
-         <Tweets twitterPost={this.state.twitterResult} />
 
 
 
