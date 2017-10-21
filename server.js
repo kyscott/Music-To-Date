@@ -2,12 +2,12 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const routes = require("./app/routes/api-routes");
-
 const passport   = require('passport')
 const session    = require('express-session')
 const bodyParser = require('body-parser')
 //Express route?
 const app = express();
+const router = express.Router();
 const PORT = process.env.PORT || 3001;
 var env = require('dotenv').load();
 
@@ -44,15 +44,24 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+
+app.post('/api/signup', passport.authenticate('local-signup'), (req, res) => {
+  res.json(req.body);
 });
 
-app.post('/signup', passport.authenticate('local-signup'), (req, res) => {
-  res.send(req.body);
+app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
+  console.log('hi');
+  res.json(req.body);
 });
+
+// Send every request to the React app
+// Define any API routes before this runs
+
+
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+});
+
 
 
 // Syncing our sequelize models and then starting our Express app

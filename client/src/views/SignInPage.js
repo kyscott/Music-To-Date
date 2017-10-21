@@ -6,8 +6,8 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="App container">
-        <LoginForm />
-        <SignUpModal />
+        <LoginForm {...this.props} />
+        <SignUpModal {...this.props} />
       </div>
     );
   }
