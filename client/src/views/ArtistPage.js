@@ -10,6 +10,7 @@ import Loader from '../components/ArtistPage/Loader';
 
 import axios from 'axios';
 import Twitter from 'twitter';
+import moment from 'moment';
 
 const keys = require('../Keys.js')
 
@@ -21,7 +22,6 @@ class ArtistPage extends Component {
    componentDidMount() {
       this.API.lastfm.searchArtists(this.props.match.params.artistName)
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
-      this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
       // this.API.twitter.getTweets(this.props.match.params.artistName);
    };
 
@@ -41,6 +41,8 @@ API = {
                   result: res.data.artist,
                })
                console.log(this.state.result)
+               this.API.songkick.getEvents(this.state.result.mbid)
+
             }).catch(err => console.log(err));
          },
 
@@ -54,6 +56,7 @@ API = {
                      autocorrect: '1'
                   }
                }).then(res => {
+
                   this.setState({
                      albumResult: res.data.topalbums
                   })
@@ -62,27 +65,9 @@ API = {
          }
       },
 
-   // twitter: {
-   //    getTweets: (query) => {
-   //       let params = {
-   //          screen_name: query,
-   //          count: 10
-   //       };
-
-   //       client.get('statuses/user_timeline', params, (error, tweets, response) => {
-   //          if (!error) {
-   //             for (var i = 0; i < tweets.length; i++) {
-   //                console.log("");
-   //                console.log(tweets[i].created_at + ":");
-   //                console.log(tweets[i].text);
-   //             }
-   //          }
-   //       });
-   //    }
-   // },
-
    songkick: {
       getEvents: query => {
+      console.log(query);
          return axios.get("http://api.songkick.com/api/3.0/artists/mbid:" + query + "/calendar.json", {
             params: {
                apikey: keys.songkick_api_key
@@ -91,19 +76,7 @@ API = {
             this.setState({
                eventResult: res.data.resultsPage.results.event
             })
-            this.state.eventResult.map(function(event) {
-               console.log("");
-               console.log(`
-                        \n Event Name: ${event.displayName} 
-                        \n Event Link: ${event.uri} 
-                        \n Start Date: ${event.start.date} 
-                        \n Start Time: ${event.start.time}
-                        \n Venue: ${event.venue.displayName}
-                        \n Venue Link: ${event.venue.uri}
-                        \n Location: ${event.location.city}
-                        \n`);
-               console.log("");
-            })
+            console.log(this.state.eventResult)
          }).catch(err => console.log(err));
       }
    }
@@ -111,11 +84,11 @@ API = {
 
 converter = {
    convertTime: time => {
-      //return DO SOMETHING
+      //return CONVERT TO NORMAL TIME FORMAT
    },
 
    convertDate: date => {
-      //return DO SOMETHING
+      //return CONVERT TO MM/DD/YYYY
    }
 }
 
@@ -126,47 +99,81 @@ converter = {
 
          {/*<Loader>*/}
 
-         <Tweets / >
+         <Tweets />
 
-         <MainArtistHeader artistUrl = { this.state.result.url }
+         <MainArtistHeader 
+         artistUrl = { this.state.result.url }
          artistName = { this.state.result.name }
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
          bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
          mbid = { this.state.result.mbid }
          /> 
 
-         <EventModal artistName = { this.state.result.name }
-         eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
-         eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
-         eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
-         eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
-         venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
-         venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
-         location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
+         <EventModal 
+         artistName = { this.state.result.name }
+         eventName01 = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
+         eventUrl01 = { this.state.eventResult ? this.state.eventResult[0].uri : '' }
+         eventDate01 = { moment(this.state.eventResult ? this.state.eventResult[0].start.date : '').format("MMM Do YY") }
+         eventTime01 = { moment(this.state.eventResult ? this.state.eventResult[0].start.time : '', 'HH:mm').format('hh:mm a') }
+         venue01 = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
+         venueUrl01 = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
+         location01 = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
+
+         eventName02 = { this.state.eventResult ? this.state.eventResult[1].displayName : '' }
+         eventUrl02 = { this.state.eventResult ? this.state.eventResult[1].uri : '' }
+         eventDate02 = { moment(this.state.eventResult ? this.state.eventResult[1].start.date : '').format("MMM Do YY") }
+         eventTime02 = { moment(this.state.eventResult ? this.state.eventResult[1].start.time : '', 'HH:mm').format('hh:mm a') }
+         venue02 = { this.state.eventResult ? this.state.eventResult[1].venue.displayName : '' }
+         venueUrl02 = { this.state.eventResult ? this.state.eventResult[1].venue.uri : '' }
+         location02 = { this.state.eventResult ? this.state.eventResult[1].location.city : '' }
+
+         eventName03 = { this.state.eventResult ? this.state.eventResult[2].displayName : '' }
+         eventUrl03 = { this.state.eventResult ? this.state.eventResult[2].uri : '' }
+         eventDate03 = { moment(this.state.eventResult ? this.state.eventResult[2].start.date : '').format("MMM Do YY") }
+         eventTime03 = { moment(this.state.eventResult ? this.state.eventResult[2].start.time : '', 'HH:mm').format('hh:mm a') }
+         venue03 = { this.state.eventResult ? this.state.eventResult[2].venue.displayName : '' }
+         venueUrl03 = { this.state.eventResult ? this.state.eventResult[2].venue.uri : '' }
+         location03 = { this.state.eventResult ? this.state.eventResult[2].location.city : '' }
+
+         eventName04 = { this.state.eventResult ? this.state.eventResult[3].displayName : '' }
+         eventUrl04 = { this.state.eventResult ? this.state.eventResult[3].uri : '' }
+         eventDate04 = { moment(this.state.eventResult ? this.state.eventResult[3].start.date : '').format("MMM Do YY") }
+         eventTime04 = { moment(this.state.eventResult ? this.state.eventResult[3].start.time : '', 'HH:mm').format('hh:mm a') }
+         venue04 = { this.state.eventResult ? this.state.eventResult[3].venue.displayName : '' }
+         venueUrl04 = { this.state.eventResult ? this.state.eventResult[3].venue.uri : '' }
+         location04 = { this.state.eventResult ? this.state.eventResult[3].location.city : '' }
+
+         eventName05 = { this.state.eventResult ? this.state.eventResult[4].displayName : '' }
+         eventUrl05 = { this.state.eventResult ? this.state.eventResult[4].uri : '' }
+         eventDate05 = { moment(this.state.eventResult ? this.state.eventResult[4].start.date : '').format("MMM Do YY") }
+         eventTime05 = { moment(this.state.eventResult ? this.state.eventResult[4].start.time : '', 'HH:mm').format('hh:mm a') }
+         venue05 = { this.state.eventResult ? this.state.eventResult[4].venue.displayName : '' }
+         venueUrl05 = { this.state.eventResult ? this.state.eventResult[4].venue.uri : '' }
+         location05 = { this.state.eventResult ? this.state.eventResult[4].location.city : '' }
          />
 
-      
 
-         <TopSongs artistName = { this.state.result.name }
+         <TopSongs 
+         artistName = { this.state.result.name }
          albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
          albumImage01 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
-         iTunesLink01 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[0].name : ''}` }
+         albumLink01 = { this.state.albumResult ? this.state.albumResult.album[0].url : '' }
 
          albumName02 = { this.state.albumResult ? this.state.albumResult.album[1].name : '' }
          albumImage02 = { this.state.albumResult ? this.state.albumResult.album[1].image[3]["#text"] : '' }
-         iTunesLink02 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[1].name : ''}` }
+         albumLink02 = { this.state.albumResult ? this.state.albumResult.album[1].url : '' }
 
          albumName03 = { this.state.albumResult ? this.state.albumResult.album[2].name : '' }
          albumImage03 = { this.state.albumResult ? this.state.albumResult.album[2].image[3]["#text"] : '' }
-         iTunesLink03 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[2].name : ''}` }
+         albumLink03 = { this.state.albumResult ? this.state.albumResult.album[2].url : '' }
 
          albumName04 = { this.state.albumResult ? this.state.albumResult.album[3].name : '' }
          albumImage04 = { this.state.albumResult ? this.state.albumResult.album[3].image[3]["#text"] : '' }
-         iTunesLink04 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[3].name : ''}` }
+         albumLink04 = { this.state.albumResult ? this.state.albumResult.album[3].url : '' }
 
          albumName05 = { this.state.albumResult ? this.state.albumResult.album[4].name : '' }
          albumImage05 = { this.state.albumResult ? this.state.albumResult.album[4].image[3]["#text"] : '' }
-         iTunesLink05 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[4].name : ''}` }
+         albumLink05 = { this.state.albumResult ? this.state.albumResult.album[4].url : '' }
          />
 
 
