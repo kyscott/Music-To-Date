@@ -52,8 +52,13 @@ router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-app.post('/signup', passport.authenticate('local-signup'), (req, res) => {
-  res.send(req.body);
+app.post('/api/signup', passport.authenticate('local-signup'), (req, res) => {
+  res.json(req.body);
+});
+
+app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
+  console.log('hi');
+  res.json(req.body);
 });
 
 

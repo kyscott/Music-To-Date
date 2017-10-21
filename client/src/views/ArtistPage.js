@@ -65,7 +65,7 @@ API = {
       getTweets: () => {
         axios.get('/api/get-tweets').then((res) => {
           this.setState({
-            twitterResult: res
+            twitterResult: res.data[0].text
           })
           console.log(this.state.twitterResult);
         }).catch(err => console.log(err));
@@ -109,7 +109,9 @@ converter = {
       //return DO SOMETHING
    }
 }
-
+// {this.state.twitterResult.map((tweet, i) => (
+//    <Tweets twitterPost={tweet} key={i}/ >
+// ))}
    render() {
       return (
          <div >
@@ -117,7 +119,9 @@ converter = {
 
          {/*<Loader>*/}
 
-         <Tweets / >
+         <Tweets twitterPost={this.state.twitterResult} />
+
+
 
          <MainArtistHeader artistUrl = { this.state.result.url }
          artistName = { this.state.result.name }
