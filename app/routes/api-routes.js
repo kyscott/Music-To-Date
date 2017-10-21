@@ -5,7 +5,6 @@
 var router = require("express").Router();
 var db = require("../models");
 const Twitter = require('twitter');
-
 const client = new Twitter({
   consumer_key: 'nJlM7YmJSSe8KdHNhL4K2MDcm',
   consumer_secret: 'RYc44SLvHDnC6GMxSD5EcZy6beKs97sTuGIKAhDyC4kwDJ8G00',
@@ -20,7 +19,7 @@ const client = new Twitter({
     var params = {screen_name: 'nodejs'};
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
       if (!error) {
-        console.log(tweets);
+        res.json(tweets);
       }
     });
   })

@@ -7,23 +7,21 @@ import EventModal from '../components/ArtistPage/EventModal';
 import GridContainer from '../components/ArtistPage/GridContainer';
 import Tweets from '../components/ArtistPage/Tweets';
 import Loader from '../components/ArtistPage/Loader';
-
 import axios from 'axios';
 
 const keys = require('../Keys.js')
 
 class ArtistPage extends Component {
    state = {
-      result: {},
+      result: {}
    };
 
+// chain these together and have getTweets use response from searchArtists to get the artistName
    componentDidMount() {
-      this.API.lastfm.searchArtists(this.props.match.params.artistName)
+      this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
-      fetch('/api/get-tweets').then((res) => {
-        console.log(res);
-      })
+      this.API.twitter.getTweets();
    };
 
 API = {
@@ -63,24 +61,16 @@ API = {
          }
       },
 
-   // twitter: {
-   //    getTweets: (query) => {
-   //       let params = {
-   //          screen_name: query,
-   //          count: 10
-   //       };
-
-   //       client.get('statuses/user_timeline', params, (error, tweets, response) => {
-   //          if (!error) {
-   //             for (var i = 0; i < tweets.length; i++) {
-   //                console.log("");
-   //                console.log(tweets[i].created_at + ":");
-   //                console.log(tweets[i].text);
-   //             }
-   //          }
-   //       });
-   //    }
-   // },
+    twitter: {
+      getTweets: () => {
+        axios.get('/api/get-tweets').then((res) => {
+          this.setState({
+            twitterResult: res
+          })
+          console.log(this.state.twitterResult);
+        }).catch(err => console.log(err));
+      }
+    },
 
    songkick: {
       getEvents: query => {
