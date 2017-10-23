@@ -13,15 +13,22 @@ const client = new Twitter({
 });
 
 let artistToSearch;
-
+let artistId;
 router.post('/get-tweets', (req, res) => {
   artistToSearch = req.body.searchArtist;
   artistToSearch = artistToSearch.replace(' ', '');
   console.log(artistToSearch);
-  var params = {screen_name: artistToSearch};
-  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  var params = {q: artistToSearch};
+  client.get('users/search', params, function(error, tweets, response) {
     if (!error) {
-      res.json(tweets);
+      artistId = tweets[0].id;
+      console.log(artistId);
+      params = {user_id: artistId};
+      client.get('statuses/user_timeline', params, function(error, tweets, response) {
+        res.send(tweets);
+      })
+    } else {
+      console.log(error);
     }
   });
 });
