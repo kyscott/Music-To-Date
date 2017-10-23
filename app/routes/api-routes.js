@@ -12,18 +12,28 @@ const client = new Twitter({
   access_token_secret: 'bir1nfgKXvctBZDbFwUB1uan5ddmrYHocSvdwrsBKYxKw'
 });
 
+let artistToSearch;
+
+router.post('/get-tweets', (req, res) => {
+  artistToSearch = req.body.searchArtist;
+  artistToSearch = artistToSearch.replace(' ', '');
+  console.log(artistToSearch);
+  var params = {screen_name: artistToSearch};
+  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    if (!error) {
+      res.json(tweets);
+    }
+  });
+});
 //GET routes
 ////////////////////////////////////////////////
-  router.get('/get-tweets', (req, res) => {
-    console.log('route worked');
-    var params = {screen_name: 'nodejs'};
-    client.get('statuses/user_timeline', params, function(error, tweets, response) {
-      if (!error) {
-        res.json(tweets);
-      }
-    });
-  })
 
+
+  router.get('/get-tweets', (req, res) => {
+    console.log(artistToSearch);
+    console.log('route worked');
+
+  })
 
   router.get("/home/artist/:id", function(req, res) {
     //findAll returns all of the users favorite artists from table
@@ -34,6 +44,8 @@ const client = new Twitter({
 
 //POST routes
 ////////////////////////////////////////////////
+
+
   router.post("/artist/:artistName", function(req, res) {
     ////////^will need to update
       console.log(req.body);

@@ -22,7 +22,6 @@ class ArtistPage extends Component {
       this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
-      this.API.twitter.getTweets();
    };
 
 API = {
@@ -40,7 +39,16 @@ API = {
                this.setState({
                   result: res.data.artist,
                })
-               console.log(this.state.result)
+               console.log(this.state.result);
+            }).then(artistName => {
+              axios.post('/api/get-tweets', {
+                searchArtist: this.state.result.name
+              }).then((res) => {
+                this.setState({
+                  twitterResult: res.data
+                })
+                console.log(this.state.twitterResult);
+              })
             }).catch(err => console.log(err));
          },
 
@@ -61,17 +69,6 @@ API = {
                }).catch(err => console.log(err));
          }
       },
-
-    twitter: {
-      getTweets: () => {
-        axios.get('/api/get-tweets').then((res) => {
-          this.setState({
-            twitterResult: res.data
-          })
-          console.log(this.state.twitterResult);
-        }).catch(err => console.log(err));
-      }
-    },
 
    songkick: {
       getEvents: query => {
