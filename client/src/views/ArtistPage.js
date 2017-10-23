@@ -14,7 +14,8 @@ const keys = require('../Keys.js')
 class ArtistPage extends Component {
    state = {
       result: {},
-      twitterResult: []
+      twitterResult: [],
+      twitterUsername: ''
    };
 
 // chain these together and have getTweets use response from searchArtists to get the artistName
@@ -45,7 +46,8 @@ API = {
                 searchArtist: this.state.result.name
               }).then((res) => {
                 this.setState({
-                  twitterResult: res.data
+                  twitterResult: res.data,
+                  twitterUsername: res.data[0].user.name
                 })
                 console.log(this.state.twitterResult);
               })
@@ -107,9 +109,6 @@ converter = {
       //return DO SOMETHING
    }
 }
-// {this.state.twitterResult.map((tweet, i) => (
-//    <Tweets twitterPost={tweet} key={i}/ >
-// ))}
    render() {
       return (
          <div >
@@ -117,7 +116,11 @@ converter = {
 
          {/*<Loader>*/}
 
-         <Tweets tweets={ this.state.twitterResult }/>
+         <Tweets
+          tweets={ this.state.twitterResult }
+          username={ this.state.twitterUsername }
+          />
+
          <MainArtistHeader artistUrl = { this.state.result.url }
          artistName = { this.state.result.name }
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
