@@ -13,7 +13,8 @@ const keys = require('../Keys.js')
 
 class ArtistPage extends Component {
    state = {
-      result: {}
+      result: {},
+      twitterResult: []
    };
 
 // chain these together and have getTweets use response from searchArtists to get the artistName
@@ -119,9 +120,7 @@ converter = {
 
          {/*<Loader>*/}
 
-         <Tweets />
-
-
+         <Tweets tweets={ this.state.twitterResult }/>
          <MainArtistHeader artistUrl = { this.state.result.url }
          artistName = { this.state.result.name }
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
