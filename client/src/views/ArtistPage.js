@@ -72,6 +72,13 @@ API = {
       }
     },
 
+    artist: {
+      onClickFavorite: (event) => {
+        event.preventDefault();
+        console.log('hi');
+      }
+    },
+
    songkick: {
       getEvents: query => {
          return axios.get("http://api.songkick.com/api/3.0/artists/mbid:" + query + "/calendar.json", {
@@ -98,7 +105,10 @@ API = {
          }).catch(err => console.log(err));
       }
    }
+
+
 }
+
 
 converter = {
    convertTime: time => {
