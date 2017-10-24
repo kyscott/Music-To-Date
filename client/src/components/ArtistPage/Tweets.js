@@ -18,7 +18,7 @@ const Tweets = props => {
                 screenName: props.username
               }}
               options={{
-                height: '100vh'
+                height: '843'
               }}
             />
           </div>

@@ -16,7 +16,6 @@ let artistToSearch;
 let artistId;
 router.post('/get-tweets', (req, res) => {
   artistToSearch = req.body.searchArtist;
-  artistToSearch = artistToSearch.replace(' ', '');
   console.log(artistToSearch);
   var params = {q: artistToSearch};
   client.get('users/search', params, function(error, tweets, response) {
