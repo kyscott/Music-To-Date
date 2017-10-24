@@ -10,6 +10,9 @@ import Loader from '../components/ArtistPage/Loader';
 import axios from 'axios';
 import '../App.css';
 
+import Twitter from 'twitter';
+import moment from 'moment';
+
 const keys = require('../Keys.js')
 
 class ArtistPage extends Component {
@@ -24,6 +27,8 @@ class ArtistPage extends Component {
       this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
+      this.API.twitter.getTweets();
+
    };
 
 API = {
@@ -54,6 +59,10 @@ API = {
                 console.log(this.state.twitterResult);
                 console.log(this.state.verifiedStatus);
               })
+               console.log(this.state.result)
+               this.API.songkick.getEvents(this.state.result.mbid)
+
+
             }).catch(err => console.log(err));
          },
 
@@ -67,6 +76,7 @@ API = {
                      autocorrect: '1'
                   }
                }).then(res => {
+
                   this.setState({
                      albumResult: res.data.topalbums
                   })
@@ -75,8 +85,28 @@ API = {
          }
       },
 
+    twitter: {
+      getTweets: () => {
+        axios.get('/api/get-tweets').then((res) => {
+          this.setState({
+            twitterResult: res.data
+          })
+          console.log(this.state.twitterResult);
+        }).catch(err => console.log(err));
+      }
+    },
+
+    artist: {
+      onClickFavorite: (event) => {
+        event.preventDefault();
+        console.log('hi');
+      }
+    },
+
+
    songkick: {
       getEvents: query => {
+      console.log(query);
          return axios.get("http://api.songkick.com/api/3.0/artists/mbid:" + query + "/calendar.json", {
             params: {
                apikey: keys.songkick_api_key
@@ -85,33 +115,14 @@ API = {
             this.setState({
                eventResult: res.data.resultsPage.results.event
             })
-            this.state.eventResult.map(function(event) {
-               console.log("");
-               console.log(`
-                        \n Event Name: ${event.displayName}
-                        \n Event Link: ${event.uri}
-                        \n Start Date: ${event.start.date}
-                        \n Start Time: ${event.start.time}
-                        \n Venue: ${event.venue.displayName}
-                        \n Venue Link: ${event.venue.uri}
-                        \n Location: ${event.location.city}
-                        \n`);
-               console.log("");
-            })
+            console.log(this.state.eventResult)
          }).catch(err => console.log(err));
       }
    }
+
+
 }
 
-converter = {
-   convertTime: time => {
-      //return DO SOMETHING
-   },
-
-   convertDate: date => {
-      //return DO SOMETHING
-   }
-}
    render() {
       return (
          <div className='artistPageContainer'>
