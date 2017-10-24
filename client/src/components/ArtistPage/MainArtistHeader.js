@@ -4,15 +4,20 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-
+import axios from 'axios';
 import './css/MainArtistHeader.css';
 
 const MainArtistHeader = props => {
 
+//NEED TO GET POST ROUTE WORKING!!
   function handleFavoriteClick(e) {
     e.preventDefault();
-     console.log('The link was clicked.');
-   }
+      axios.post("/api/artist/:artistName", {
+        artistName: 'artistName'
+      });
+       console.log("favorite button clicked");
+     }
+
 
    function handleUnfavoriteClick(e) {
      e.preventDefault();

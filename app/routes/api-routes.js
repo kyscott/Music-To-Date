@@ -36,28 +36,20 @@ const client = new Twitter({
   //     }]
   //   });
   // });
-//
-//
-//   router.get("/home/artist/:id", function(req, res) {
-//     //findAll returns all of the users favorite artists from table
-//     db.Artist.findAll({}).then(function(dbArtist) {
-//       res.json(dbArtist)
-//     })
-//   });
-//
-// //POST routes
-// ////////////////////////////////////////////////
-  router.post("/artist/:artistName", function(req, res) {
+
+//POST routes
+////////////////////////////////////////////////
+  router.post("/api/artist/:artistName", function(req, res) {
     ////////^will need to update
       console.log(req.body);
       // create takes an argument of an object describing the item we want to
       // insert into our table. In this case we just we pass in an object with a text
       // and complete property (req.body)
-      db.Artist.create({
-        artist: req.body.artist,
-      }).then(function(dbArtist) {
+      db.artist.create({
+        artistName: 'artistName'
+      }).then(function(dbartist) {
         // We have access to the Artist as an argument inside of the callback function
-        res.json(Artist);
+        res.json(artist);
       });
     });
 
