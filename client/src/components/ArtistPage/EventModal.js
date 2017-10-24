@@ -73,13 +73,11 @@ const EventModal = props => {
             <img className="songkick-logo" src="https://concertmap.azureedge.net/graphics/powered-by-songkick-pink.png" alt="Powered by Songkick"/>
           </a>
           <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+
         </div>
       </div>
-      
-    </div>
-  </div>
-  )
-}
+    )
+  }
 
 export default EventModal;
 

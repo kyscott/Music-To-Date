@@ -15,7 +15,7 @@ const Nav = props => {
              <Link to="/home">
                 <img className="navbar-icon" alt="Home" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Circle-icons-volume.svg/1000px-Circle-icons-volume.svg.png"/>
              </Link>
-             
+
              <div className="form-inline">
                 <input
                   onChange={props.handleInputChange}

@@ -8,10 +8,10 @@ import {
 
 const GridContainer = () => {
   return (
-<div className="container-fluid">
-   <div className="row">
-   </div>
-</div>
+    <div className="container-fluid">
+       <div className="row">
+       </div>
+    </div>
   )
 }
 

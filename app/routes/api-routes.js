@@ -12,41 +12,43 @@ const client = new Twitter({
   access_token_secret: 'bir1nfgKXvctBZDbFwUB1uan5ddmrYHocSvdwrsBKYxKw'
 });
 
+let artistToSearch;
+let artistId;
+router.post('/get-tweets', (req, res) => {
+  artistToSearch = req.body.searchArtist;
+  console.log(artistToSearch);
+  var params = {q: artistToSearch};
+  client.get('users/search', params, function(error, tweets, response) {
+    if (!error) {
+      artistId = tweets[0].id;
+      console.log(artistId);
+      params = {user_id: artistId};
+      client.get('statuses/user_timeline', params, function(error, tweets, response) {
+        res.send(tweets);
+      })
+    } else {
+      console.log(error);
+    }
+  });
+});
 //GET routes
 ////////////////////////////////////////////////
+
+
   router.get('/get-tweets', (req, res) => {
+    console.log(artistToSearch);
     console.log('route worked');
-    var params = {screen_name: 'nodejs'};
-    client.get('statuses/user_timeline', params, function(error, tweets, response) {
-      if (!error) {
-        res.json(tweets);
-      }
-    });
+
   })
 
 
-//How to find all artists from user_artist joint table when signing in
-  // router.get("/home", function(req, res) {
-  //   User.findAll({
-  //     include: [{
-  //       model: Artist,
-  //       through: {
-  //         user_artist;
-  //       }
-  //     }]
-  //   });
-  // });
-//
-//
-//   router.get("/home/artist/:id", function(req, res) {
-//     //findAll returns all of the users favorite artists from table
-//     db.Artist.findAll({}).then(function(dbArtist) {
-//       res.json(dbArtist)
-//     })
-//   });
-//
-// //POST routes
-// ////////////////////////////////////////////////
+  router.get("/home/artist/:id", function(req, res) {
+    //findAll returns all of the users favorite artists from table
+    db.FavoriteArtists.findAll({}).then(function(dbFavoriteArtists) {
+      res.json(dbFavoriteArtists)
+    })
+  });
+
   router.post("/artist/:artistName", function(req, res) {
     ////////^will need to update
       console.log(req.body);
