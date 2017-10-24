@@ -47,7 +47,7 @@ API = {
               }).then((res) => {
                 this.setState({
                   twitterResult: res.data,
-                  twitterUsername: res.data[0].user.name
+                  twitterUsername: res.data[0].user.screen_name
                 })
                 console.log(this.state.twitterResult);
               })
