@@ -26,28 +26,28 @@
 	max-height: 18px
 }
 
-.tweetList {
+/*.tweetList {
 	padding: 0;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	top: 0;
 	bottom: 0;
 	height: 1000px;
-}
+}*/
 
-.tweetList::-webkit-scrollbar {
+.timeline-Body::-webkit-scrollbar {
     width: 10px;
     background-color: #F5F5F5;
 		border-radius:5px;
 }
 
-.tweetList::-webkit-scrollbar-thumb {
+.timeline-Body::-webkit-scrollbar-thumb {
     width: 10px;
     background-color: #aaaaaa;
 		border-radius:5px;
 }
 
-.tweetList::-webkit-scrollbar-corner {
+.timeline-Body::-webkit-scrollbar-corner {
 		padding: 10px 0 10px 0;
 		border-radius:5px;
 }

@@ -47,9 +47,11 @@ API = {
               }).then((res) => {
                 this.setState({
                   twitterResult: res.data,
-                  twitterUsername: res.data[0].user.screen_name
+                  twitterUsername: res.data[0].user.screen_name,
+                  verifiedStatus: res.data[0].user.verified
                 })
                 console.log(this.state.twitterResult);
+                console.log(this.state.verifiedStatus);
               })
             }).catch(err => console.log(err));
          },
@@ -119,6 +121,7 @@ converter = {
          <Tweets
           tweets={ this.state.twitterResult }
           username={ this.state.twitterUsername }
+          verified={ this.state.verifiedStatus }
           />
 
          <MainArtistHeader artistUrl = { this.state.result.url }
