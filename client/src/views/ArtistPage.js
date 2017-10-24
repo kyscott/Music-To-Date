@@ -19,12 +19,14 @@ class ArtistPage extends Component {
       result: {}
    };
 
+
 // chain these together and have getTweets use response from searchArtists to get the artistName
    componentDidMount() {
       this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.twitter.getTweets();
    };
+
 
 API = {
    lastfm: {
@@ -78,9 +80,9 @@ API = {
     },
 
     artist: {
-      onClickFavorite: (event) => {
-        event.preventDefault();
-        console.log('hi');
+      handleClick: (e) =>{
+        e.preventDefault();
+        console.log("link clicked");
       }
     },
 
@@ -102,6 +104,8 @@ API = {
 
 
 }
+
+
 
 // {this.state.twitterResult.map((tweet, i) => (
 //    <Tweets twitterPost={tweet} key={i}/ >

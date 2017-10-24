@@ -34,7 +34,6 @@ db.Sequelize = Sequelize;
 //
 // // RELATIONS - JOIN TABLES
 // db.User.belongsToMany(Artist, { through: 'user_artist', foreignKey: 'artistId' });
-//
 // db.Artist.belongsToMany(User, {through: 'user_artist', foreignKey: 'id' })
 
 module.exports = db;
