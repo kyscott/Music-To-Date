@@ -8,6 +8,7 @@ import GridContainer from '../components/ArtistPage/GridContainer';
 import Tweets from '../components/ArtistPage/Tweets';
 import Loader from '../components/ArtistPage/Loader';
 import axios from 'axios';
+import '../App.css';
 
 const keys = require('../Keys.js')
 
@@ -113,77 +114,77 @@ converter = {
 }
    render() {
       return (
-         <div >
-         <Nav / >
+         <div className='artistPageContainer'>
+           <Nav / >
 
-         {/*<Loader>*/}
+           {/*<Loader>*/}
 
-         <Tweets
-          tweets={ this.state.twitterResult }
-          username={ this.state.twitterUsername }
-          verified={ this.state.verifiedStatus }
-          />
+           <Tweets
+              tweets={ this.state.twitterResult }
+              username={ this.state.twitterUsername }
+              verified={ this.state.verifiedStatus }
+            />
 
-         <MainArtistHeader artistUrl = { this.state.result.url }
-         artistName = { this.state.result.name }
-         artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
-         bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
-         mbid = { this.state.result.mbid }
-         />
+           <MainArtistHeader artistUrl = { this.state.result.url }
+             artistName = { this.state.result.name }
+             artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
+             bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
+             mbid = { this.state.result.mbid }
+           />
 
-         <EventModal artistName = { this.state.result.name }
-         eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
-         eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
-         eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
-         eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
-         venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
-         venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
-         location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
-         />
-
-
-
-         <TopSongs artistName = { this.state.result.name }
-         albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
-         albumImage01 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
-         iTunesLink01 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[0].name : ''}` }
-
-         albumName02 = { this.state.albumResult ? this.state.albumResult.album[1].name : '' }
-         albumImage02 = { this.state.albumResult ? this.state.albumResult.album[1].image[3]["#text"] : '' }
-         iTunesLink02 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[1].name : ''}` }
-
-         albumName03 = { this.state.albumResult ? this.state.albumResult.album[2].name : '' }
-         albumImage03 = { this.state.albumResult ? this.state.albumResult.album[2].image[3]["#text"] : '' }
-         iTunesLink03 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[2].name : ''}` }
-
-         albumName04 = { this.state.albumResult ? this.state.albumResult.album[3].name : '' }
-         albumImage04 = { this.state.albumResult ? this.state.albumResult.album[3].image[3]["#text"] : '' }
-         iTunesLink04 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[3].name : ''}` }
-
-         albumName05 = { this.state.albumResult ? this.state.albumResult.album[4].name : '' }
-         albumImage05 = { this.state.albumResult ? this.state.albumResult.album[4].image[3]["#text"] : '' }
-         iTunesLink05 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[4].name : ''}` }
-         />
+           <EventModal artistName = { this.state.result.name }
+             eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
+             eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
+             eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
+             eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
+             venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
+             venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
+             location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
+           />
 
 
-         <SimilarArtists
-         similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
-         similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
 
-         similarArtist02 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
-         similarArtistImage02 = { this.state.result.similar ? this.state.result.similar.artist[1].image[3]["#text"] : '' }
+           <TopSongs artistName = { this.state.result.name }
+             albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
+             albumImage01 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
+             iTunesLink01 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[0].name : ''}` }
 
-         similarArtist03 = { this.state.result.similar ? this.state.result.similar.artist[2].name : '' }
-         similarArtistImage03 = { this.state.result.similar ? this.state.result.similar.artist[2].image[3]["#text"] : '' }
+             albumName02 = { this.state.albumResult ? this.state.albumResult.album[1].name : '' }
+             albumImage02 = { this.state.albumResult ? this.state.albumResult.album[1].image[3]["#text"] : '' }
+             iTunesLink02 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[1].name : ''}` }
 
-         similarArtist04 = { this.state.result.similar ? this.state.result.similar.artist[3].name : '' }
-         similarArtistImage04 = { this.state.result.similar ? this.state.result.similar.artist[3].image[3]["#text"] : '' }
+             albumName03 = { this.state.albumResult ? this.state.albumResult.album[2].name : '' }
+             albumImage03 = { this.state.albumResult ? this.state.albumResult.album[2].image[3]["#text"] : '' }
+             iTunesLink03 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[2].name : ''}` }
 
-         similarArtist05 = { this.state.result.similar ? this.state.result.similar.artist[4].name : '' }
-         similarArtistImage05 = { this.state.result.similar ? this.state.result.similar.artist[4].image[3]["#text"] : '' }
-         />
+             albumName04 = { this.state.albumResult ? this.state.albumResult.album[3].name : '' }
+             albumImage04 = { this.state.albumResult ? this.state.albumResult.album[3].image[3]["#text"] : '' }
+             iTunesLink04 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[3].name : ''}` }
 
-         {/*</Loader>*/}
+             albumName05 = { this.state.albumResult ? this.state.albumResult.album[4].name : '' }
+             albumImage05 = { this.state.albumResult ? this.state.albumResult.album[4].image[3]["#text"] : '' }
+             iTunesLink05 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[4].name : ''}` }
+           />
+
+
+           <SimilarArtists
+             similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
+             similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
+
+             similarArtist02 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
+             similarArtistImage02 = { this.state.result.similar ? this.state.result.similar.artist[1].image[3]["#text"] : '' }
+
+             similarArtist03 = { this.state.result.similar ? this.state.result.similar.artist[2].name : '' }
+             similarArtistImage03 = { this.state.result.similar ? this.state.result.similar.artist[2].image[3]["#text"] : '' }
+
+             similarArtist04 = { this.state.result.similar ? this.state.result.similar.artist[3].name : '' }
+             similarArtistImage04 = { this.state.result.similar ? this.state.result.similar.artist[3].image[3]["#text"] : '' }
+
+             similarArtist05 = { this.state.result.similar ? this.state.result.similar.artist[4].name : '' }
+             similarArtistImage05 = { this.state.result.similar ? this.state.result.similar.artist[4].image[3]["#text"] : '' }
+           />
+
+           {/*</Loader>*/}
 
          </div>
       );

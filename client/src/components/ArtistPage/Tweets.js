@@ -11,21 +11,17 @@ import './css/Tweets.css';
 const Tweets = props => {
   if(props.verified === true) {
     return (
-      <div className="col-md-4 sidebar">
-         <div className="well">
-          <div className="tweetListContainer">
+          <div className="tweetListContainer col-md-3">
             <Timeline
               dataSource={{
                 sourceType: 'profile',
                 screenName: props.username
               }}
               options={{
-                height: '750'
+                height: '100vh'
               }}
             />
           </div>
-         </div>
-      </div>
     )
   } else {
     return <p></p>

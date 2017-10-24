@@ -21,7 +21,7 @@ const MainArtistHeader = props => {
 
         <br/>
         <br/>
-        
+
       <div className='buttons'>
         <button className='fav-btn favs'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
         <button className='unfav-btn favs'><i className="fa fa-times fa-1x" aria-hidden="true"></i> Unfavorite</button>
