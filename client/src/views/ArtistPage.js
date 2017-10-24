@@ -79,13 +79,6 @@ API = {
       }
     },
 
-    artist: {
-      handleClick: (e) =>{
-        e.preventDefault();
-        console.log("link clicked");
-      }
-    },
-
    songkick: {
       getEvents: query => {
       console.log(query);
