@@ -103,19 +103,6 @@ API = {
 
 }
 
-<<<<<<< HEAD
-
-converter = {
-   convertTime: time => {
-      //return DO SOMETHING
-   },
-
-   convertDate: date => {
-      //return DO SOMETHING
-   }
-}
-=======
->>>>>>> master
 // {this.state.twitterResult.map((tweet, i) => (
 //    <Tweets twitterPost={tweet} key={i}/ >
 // ))}
@@ -128,7 +115,7 @@ converter = {
 
          <Tweets />
 
-         <MainArtistHeader 
+         <MainArtistHeader
          artistUrl = { this.state.result.url }
          artistName = { this.state.result.name }
          artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
@@ -136,7 +123,7 @@ converter = {
          mbid = { this.state.result.mbid }
          />
 
-         <EventModal 
+         <EventModal
          artistName = { this.state.result.name }
          eventName01 = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
          eventUrl01 = { this.state.eventResult ? this.state.eventResult[0].uri : '' }
@@ -179,7 +166,7 @@ converter = {
          location05 = { this.state.eventResult ? this.state.eventResult[4].location.city : '' }
          />
 
-         <TopSongs 
+         <TopSongs
          artistName = { this.state.result.name }
          albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
          albumImage01 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
@@ -222,7 +209,7 @@ converter = {
 
          {/*</Loader>*/}
 
-         </div>   
+         </div>
       );
    }
 };
