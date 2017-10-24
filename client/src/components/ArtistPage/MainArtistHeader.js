@@ -9,12 +9,12 @@ import './css/MainArtistHeader.css';
 
 const MainArtistHeader = props => {
 
-//NEED TO GET POST ROUTE WORKING!!
+
   function handleFavoriteClick(e) {
     e.preventDefault();
-      axios.post("/api/artist/:artistName", {
-        artistName: 'artistName'
-      });
+      axios.post("/api/artist", {
+        artist: props.artistName
+      })
        console.log("favorite button clicked");
      }
 

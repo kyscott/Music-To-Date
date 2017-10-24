@@ -22,8 +22,19 @@ const client = new Twitter({
         res.json(tweets);
       }
     });
-  })
+  });
 
+  //POST routes
+  ////////////////////////////////////////////////
+  router.post("/artist", function(req, res) {
+    console.log("artist being routed");
+      db.artist.findOrCreate({ where: { artistName: req.body.artist }
+      }).then(function(dbartist) {
+      res.json(artistName);
+    });
+  });
+
+module.exports = router;
 
 //How to find all artists from user_artist joint table when signing in
   // router.get("/home", function(req, res) {
@@ -37,21 +48,6 @@ const client = new Twitter({
   //   });
   // });
 
-//POST routes
-////////////////////////////////////////////////
-  router.post("/api/artist/:artistName", function(req, res) {
-    ////////^will need to update
-      console.log(req.body);
-      // create takes an argument of an object describing the item we want to
-      // insert into our table. In this case we just we pass in an object with a text
-      // and complete property (req.body)
-      db.artist.create({
-        artistName: 'artistName'
-      }).then(function(dbartist) {
-        // We have access to the Artist as an argument inside of the callback function
-        res.json(artist);
-      });
-    });
 
   // DELETE route for deleting todos. You can access the FavoriteArtists id in req.params.id
   // router.delete("/home/:id", function(req, res) {
@@ -63,5 +59,3 @@ const client = new Twitter({
   //     res.json(dbFavoriteArtists);
   //   });
   // });
-
-module.exports = router;
