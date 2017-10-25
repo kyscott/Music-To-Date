@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css';
-
+import Nav from './views/Nav';
 import SignInPage from './views/SignInPage';
 import Homepage from './views/Homepage';
 import ArtistPage from './views/ArtistPage';
@@ -20,6 +20,7 @@ class App extends React.Component {
 render () { return (
   <Router>
     <div>
+    {this.state.authenticated && <Nav />}
     <Route exact path='/' render={(props) => {
          return <SignInPage {...props} onSuccess={(email) => {
            this.setState({
