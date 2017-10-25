@@ -39,29 +39,31 @@ router.post('/get-tweets', (req, res) => {
     console.log(artistToSearch);
     console.log('route worked');
 
+
   })
 
 
-  router.get("/home/artist/:id", function(req, res) {
-    //findAll returns all of the users favorite artists from table
-    db.FavoriteArtists.findAll({}).then(function(dbFavoriteArtists) {
-      res.json(dbFavoriteArtists)
-    })
+  //POST routes
+  ////////////////////////////////////////////////
+  router.post("/artist", function(req, res) {
+    const user_id = req.user.id;
+
+      db.artist.findOrCreate({
+        where: { artistName: req.body.artist }
+      }).then(function(dbartist) { //FIND THE USER by email
+        console.log(dbartist[0].dataValues.artistId);
+        db.favorite.create({
+          'user_id': user_id,
+          'artist_id': dbartist[0].dataValues.artistId
+        }).then(function(favorit){
+          res.json(favorit);
+        });
+    });
   });
 
-  router.post("/artist/:artistName", function(req, res) {
-    ////////^will need to update
-      console.log(req.body);
-      // create takes an argument of an object describing the item we want to
-      // insert into our table. In this case we just we pass in an object with a text
-      // and complete property (req.body)
-      db.Artist.create({
-        artist: req.body.artist,
-      }).then(function(dbArtist) {
-        // We have access to the Artist as an argument inside of the callback function
-        res.json(Artist);
-      });
-    });
+module.exports = router;
+
+
 
   // DELETE route for deleting todos. You can access the FavoriteArtists id in req.params.id
   // router.delete("/home/:id", function(req, res) {
@@ -73,5 +75,3 @@ router.post('/get-tweets', (req, res) => {
   //     res.json(dbFavoriteArtists);
   //   });
   // });
-
-module.exports = router;
