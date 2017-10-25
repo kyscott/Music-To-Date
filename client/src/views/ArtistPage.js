@@ -142,14 +142,6 @@ API = {
             <EventModal 
               artistName = { this.state.result.name }
               events = { this.state.eventResult ? this.state.eventResult : '' }
-
-              eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
-              eventUrl = { this.state.eventResult ? this.state.eventResult[0].uri : '' }
-              eventDate = { this.state.eventResult ? moment(this.state.eventResult[0].start.date).format("MMM Do YY") : '' }
-              eventTime = { this.state.eventResult ? moment(this.state.eventResult[0].start.time, 'HH:mm').format('hh:mm a') : '' }
-              venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
-              venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
-              location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
             />
 
            <TopSongs 
@@ -175,22 +167,8 @@ API = {
              iTunesLink05 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[4].name : ''}` }
            />
 
-
            <SimilarArtists
-             similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
-             similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
-
-             similarArtist02 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
-             similarArtistImage02 = { this.state.result.similar ? this.state.result.similar.artist[1].image[3]["#text"] : '' }
-
-             similarArtist03 = { this.state.result.similar ? this.state.result.similar.artist[2].name : '' }
-             similarArtistImage03 = { this.state.result.similar ? this.state.result.similar.artist[2].image[3]["#text"] : '' }
-
-             similarArtist04 = { this.state.result.similar ? this.state.result.similar.artist[3].name : '' }
-             similarArtistImage04 = { this.state.result.similar ? this.state.result.similar.artist[3].image[3]["#text"] : '' }
-
-             similarArtist05 = { this.state.result.similar ? this.state.result.similar.artist[4].name : '' }
-             similarArtistImage05 = { this.state.result.similar ? this.state.result.similar.artist[4].image[3]["#text"] : '' }
+            simArtists = { this.state.result.similar ? this.state.result.similar.artist : '' }
            />
 
            {/*</Loader>*/}
