@@ -152,8 +152,6 @@ API = {
               location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
             />
 
-
-
            <TopSongs 
              artistName = { this.state.result.name }
              albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }

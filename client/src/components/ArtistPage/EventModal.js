@@ -5,29 +5,27 @@ import moment from 'moment';
 
 
 const EventModal = props => {
-  const events = props.events
 
-console.log(events)
-
-//          eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
+const events = props.events
+console.log(events);
 
 const eventList = Object.keys(events).map((event, i) => (
 
-// let eventName = event.displayName;
-// let eventUrl= event.uri;
-// let eventDate = moment(event.start.date).format("MMM Do YY");
-// let eventTime = moment(event.start.time, 'HH:mm').format('hh:mm a');
-// let eventVenue = event.venue.displayName;
-// let eventVenueUrl = event.venue.uri;
-// let eventLocation = event.location.city;
+    // let eventName = event.displayName;
+    // let eventUrl= event.uri;
+    // let eventDate = moment(event.start.date).format("MMM Do YY");
+    // let eventTime = moment(event.start.time, 'HH:mm').format('hh:mm a');
+    // let eventVenue = event.venue.displayName;
+    // let eventVenueUrl = event.venue.uri;
+    // let eventLocation = event.location.city;
  
-      <tr key={i}>
-         <td><a className="event-link" href={event} target="_blank">{event}</a></td>
-         <td>{event}</td>
-         <td>{event}</td>
-         <td><a className="event-link" href={event} target="_blank">{event}</a></td>
-         <td>{event}</td>
-      </tr>
+    <tr key={i}>
+       <td><a className="event-link" href={event} target="_blank">{event}</a></td>
+       <td>{event}</td>
+       <td>{event}</td>
+       <td><a className="event-link" href={event} target="_blank">{event}</a></td>
+       <td>{event}</td>
+    </tr>
 ))
 
   return (
@@ -49,8 +47,8 @@ const eventList = Object.keys(events).map((event, i) => (
                   <th>Location:</th>
                 </tr>
               </thead>
-
               <tbody>
+
               {eventList}
 {/*                <tr>
                   <td><a className="event-link" href={props.eventUrl} target="_blank">{props.eventName}</a></td>
@@ -59,10 +57,9 @@ const eventList = Object.keys(events).map((event, i) => (
                   <td><a className="event-link" href={props.venueUrl} target="_blank">{props.venue}</a></td>
                   <td>{props.location}</td>
                 </tr>*/}
+
               </tbody>
-
             </table>
-
         </div>
         <div className="modal-footer">
           <a href="http://www.songkick.com" target="_blank" alt="songkick.com">

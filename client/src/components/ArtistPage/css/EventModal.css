@@ -1,10 +1,10 @@
 
 a.event-link {
-  color: black;
+  color: #c12e0d;
 }
 
 a.event-link:hover {
-  color: black;
+  color: #c12e0d;
   text-decoration: underline;
 }
 
