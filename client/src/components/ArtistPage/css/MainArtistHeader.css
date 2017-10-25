@@ -12,9 +12,10 @@
 	   float: left;
 	}
 	
-	.artist-header {
+	h1.artist-header {
 	   margin: 2em 0em .5em 4%;
 	   text-align: left;
+	   transition: .5s ease-in-out;
 	}
 	
 	.bio {
@@ -22,7 +23,7 @@
 	   text-align: justify;
 	}
 	
-	p {
+	p.bio-align {
 	   margin: 0 10% -1em 25%;
 	}
 	

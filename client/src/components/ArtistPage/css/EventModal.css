@@ -12,3 +12,7 @@ a.event-link:hover {
 	height: 20%;
 	width: 20%;
 }
+
+th, td {
+	text-align: center;
+}
