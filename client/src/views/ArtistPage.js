@@ -22,7 +22,7 @@ class ArtistPage extends Component {
       currentArtistName: ''
    };
 
-
+// chain these together and have getTweets use response from searchArtists to get the artistName
    componentDidMount() {
      this.setState({
        currentArtistName: this.props.match.params.artistName
@@ -50,7 +50,10 @@ class ArtistPage extends Component {
            }).catch(err => console.log(err));
 
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
+      this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
       this.API.twitter.getTweets();
+
+
    }
 
    componentWillReceiveProps() {
@@ -65,7 +68,7 @@ class ArtistPage extends Component {
        this.API.lastfm.searchArtists(newArtist)
          .then(res => {
                this.setState({
-                  result: newArtist,
+                  result: res.data.artist,
                })
                console.log(this.state.result);
             }).then(artistName => {
@@ -173,21 +176,26 @@ class ArtistPage extends Component {
               verified={ this.state.verifiedStatus }
             />
 
-           <MainArtistHeader
-             artistUrl = { this.state.result.url }
+           <MainArtistHeader artistUrl = { this.state.result.url }
              artistName = { this.state.result.name }
              artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
              bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
              mbid = { this.state.result.mbid }
            />
 
-            <EventModal
-              artistName = { this.state.result.name }
-              events = { this.state.eventResult ? this.state.eventResult : '' }
-            />
+           <EventModal artistName = { this.state.result.name }
+             eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
+             eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
+             eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
+             eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
+             venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
+             venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
+             location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
+           />
 
-           <TopSongs
-             artistName = { this.state.result.name }
+
+
+           <TopSongs artistName = { this.state.result.name }
              albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
              albumImage01 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
              iTunesLink01 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[0].name : ''}` }
@@ -209,8 +217,22 @@ class ArtistPage extends Component {
              iTunesLink05 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[4].name : ''}` }
            />
 
+
            <SimilarArtists
-            simArtists = { this.state.result.similar ? this.state.result.similar.artist : '' }
+             similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
+             similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
+
+             similarArtist02 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
+             similarArtistImage02 = { this.state.result.similar ? this.state.result.similar.artist[1].image[3]["#text"] : '' }
+
+             similarArtist03 = { this.state.result.similar ? this.state.result.similar.artist[2].name : '' }
+             similarArtistImage03 = { this.state.result.similar ? this.state.result.similar.artist[2].image[3]["#text"] : '' }
+
+             similarArtist04 = { this.state.result.similar ? this.state.result.similar.artist[3].name : '' }
+             similarArtistImage04 = { this.state.result.similar ? this.state.result.similar.artist[3].image[3]["#text"] : '' }
+
+             similarArtist05 = { this.state.result.similar ? this.state.result.similar.artist[4].name : '' }
+             similarArtistImage05 = { this.state.result.similar ? this.state.result.similar.artist[4].image[3]["#text"] : '' }
            />
 
            {/*</Loader>*/}
