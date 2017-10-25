@@ -5,32 +5,25 @@ import moment from 'moment';
 
 
 const EventModal = props => {
-
 const events = props.events
-console.log(events);
+let eventList = '';
 
-const eventList = Object.keys(events).map((event, i) => (
-
-    // let eventName = event.displayName;
-    // let eventUrl= event.uri;
-    // let eventDate = moment(event.start.date).format("MMM Do YY");
-    // let eventTime = moment(event.start.time, 'HH:mm').format('hh:mm a');
-    // let eventVenue = event.venue.displayName;
-    // let eventVenueUrl = event.venue.uri;
-    // let eventLocation = event.location.city;
+if (events) {
+  eventList = events.map((event, i) => (
  
     <tr key={i}>
-       <td><a className="event-link" href={event} target="_blank">{event}</a></td>
-       <td>{event}</td>
-       <td>{event}</td>
-       <td><a className="event-link" href={event} target="_blank">{event}</a></td>
-       <td>{event}</td>
+       <td><a className="event-link" href={event.uri} target="_blank">{event.displayName}</a></td>
+       <td>{moment(event.start.date).format("MMM Do YY")}</td>
+       <td>{moment(event.start.time, 'HH:mm').format('hh:mm a')}</td>
+       <td><a className="event-link" href={event.venue.uri} target="_blank">{event.venue.displayName}</a></td>
+       <td>{event.location.city}</td>
     </tr>
 ))
+}
 
   return (
   <div className="modal fade" id="eventsModal" role="dialog">
-    <div className="modal-dialog">
+    <div className="modal-dialog modal-lg">
       <div className="modal-content">
         <div className="modal-header">
           <button type="button" className="close" data-dismiss="modal">&times;</button>
