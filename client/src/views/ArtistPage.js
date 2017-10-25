@@ -22,11 +22,13 @@ class ArtistPage extends Component {
       twitterUsername: '',
    };
 
+
    componentDidMount() {
       this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.twitter.getTweets();
    };
+
 
 API = {
    lastfm: {
@@ -91,13 +93,6 @@ API = {
           })
           console.log(this.state.twitterResult);
         }).catch(err => console.log(err));
-      }
-    },
-
-    artist: {
-      onClickFavorite: (event) => {
-        event.preventDefault();
-        console.log('hi');
       }
     },
 
