@@ -1,6 +1,33 @@
 import React from 'react';
 import './css/EventModal.css';
+
+import moment from 'moment';
+
+
 const EventModal = props => {
+
+const events = props.events
+console.log(events);
+
+const eventList = Object.keys(events).map((event, i) => (
+
+    // let eventName = event.displayName;
+    // let eventUrl= event.uri;
+    // let eventDate = moment(event.start.date).format("MMM Do YY");
+    // let eventTime = moment(event.start.time, 'HH:mm').format('hh:mm a');
+    // let eventVenue = event.venue.displayName;
+    // let eventVenueUrl = event.venue.uri;
+    // let eventLocation = event.location.city;
+ 
+    <tr key={i}>
+       <td><a className="event-link" href={event} target="_blank">{event}</a></td>
+       <td>{event}</td>
+       <td>{event}</td>
+       <td><a className="event-link" href={event} target="_blank">{event}</a></td>
+       <td>{event}</td>
+    </tr>
+))
+
   return (
   <div className="modal fade" id="eventsModal" role="dialog">
     <div className="modal-dialog">
@@ -20,51 +47,19 @@ const EventModal = props => {
                   <th>Location:</th>
                 </tr>
               </thead>
-
               <tbody>
-                <tr>
-                  <td><a className="event-link" href={props.eventUrl01} target="_blank">{props.eventName01}</a></td>
-                  <td>{props.eventDate01}</td>
-                  <td>{props.eventTime01}</td>
-                  <td><a className="event-link" href={props.venueUrl01} target="_blank">{props.venue01}</a></td>
-                  <td>{props.location01}</td>
-                </tr>
 
-                <tr>
-                  <td><a className="event-link" href={props.eventUrl02} target="_blank">{props.eventName02}</a></td>
-                  <td>{props.eventDate02}</td>
-                  <td>{props.eventTime02}</td>
-                  <td><a className="event-link" href={props.venueUrl02} target="_blank">{props.venue02}</a></td>
-                  <td>{props.location02}</td>
-                </tr>
+              {eventList}
+{/*                <tr>
+                  <td><a className="event-link" href={props.eventUrl} target="_blank">{props.eventName}</a></td>
+                  <td>{props.eventDate}</td>
+                  <td>{props.eventTime}</td>
+                  <td><a className="event-link" href={props.venueUrl} target="_blank">{props.venue}</a></td>
+                  <td>{props.location}</td>
+                </tr>*/}
 
-                <tr>
-                  <td><a className="event-link" href={props.eventUrl03} target="_blank">{props.eventName03}</a></td>
-                  <td>{props.eventDate03}</td>
-                  <td>{props.eventTime03}</td>
-                  <td><a className="event-link" href={props.venueUrl03} target="_blank">{props.venue03}</a></td>
-                  <td>{props.location03}</td>
-                </tr>
-
-                <tr>
-                  <td><a className="event-link" href={props.eventUrl04} target="_blank">{props.eventName04}</a></td>
-                  <td>{props.eventDate04}</td>
-                  <td>{props.eventTime04}</td>
-                  <td><a className="event-link" href={props.venueUrl04} target="_blank">{props.venue04}</a></td>
-                  <td>{props.location04}</td>
-                </tr>
-
-                <tr>
-                  <td><a className="event-link" href={props.eventUrl05} target="_blank">{props.eventName05}</a></td>
-                  <td>{props.eventDate05}</td>
-                  <td>{props.eventTime05}</td>
-                  <td><a className="event-link" href={props.venueUrl05} target="_blank">{props.venue05}</a></td>
-                  <td>{props.location05}</td>
-                </tr>
               </tbody>
-
             </table>
-
         </div>
         <div className="modal-footer">
           <a href="http://www.songkick.com" target="_blank" alt="songkick.com">

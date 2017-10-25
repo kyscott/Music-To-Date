@@ -19,16 +19,13 @@ class ArtistPage extends Component {
    state = {
       result: {},
       twitterResult: [],
-      twitterUsername: ''
+      twitterUsername: '',
    };
 
-// chain these together and have getTweets use response from searchArtists to get the artistName
    componentDidMount() {
       this.API.lastfm.searchArtists(this.props.match.params.artistName);
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
-      this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
       this.API.twitter.getTweets();
-
    };
 
 API = {
@@ -60,7 +57,8 @@ API = {
                 console.log(this.state.verifiedStatus);
               })
                console.log(this.state.result)
-               this.API.songkick.getEvents(this.state.result.mbid)
+               let mbid = this.state.result.mbid;
+               this.API.songkick.getEvents(mbid)
 
 
             }).catch(err => console.log(err));
@@ -103,7 +101,6 @@ API = {
       }
     },
 
-
    songkick: {
       getEvents: query => {
       console.log(query);
@@ -119,8 +116,6 @@ API = {
          }).catch(err => console.log(err));
       }
    }
-
-
 }
 
    render() {
@@ -136,26 +131,29 @@ API = {
               verified={ this.state.verifiedStatus }
             />
 
-           <MainArtistHeader artistUrl = { this.state.result.url }
+           <MainArtistHeader 
+             artistUrl = { this.state.result.url }
              artistName = { this.state.result.name }
              artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
              bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
              mbid = { this.state.result.mbid }
            />
 
-           <EventModal artistName = { this.state.result.name }
-             eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
-             eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
-             eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
-             eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
-             venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
-             venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
-             location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
-           />
+            <EventModal 
+              artistName = { this.state.result.name }
+              events = { this.state.eventResult ? this.state.eventResult : '' }
 
+              eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
+              eventUrl = { this.state.eventResult ? this.state.eventResult[0].uri : '' }
+              eventDate = { this.state.eventResult ? moment(this.state.eventResult[0].start.date).format("MMM Do YY") : '' }
+              eventTime = { this.state.eventResult ? moment(this.state.eventResult[0].start.time, 'HH:mm').format('hh:mm a') : '' }
+              venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
+              venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
+              location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
+            />
 
-
-           <TopSongs artistName = { this.state.result.name }
+           <TopSongs 
+             artistName = { this.state.result.name }
              albumName01 = { this.state.albumResult ? this.state.albumResult.album[0].name : '' }
              albumImage01 = { this.state.albumResult ? this.state.albumResult.album[0].image[3]["#text"] : '' }
              iTunesLink01 = { `http://www.itunes.com/${this.state.result.name}/${this.state.albumResult ? this.state.albumResult.album[0].name : ''}` }
