@@ -27,10 +27,18 @@ const client = new Twitter({
   //POST routes
   ////////////////////////////////////////////////
   router.post("/artist", function(req, res) {
-    console.log("artist being routed");
-      db.artist.findOrCreate({ where: { artistName: req.body.artist }
-      }).then(function(dbartist) {
-      res.json(artistName);
+    const user_id = req.user.id;
+
+      db.artist.findOrCreate({
+        where: { artistName: req.body.artist }
+      }).then(function(dbartist) { //FIND THE USER by email
+        console.log(dbartist[0].dataValues.artistId);
+        db.favorite.create({
+          'user_id': user_id,
+          'artist_id': dbartist[0].dataValues.artistId
+        }).then(function(favorit){
+          res.json(favorit);
+        });
     });
   });
 

@@ -1,5 +1,3 @@
-var Artist = require("./Artist.js");
-
 module.exports = function(sequelize, Sequelize) {
 
 	var User = sequelize.define('user', {
