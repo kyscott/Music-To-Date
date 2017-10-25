@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from '../components/Homepage/Nav';
 import Artist from '../components/Homepage/Artist';
 import ArtistList from '../components/Homepage/ArtistList';
 import ArtistGridContainer from '../components/Homepage/ArtistGridContainer'
@@ -24,11 +23,6 @@ class Homepage extends Component {
   render() {
     return (
       <div className="App">
-        <Nav
-          value={this.state.search}
-          handleInputChange={this.handleInputChange}
-          handleFormSubmit={this.handleFormSubmit}
-        />
         <Artist />
         <ArtistList/>
       </div>
