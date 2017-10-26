@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "certifiedG48*",
+    "password": "",
     "database": "music_db",
-    "host": "localhost",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
