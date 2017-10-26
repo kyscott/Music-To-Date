@@ -50,11 +50,14 @@ router.post('/get-tweets', (req, res) => {
 
       db.artist.findOrCreate({
         where: { artistName: req.body.artist }
-      }).then(function(dbartist) { //FIND THE USER by email
+      }).then(function(dbartist) {
+          console.log(dbartist)
+        //FIND THE USER by email
         console.log(dbartist[0].dataValues.artistId);
+        console.log(user_id)
         db.favorite.create({
-          'user_id': user_id,
-          'artist_id': dbartist[0].dataValues.artistId
+          'userId': user_id,
+          'artistId': dbartist[0].dataValues.artistId
         }).then(function(favorit){
           res.json(favorit);
         });

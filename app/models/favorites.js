@@ -28,7 +28,7 @@ module.exports = function(sequelize, Sequelize) {
         allowNull: true
       }
     });
-  }
+}
 
     return Favorite;
   }
