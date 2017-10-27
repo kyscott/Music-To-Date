@@ -3,10 +3,14 @@ body {
   /*background-size: cover;*/
   /*background-image: url('http://www.designbolts.com/wp-content/uploads/2012/11/Free-Simple-Black-Seamless-Pattern-for-Website-Background.jpg');*/
   /*background-image: url('https://media.giphy.com/media/12zd7J5yCcV476/giphy.gif');*/
-   background-color: black;
+   background-color: #101010;
    color: white;
    font-size: 14px;
    /*background-size: cover;*/
+}
+
+.signInBtn {
+  width: 105px;
 }
 
 .App {
@@ -20,6 +24,10 @@ body {
    display: inline;
 }
 
+.btn-primary {
+  background-color: black;
+}
+
 .card {
    text-align: center;
    display: inline-block;
@@ -28,6 +36,25 @@ body {
    paddng: 50px;
 }
 
+.homepageHeader {
+font-family: 'Bungee Inline', cursive;
+  color: #bc0707;
+  font-size: 50pt;
+  margin: 58px 0 30px 0;
+}
+
+.homepageHeaderNav {
+font-family: 'Bungee Inline', cursive;
+  color: #bc0707;
+  font-size: 30pt;
+  float: left;
+  margin: 19px 0 0 8px;
+}
+
+.favArtistHeader {
+  font-size: 24pt;
+  margin: 60px 0 0 0;
+}
 
 /*Button Transition and Hover CSS*/
 .heart-active {
@@ -82,7 +109,7 @@ body {
 .tour-btn:hover {
    cursor: pointer;
    background-color: black;
-   color: white;
+   color: #bc0707;
 }
 
 .tour-btn:focus {
@@ -151,3 +178,8 @@ a:active {}
   color: black;
 }
 
+.modalSubmit {
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+}

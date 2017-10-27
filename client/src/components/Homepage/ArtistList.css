@@ -1,14 +1,23 @@
 .artist-img {
    margin: 1em 0 0 0;
-   height: 200px;
-   width: 200px;
+   width: 100%;
    border-radius: 100px;
 }
 
 .favorite-artists-container {
    text-align: center;
-   margin: 1.5em auto 5em auto;
+   margin: 0 auto 5em auto;
    padding: 0;
+}
+
+.gridC-content-container {
+  text-align: center;
+  float: left;
+}
+
+.artist-img-label {
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .artist-list {

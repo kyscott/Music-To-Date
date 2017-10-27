@@ -12,7 +12,8 @@ class ArtistList extends Component {
     userId: 0,
     artistIds: [],
     artistNames: [],
-    artistLinks: []
+    artistLinks: [],
+    artistNamesUpdate: []
   };
   componentDidMount() {
     console.log(this.props);
@@ -50,7 +51,8 @@ class ArtistList extends Component {
                   .then((res) => {
                     console.log(res.data.artist);
                     this.setState({
-                      artistLinks: this.state.artistLinks.concat([res.data.artist.image[4]["#text"]])
+                      artistLinks: this.state.artistLinks.concat([res.data.artist.image[4]["#text"]]),
+                      artistNamesUpdate: this.state.artistNamesUpdate.concat([res.data.artist.name])
                     })
                   })
             })
@@ -71,19 +73,52 @@ class ArtistList extends Component {
   };
 
   componentDidUpdate() {
-      if(this.state.artistNames.length > 0) {
+      if(this.state.artistNamesUpdate.length > 0) {
         console.log(this.state.artistLinks);
       }
+
+
   }
-  // <div className="card grid-content-container artist-list">
-  //    <h3>{res.data.artist.name}</h3>
-  //    <img className='artist-img' src={res.data.artist.image[4]["#text"]} alt="artist-1"/>
-  // </div>
+
   render() {
     return (
-      <div className="col-md-8 favorite-artists-container">
-        <p>{this.state.artistLinks[0]}</p>
-      </div>
+        <div className="col-md-10 favorite-artists-container">
+          <Link to = {`/artist/${this.state.artistNamesUpdate[0]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[0]} />
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[0]}</h3>
+            </div>
+          </Link>
+
+          <Link to = {`/artist/${this.state.artistNamesUpdate[1]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[1]} />
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[1]}</h3>
+            </div>
+          </Link>
+
+          <Link to = {`/artist/${this.state.artistNamesUpdate[2]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[2]} />
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[2]}</h3>
+            </div>
+          </Link>
+
+          <Link to = {`/artist/${this.state.artistNamesUpdate[3]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[3]} />
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[3]}</h3>
+            </div>
+          </Link>
+
+          <Link to = {`/artist/${this.state.artistNamesUpdate[4]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[4]} />
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[4]}</h3>
+            </div>
+          </Link>
+
+        </div>
     )
   }
 }

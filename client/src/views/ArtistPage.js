@@ -32,9 +32,6 @@ class ArtistPage extends Component {
               this.setState({
                  result: res.data.artist,
               })
-              console.log(this.state.result.mbid)
-              this.API.songkick.getEvents(this.state.result.mbid)
-
               console.log(this.state.result);
            }).then(artistName => {
              axios.post('/api/get-tweets', {
@@ -49,9 +46,11 @@ class ArtistPage extends Component {
                console.log(this.state.verifiedStatus);
              })
               console.log(this.state.result)
+              this.API.songkick.getEvents(this.state.result.mbid)
            }).catch(err => console.log(err));
 
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
+      this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
       this.API.twitter.getTweets();
 
 
@@ -71,7 +70,6 @@ class ArtistPage extends Component {
                this.setState({
                   result: res.data.artist,
                })
-               this.API.songkick.getEvents(this.state.result.mbid)
                console.log(this.state.result);
             }).then(artistName => {
               axios.post('/api/get-tweets', {
@@ -86,9 +84,11 @@ class ArtistPage extends Component {
                 console.log(this.state.verifiedStatus);
               })
                console.log(this.state.result)
+               this.API.songkick.getEvents(this.state.result.mbid)
             }).catch(err => console.log(err));
 
        this.API.lastfm.searchTopAlbums(newArtist);
+       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
        this.API.twitter.getTweets();
      }
    }
@@ -184,7 +184,13 @@ class ArtistPage extends Component {
            />
 
            <EventModal artistName = { this.state.result.name }
-            events = {this.state.eventResult ? this.state.eventResult : ''}
+             eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
+             eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
+             eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
+             eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
+             venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
+             venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
+             location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
            />
 
 
