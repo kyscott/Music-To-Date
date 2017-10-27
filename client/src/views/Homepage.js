@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Artist from '../components/Homepage/Artist';
 import ArtistList from '../components/Homepage/ArtistList';
 import ArtistGridContainer from '../components/Homepage/ArtistGridContainer'
+import axios from 'axios';
 
 class Homepage extends Component {
   state = {
@@ -24,7 +25,7 @@ class Homepage extends Component {
     return (
       <div className="App">
         <Artist />
-        <ArtistList/>
+        <ArtistList email={this.props.userEmail}/>
       </div>
     );
   }

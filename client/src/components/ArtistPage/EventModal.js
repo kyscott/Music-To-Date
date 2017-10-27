@@ -10,7 +10,7 @@ let eventList = '';
 
 if (events) {
   eventList = events.map((event, i) => (
- 
+
     <tr key={i}>
        <td><a className="event-link" href={event.uri} target="_blank">{event.displayName}</a></td>
        <td>{moment(event.start.date).format("MMM Do YY")}</td>
@@ -43,13 +43,6 @@ if (events) {
               <tbody>
 
               {eventList}
-{/*                <tr>
-                  <td><a className="event-link" href={props.eventUrl} target="_blank">{props.eventName}</a></td>
-                  <td>{props.eventDate}</td>
-                  <td>{props.eventTime}</td>
-                  <td><a className="event-link" href={props.venueUrl} target="_blank">{props.venue}</a></td>
-                  <td>{props.location}</td>
-                </tr>*/}
 
               </tbody>
             </table>
