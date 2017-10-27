@@ -19,7 +19,7 @@ class SignUpModal extends React.Component {
     axios.post('/api/signup', this.state)
       .then(response => {
         this.props.onSuccess(response.email);
-        this.props.history.push('/home');
+        this.props.history.push('/');
       })
   }
 
