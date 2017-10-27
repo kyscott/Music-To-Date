@@ -12,6 +12,7 @@
 
 .gridC-content-container {
   text-align: center;
+  float: left;
 }
 
 .artist-img-label {

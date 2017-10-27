@@ -43,7 +43,7 @@ class Nav extends Component {
                   />
               <Link to={`/artist/${this.state.search}`}><input
                     type="button"
-                    className="btn btn-default btn-sm"
+                    className="fav-btn favs"
                     value="Search" /></Link>
                </div>
             </div>

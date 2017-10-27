@@ -9,6 +9,10 @@ body {
    /*background-size: cover;*/
 }
 
+.signInBtn {
+  width: 105px;
+}
+
 .App {
    text-align: center;
 }
@@ -21,7 +25,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #0C212B;
+  background-color: black;
 }
 
 .card {
@@ -33,15 +37,18 @@ body {
 }
 
 .homepageHeader {
-font-family: 'Bungee Shade', cursive;
+font-family: 'Bungee Inline', cursive;
+  color: #bc0707;
   font-size: 50pt;
   margin: 58px 0 30px 0;
 }
 
 .homepageHeaderNav {
-font-family: 'Bungee Shade', cursive;
+font-family: 'Bungee Inline', cursive;
+  color: #bc0707;
   font-size: 30pt;
   float: left;
+  margin: 19px 0 0 8px;
 }
 
 .favArtistHeader {
@@ -102,7 +109,7 @@ font-family: 'Bungee Shade', cursive;
 .tour-btn:hover {
    cursor: pointer;
    background-color: black;
-   color: white;
+   color: #bc0707;
 }
 
 .tour-btn:focus {
@@ -169,4 +176,10 @@ a:active {}
 .modal {
   margin: 1em 0 0 0;
   color: black;
+}
+
+.modalSubmit {
+  background-color: black;
+  color: white;
+  margin: 0 auto;
 }
