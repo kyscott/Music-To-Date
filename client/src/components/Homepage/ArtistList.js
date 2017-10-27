@@ -12,7 +12,8 @@ class ArtistList extends Component {
     userId: 0,
     artistIds: [],
     artistNames: [],
-    artistLinks: []
+    artistLinks: [],
+    artistNamesUpdate: []
   };
   componentDidMount() {
     console.log(this.props);
@@ -50,7 +51,8 @@ class ArtistList extends Component {
                   .then((res) => {
                     console.log(res.data.artist);
                     this.setState({
-                      artistLinks: this.state.artistLinks.concat([res.data.artist.image[4]["#text"]])
+                      artistLinks: this.state.artistLinks.concat([res.data.artist.image[4]["#text"]]),
+                      artistNamesUpdate: this.state.artistNamesUpdate.concat([res.data.artist.name])
                     })
                   })
             })
@@ -71,7 +73,7 @@ class ArtistList extends Component {
   };
 
   componentDidUpdate() {
-      if(this.state.artistNames.length > 0) {
+      if(this.state.artistNamesUpdate.length > 0) {
         console.log(this.state.artistLinks);
       }
   }
@@ -83,6 +85,7 @@ class ArtistList extends Component {
     return (
       <div className="col-md-8 favorite-artists-container">
         <p>{this.state.artistLinks[0]}</p>
+        <p>{this.state.artistNamesUpdate[0]}</p>
       </div>
     )
   }
