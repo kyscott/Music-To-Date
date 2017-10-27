@@ -15,7 +15,7 @@ let similarArtistsList = '';
 
 if (simArtists) {
   similarArtistsList = simArtists.map((simArtist, i) => (
- 
+
        <div className="card grid-content-container hvr-grow">
        <a href={simArtist.name}>
           <h4>{simArtist.name}</h4>

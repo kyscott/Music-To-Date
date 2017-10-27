@@ -10,7 +10,8 @@ const keys = require('../../Keys.js');
 class ArtistList extends Component {
   state = {
     userId: 0,
-    artistIds: []
+    artistIds: [],
+    artistNames: []
   };
   componentDidMount() {
     console.log(this.props);
@@ -39,45 +40,40 @@ class ArtistList extends Component {
             params: {
               ids: artistIdArray
             }
-          }).then(function(data) {
-            console.log(data);
+          }).then((res) => {
+            this.setState({
+              artistNames: res.data
+            })
+            let imageLinkArray = this.state.artistNames.map(item => {
+              searchArtists(item.artistName)
+                  .then((res) => {
+                    console.log(res.data.artist.image[4]["#text"]);
+                    <div className="card grid-content-container artist-list">
+                       <h3>{res.data.artist.name}</h3>
+                       <img className='artist-img' src={res.data.artist.image[4]["#text"]} alt="artist-1"/>
+                    </div>
+                  })
+            })
           })
         })
     });
-
+    const searchArtists = (query) => {
+       return axios.get('http://ws.audioscrobbler.com/2.0/', {
+          params: {
+             method: 'artist.getinfo',
+             api_key: keys.lastfm_api_key,
+             artist: query,
+             format: 'json',
+             autocorrect: '1'
+          }
+       })
+       }
 
   };
   render() {
     return (
       <div className="col-md-8 favorite-artists-container">
-      	<div className="card grid-content-container artist-list">
-      	   <h3>{this.props.artistName}</h3>
-      	   <img className='artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-1"/>
-      	</div>
 
-      	<div className="card grid-content-container artist-list">
-      	   <h3>{this.props.artistName}</h3>
-      	   <img className='artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-2"/>
-      	</div>
-
-      	<div className="card grid-content-container artist-list">
-      	   <h3>{this.props.artistName}</h3>
-      	   <img className='artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-3"/>
-      	</div>
-
-      	<div className="card grid-content-container artist-list">
-      	   <h3>{this.props.artistName}</h3>
-      	   <img className='artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-4"/>
-      	</div>
-
-      	<div className="card grid-content-container artist-list">
-      	   <h3>{this.props.artistName}</h3>
-      	   <img className='artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-5"/>
-      	</div>
-        <div className="card grid-content-container artist-list">
-      	   <h3>{this.props.artistName}</h3>
-      	   <img className='artist-img' src="https://gitlab.maikel.pro/uploads/maikeldus/WhatsSpy-Public/718515848e/team-person-placeholder.jpg" alt="artist-6"/>
-      	</div>
       </div>
     )
   }
