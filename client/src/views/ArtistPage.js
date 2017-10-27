@@ -184,13 +184,7 @@ class ArtistPage extends Component {
            />
 
            <EventModal artistName = { this.state.result.name }
-             eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
-             eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
-             eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
-             eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
-             venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
-             venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
-             location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
+              events = { this.state.eventResult ? this.state.eventResult : '' }
            />
 
 
