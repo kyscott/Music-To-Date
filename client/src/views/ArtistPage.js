@@ -32,6 +32,9 @@ class ArtistPage extends Component {
               this.setState({
                  result: res.data.artist,
               })
+              console.log(this.state.result.mbid)
+              this.API.songkick.getEvents(this.state.result.mbid)
+
               console.log(this.state.result);
            }).then(artistName => {
              axios.post('/api/get-tweets', {
@@ -46,11 +49,9 @@ class ArtistPage extends Component {
                console.log(this.state.verifiedStatus);
              })
               console.log(this.state.result)
-              this.API.songkick.getEvents(this.state.result.mbid)
            }).catch(err => console.log(err));
 
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
-      this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
       this.API.twitter.getTweets();
 
 
@@ -70,6 +71,7 @@ class ArtistPage extends Component {
                this.setState({
                   result: res.data.artist,
                })
+               this.API.songkick.getEvents(this.state.result.mbid)
                console.log(this.state.result);
             }).then(artistName => {
               axios.post('/api/get-tweets', {
@@ -84,11 +86,9 @@ class ArtistPage extends Component {
                 console.log(this.state.verifiedStatus);
               })
                console.log(this.state.result)
-               this.API.songkick.getEvents(this.state.result.mbid)
             }).catch(err => console.log(err));
 
        this.API.lastfm.searchTopAlbums(newArtist);
-       this.API.songkick.getEvents("48262e82-db9f-4a92-b650-dfef979b73ec")
        this.API.twitter.getTweets();
      }
    }
@@ -184,13 +184,7 @@ class ArtistPage extends Component {
            />
 
            <EventModal artistName = { this.state.result.name }
-             eventName = { this.state.eventResult ? this.state.eventResult[0].displayName : '' }
-             eventUrl = { this.state.eventResult ? this.state.eventResult[0].url : '' }
-             eventDate = { this.state.eventResult ? this.state.eventResult[0].start.date : '' }
-             eventTime = { this.state.eventResult ? this.state.eventResult[0].start.time : '' }
-             venue = { this.state.eventResult ? this.state.eventResult[0].venue.displayName : '' }
-             venueUrl = { this.state.eventResult ? this.state.eventResult[0].venue.uri : '' }
-             location = { this.state.eventResult ? this.state.eventResult[0].location.city : '' }
+            events = {this.state.eventResult ? this.state.eventResult : ''}
            />
 
 
@@ -219,20 +213,7 @@ class ArtistPage extends Component {
 
 
            <SimilarArtists
-             similarArtist01 = { this.state.result.similar ? this.state.result.similar.artist[0].name : '' }
-             similarArtistImage01 = { this.state.result.similar ? this.state.result.similar.artist[0].image[3]["#text"] : '' }
-
-             similarArtist02 = { this.state.result.similar ? this.state.result.similar.artist[1].name : '' }
-             similarArtistImage02 = { this.state.result.similar ? this.state.result.similar.artist[1].image[3]["#text"] : '' }
-
-             similarArtist03 = { this.state.result.similar ? this.state.result.similar.artist[2].name : '' }
-             similarArtistImage03 = { this.state.result.similar ? this.state.result.similar.artist[2].image[3]["#text"] : '' }
-
-             similarArtist04 = { this.state.result.similar ? this.state.result.similar.artist[3].name : '' }
-             similarArtistImage04 = { this.state.result.similar ? this.state.result.similar.artist[3].image[3]["#text"] : '' }
-
-             similarArtist05 = { this.state.result.similar ? this.state.result.similar.artist[4].name : '' }
-             similarArtistImage05 = { this.state.result.similar ? this.state.result.similar.artist[4].image[3]["#text"] : '' }
+             simArtists = { this.state.result.similar ? this.state.result.similar.artist : '' }
            />
 
            {/*</Loader>*/}

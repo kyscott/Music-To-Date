@@ -23,6 +23,7 @@ render () { return (
     {this.state.authenticated && <Nav />}
     <Route exact path='/' render={(props) => {
          return <SignInPage {...props} onSuccess={(email) => {
+           console.log(email);
            this.setState({
              authenticated: true,
              userEmail: email
@@ -30,7 +31,9 @@ render () { return (
          }} />
        }} />
 
-      <Route path="/home" component={Homepage}/>
+      <Route path="/home" render={(props) => {
+        return <Homepage {...props} userEmail={this.state.userEmail} />
+      }}/>
       <Route path="/artist/:artistName" component={ArtistPage}/>
     </div>
   </Router>

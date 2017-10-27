@@ -18,7 +18,8 @@ class LoginForm extends React.Component {
 
     axios.post('/api/signin', this.state)
       .then(response => {
-        this.props.onSuccess(response.email);
+        console.log(response);
+        this.props.onSuccess(response.data.email);
         this.props.history.push('/home');
       });
   }

@@ -42,19 +42,51 @@ router.post('/get-tweets', (req, res) => {
 
   })
 
+  router.get('/userId', (req, res) => {
+    db.user.findAll({
+      where: {
+        email: req.query.email
+      }
+    })
+      .then(function(data) {
+      res.json(data);
+    })
+  });
+
+  router.get('/favorites-names', (req, res) => {
+    // console.log(Object.keys(db.Sequelize.Op));
+    db.artist.findAll({
+      where: {
+        artistId: req.query.ids
+      }
+    }).then(function(data) {
+      res.json(data);
+    })
+  })
+
+  router.get('/favorites', (req, res) => {
+    db.favorite.findAll({
+      where: {
+        userId: req.query.userId
+      }
+    })
+      .then(function(data) {
+      res.json(data);
+    })
+  });
 
   //POST routes
   ////////////////////////////////////////////////
   router.post("/artist", function(req, res) {
     const user_id = req.user.id;
-
+      // console.log(user_id);
       db.artist.findOrCreate({
         where: { artistName: req.body.artist }
       }).then(function(dbartist) {
-          console.log(dbartist)
+          // console.log(dbartist)
         //FIND THE USER by email
-        console.log(dbartist[0].dataValues.artistId);
-        console.log(user_id)
+        // console.log(dbartist[0].dataValues.artistId);
+        // console.log(user_id)
         db.favorite.create({
           'userId': user_id,
           'artistId': dbartist[0].dataValues.artistId
