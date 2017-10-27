@@ -76,16 +76,29 @@ class ArtistList extends Component {
       if(this.state.artistNamesUpdate.length > 0) {
         console.log(this.state.artistLinks);
       }
+
+
   }
-  // <div className="card grid-content-container artist-list">
-  //    <h3>{res.data.artist.name}</h3>
-  //    <img className='artist-img' src={res.data.artist.image[4]["#text"]} alt="artist-1"/>
-  // </div>
+
   render() {
     return (
       <div className="col-md-8 favorite-artists-container">
-        <p>{this.state.artistLinks[0]}</p>
-        <p>{this.state.artistNamesUpdate[0]}</p>
+        <div className="card grid-content-container artist-list">
+           <h3>{this.state.artistNamesUpdate[0]}</h3>
+           <img className='artist-img' src={this.state.artistLinks[0]} alt="artist-1"/>
+        </div>
+        <div className="card grid-content-container artist-list">
+           <h3>{this.state.artistNamesUpdate[1]}</h3>
+           <img className='artist-img' src={this.state.artistLinks[1]} alt="artist-1"/>
+        </div>
+        <div className="card grid-content-container artist-list">
+           <h3>{this.state.artistNamesUpdate[2]}</h3>
+           <img className='artist-img' src={this.state.artistLinks[2]} alt="artist-1"/>
+        </div>
+        <div className="card grid-content-container artist-list">
+           <h3>{this.state.artistNamesUpdate[3]}</h3>
+           <img className='artist-img' src={this.state.artistLinks[3]} alt="artist-1"/>
+        </div>
       </div>
     )
   }
