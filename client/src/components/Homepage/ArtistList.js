@@ -82,43 +82,43 @@ class ArtistList extends Component {
 
   render() {
     return (
-      <div className="col-md-10 favorite-artists-container">
-        <Link to = {`/artist/${this.state.artistNamesUpdate[0]}`}>
-          <div className="card grid-content-container artist-list hvr-grow">
-             <h3 className="artist-img-label">{this.state.artistNamesUpdate[0]}</h3>
-             <img className='artist-img' src={this.state.artistLinks[0]} alt="artist-1"/>
-          </div>
-        </Link>
+        <div className="col-md-10 favorite-artists-container">
+          <Link to = {`/artist/${this.state.artistNamesUpdate[0]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[0]} alt="artist-1"/>
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[0]}</h3>
+            </div>
+          </Link>
 
-        <Link to = {`/artist/${this.state.artistNamesUpdate[1]}`}>
-          <div className="card grid-content-container artist-list hvr-grow">
-             <h3 className="artist-img-label">{this.state.artistNamesUpdate[1]}</h3>
-             <img className='artist-img' src={this.state.artistLinks[1]} alt="artist-1"/>
-          </div>
-        </Link>
+          <Link to = {`/artist/${this.state.artistNamesUpdate[1]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[1]} alt="artist-1"/>
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[1]}</h3>
+            </div>
+          </Link>
 
-        <Link to = {`/artist/${this.state.artistNamesUpdate[2]}`}>
-          <div className="card grid-content-container artist-list hvr-grow">
-             <h3 className="artist-img-label">{this.state.artistNamesUpdate[2]}</h3>
-             <img className='artist-img' src={this.state.artistLinks[2]} alt="artist-1"/>
-          </div>
-        </Link>
+          <Link to = {`/artist/${this.state.artistNamesUpdate[2]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[2]} alt="artist-1"/>
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[2]}</h3>
+            </div>
+          </Link>
 
-        <Link to = {`/artist/${this.state.artistNamesUpdate[3]}`}>
-          <div className="card grid-content-container artist-list hvr-grow">
-             <h3 className="artist-img-label">{this.state.artistNamesUpdate[3]}</h3>
-             <img className='artist-img' src={this.state.artistLinks[3]} alt="artist-1"/>
-          </div>
-        </Link>
+          <Link to = {`/artist/${this.state.artistNamesUpdate[3]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[3]} alt="artist-1"/>
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[3]}</h3>
+            </div>
+          </Link>
 
-        <Link to = {`/artist/${this.state.artistNamesUpdate[4]}`}>
-          <div className="card grid-content-container artist-list hvr-grow">
-             <h3 className="artist-img-label">{this.state.artistNamesUpdate[4]}</h3>
-             <img className='artist-img' src={this.state.artistLinks[4]} alt="artist-1"/>
-          </div>
-        </Link>
+          <Link to = {`/artist/${this.state.artistNamesUpdate[4]}`}>
+            <div className="card grid-content-container artist-list hvr-grow">
+               <img className='artist-img' src={this.state.artistLinks[4]} alt="artist-1"/>
+               <h3 className="artist-img-label">{this.state.artistNamesUpdate[4]}</h3>
+            </div>
+          </Link>
 
-      </div>
+        </div>
     )
   }
 }

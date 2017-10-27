@@ -6,6 +6,7 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="App container">
+        <h1 className="homepageHeader">Music To Date</h1>
         <LoginForm {...this.props} />
         <SignUpModal {...this.props} />
       </div>

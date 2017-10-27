@@ -22,7 +22,7 @@ class Nav extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
   };
-
+// https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Circle-icons-volume.svg/1000px-Circle-icons-volume.svg.png
   render() {
     return (
       <div>
@@ -30,7 +30,8 @@ class Nav extends Component {
             <div className="navbar-header">
 
                <Link to="/home">
-                  <img className="navbar-icon" alt="Home" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Circle-icons-volume.svg/1000px-Circle-icons-volume.svg.png"/>
+                  <img src={require("./equalizer.png")} className="navbar-icon" alt="Home"/>
+                  <h1 className="homepageHeaderNav">Music To Date</h1>
                </Link>
 
                <div className="form-inline">

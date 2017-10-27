@@ -1,9 +1,4 @@
-.navbar-icon {
-   height: 50px;
-   width: 50px;
-   margin: .25em auto .25em 1em;
-   float: left;
-}
+
 
 .navbar {
    border-radius: 0;
@@ -16,8 +11,14 @@
    position: fixed;
    top: 0;
    left: 0;
-   background-color: white;
-   border-bottom: 1px solid black;
+   background-color: #0C212B;
+   border-bottom: 1px solid #007bff;
+}
+
+.navbar-icon {
+   z-index: 9999;
+   width: 112px;
+   float: left;
 }
 
 .form-inline {

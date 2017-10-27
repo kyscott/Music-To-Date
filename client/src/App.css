@@ -3,7 +3,7 @@ body {
   /*background-size: cover;*/
   /*background-image: url('http://www.designbolts.com/wp-content/uploads/2012/11/Free-Simple-Black-Seamless-Pattern-for-Website-Background.jpg');*/
   /*background-image: url('https://media.giphy.com/media/12zd7J5yCcV476/giphy.gif');*/
-   background-color: black;
+   background-color: #101010;
    color: white;
    font-size: 14px;
    /*background-size: cover;*/
@@ -20,6 +20,10 @@ body {
    display: inline;
 }
 
+.btn-primary {
+  background-color: #0C212B;
+}
+
 .card {
    text-align: center;
    display: inline-block;
@@ -28,6 +32,22 @@ body {
    paddng: 50px;
 }
 
+.homepageHeader {
+font-family: 'Bungee Shade', cursive;
+  font-size: 50pt;
+  margin: 58px 0 30px 0;
+}
+
+.homepageHeaderNav {
+font-family: 'Bungee Shade', cursive;
+  font-size: 30pt;
+  float: left;
+}
+
+.favArtistHeader {
+  font-size: 24pt;
+  margin: 60px 0 0 0;
+}
 
 /*Button Transition and Hover CSS*/
 .heart-active {
@@ -150,4 +170,3 @@ a:active {}
   margin: 1em 0 0 0;
   color: black;
 }
-

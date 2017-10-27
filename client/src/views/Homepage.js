@@ -3,6 +3,7 @@ import Artist from '../components/Homepage/Artist';
 import ArtistList from '../components/Homepage/ArtistList';
 import ArtistGridContainer from '../components/Homepage/ArtistGridContainer'
 import axios from 'axios';
+import '../App.css';
 
 class Homepage extends Component {
   state = {
