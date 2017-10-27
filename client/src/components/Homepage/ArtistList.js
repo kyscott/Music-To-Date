@@ -11,7 +11,8 @@ class ArtistList extends Component {
   state = {
     userId: 0,
     artistIds: [],
-    artistNames: []
+    artistNames: [],
+    artistLinks: []
   };
   componentDidMount() {
     console.log(this.props);
@@ -47,11 +48,10 @@ class ArtistList extends Component {
             let imageLinkArray = this.state.artistNames.map(item => {
               searchArtists(item.artistName)
                   .then((res) => {
-                    console.log(res.data.artist.image[4]["#text"]);
-                    <div className="card grid-content-container artist-list">
-                       <h3>{res.data.artist.name}</h3>
-                       <img className='artist-img' src={res.data.artist.image[4]["#text"]} alt="artist-1"/>
-                    </div>
+                    console.log(res.data.artist);
+                    this.setState({
+                      artistLinks: this.state.artistLinks.concat([res.data.artist.image[4]["#text"]])
+                    })
                   })
             })
           })
@@ -68,12 +68,21 @@ class ArtistList extends Component {
           }
        })
        }
-
   };
+
+  componentDidUpdate() {
+      if(this.state.artistNames.length > 0) {
+        console.log(this.state.artistLinks);
+      }
+  }
+  // <div className="card grid-content-container artist-list">
+  //    <h3>{res.data.artist.name}</h3>
+  //    <img className='artist-img' src={res.data.artist.image[4]["#text"]} alt="artist-1"/>
+  // </div>
   render() {
     return (
       <div className="col-md-8 favorite-artists-container">
-
+        <p>{this.state.artistLinks[0]}</p>
       </div>
     )
   }
