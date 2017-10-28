@@ -4,23 +4,24 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+
 import axios from 'axios';
 import './css/MainArtistHeader.css';
 
+
 const MainArtistHeader = props => {
 
-
-  function handleFavoriteClick(e) {
-    e.preventDefault();
+  function handleFavoriteClick(event) {
+    event.preventDefault();
       axios.post("/api/artist", {
-        artist: props.artistName
+        artist: props.artistName,
+        image: props.artistImage
       })
-       console.log("favorite button clicked");
      }
 
 
-   function handleUnfavoriteClick(e) {
-     e.preventDefault();
+   function handleUnfavoriteClick(event) {
+     event.preventDefault();
      console.log('The link was UNCLICKED')
    }
 
@@ -39,10 +40,12 @@ const MainArtistHeader = props => {
         <br/>
 
       <div className='buttons'>
-        <button onClick={handleFavoriteClick} className='fav-btn favs'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
+        <button onClick={handleFavoriteClick} className='fav-btn favs' data-toggle='modal' data-target='#favoritedAlert'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
+
         <button type="button" className='tour-btn fav-btn favs' data-toggle='modal' data-target='#eventsModal'><i className="fa fa-calendar fa-1x" aria-hidden="true"></i> Tour Dates</button>
       </div>
-    </div>
+  </div>
+
   )
 }
 

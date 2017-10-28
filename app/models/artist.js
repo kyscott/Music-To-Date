@@ -8,7 +8,10 @@ module.exports = function(sequelize, Sequelize) {
 		},
 		artistName: {
 			type: Sequelize.STRING,notEmpty: true
-		}
+		},
+			artistUrl: {
+			type: Sequelize.STRING,notEmpty: true
+		},
 	});
 
 	return Artist;

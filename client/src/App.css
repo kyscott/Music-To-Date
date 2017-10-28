@@ -25,7 +25,7 @@ body {
 }
 
 .btn-primary {
-  background-color: black;
+  background-color: #101010;
 }
 
 .card {
@@ -65,14 +65,14 @@ font-family: 'Bungee Inline', cursive;
 .fav-btn {
    padding: .5em;
    border-radius: 5em;
-   border: 1px solid black;
+   border: 1px solid #101010;
    background-color: white;
    transition: 1s ease-in-out;
 }
 
 .fav-btn:hover {
    cursor: pointer;
-   background-color: black;
+   background-color: #101010;
    color: #bc0707;
 }
 
@@ -83,14 +83,14 @@ font-family: 'Bungee Inline', cursive;
 .unfav-btn {
    padding: .5em;
    border-radius: 5em;
-   border: 1px solid black;
+   border: 1px solid #101010;
    background-color: white;
    transition: 1s ease-in-out;
 }
 
 .unfav-btn:hover {
    cursor: pointer;
-   background-color: black;
+   background-color: #101010;
    color: white;
 }
 
@@ -101,14 +101,14 @@ font-family: 'Bungee Inline', cursive;
 .tour-btn {
    padding: .5em;
    border-radius: 5em;
-   border: 1px solid black;
+   border: 1px solid #101010;
    background-color: white;
    transition: 1s ease-in-out;
 }
 
 .tour-btn:hover {
    cursor: pointer;
-   background-color: black;
+   background-color: #101010;
    color: #bc0707;
 }
 
@@ -179,7 +179,7 @@ a:active {}
 }
 
 .modalSubmit {
-  background-color: black;
+  background-color: #101010;
   color: white;
   margin: 0 auto;
 }
