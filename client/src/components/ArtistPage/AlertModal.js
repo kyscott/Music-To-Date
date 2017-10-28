@@ -10,7 +10,7 @@ const AlertModal = props => {
         <div className="modal-body">
         <br/>
         <br/>
-          <h5 className="text-center">Added {props.artistName} to your Favorites!</h5>
+          <h6 className="text-center">Added {props.artistName} to your Favorites!</h6>
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-default btn-sm" data-dismiss="modal">Close</button>
