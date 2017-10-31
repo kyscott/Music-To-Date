@@ -14,10 +14,11 @@ const client = new Twitter({
 
 let artistToSearch;
 let artistId;
+
 router.post('/get-tweets', (req, res) => {
   artistToSearch = req.body.searchArtist;
-  console.log(artistToSearch);
-  var params = {q: artistToSearch};
+  let params = {q: artistToSearch};
+
   client.get('users/search', params, function(error, tweets, response) {
     if (!error) {
       artistId = tweets[0].id;
@@ -31,15 +32,11 @@ router.post('/get-tweets', (req, res) => {
     }
   });
 });
+
 //GET routes
-////////////////////////////////////////////////
-
-
   router.get('/get-tweets', (req, res) => {
     console.log(artistToSearch);
     console.log('route worked');
-
-
   })
 
   router.get('/userId', (req, res) => {
@@ -54,7 +51,6 @@ router.post('/get-tweets', (req, res) => {
   });
 
   router.get('/favorites-names', (req, res) => {
-    // console.log(Object.keys(db.Sequelize.Op));
     db.artist.findAll({
       where: {
         artistId: req.query.ids
@@ -76,14 +72,13 @@ router.post('/get-tweets', (req, res) => {
   });
 
   //POST routes
-  ////////////////////////////////////////////////
   router.post("/artist", function(req, res) {
     const user_id = req.user.id;
-      // console.log(user_id);
+
       db.artist.findOrCreate({
         where: { artistName: req.body.artist }
       }).then(function(dbartist) {
-          // console.log(dbartist)
+
         //FIND THE USER by email
         // console.log(dbartist[0].dataValues.artistId);
         // console.log(user_id)
@@ -97,16 +92,3 @@ router.post('/get-tweets', (req, res) => {
   });
 
 module.exports = router;
-
-
-
-  // DELETE route for deleting todos. You can access the FavoriteArtists id in req.params.id
-  // router.delete("/home/:id", function(req, res) {
-  //   db.Music_db.destroy({
-  //     where: {
-  //       id:req.params.id
-  //     }
-  //   }).then(function(dbFavoriteArtists) {
-  //     res.json(dbFavoriteArtists);
-  //   });
-  // });

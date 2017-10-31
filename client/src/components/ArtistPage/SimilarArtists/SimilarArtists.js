@@ -5,8 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 
-import './css/SimilarArtists.css';
-import '../../hover.css'
+import './SimilarArtists.css';
 
 const SimilarArtists = props => {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/EventModal.css';
+import './EventModal.css';
 
 import moment from 'moment';
 
@@ -18,7 +18,7 @@ if (events) {
        <td><a className="event-link" href={event.venue.uri} target="_blank">{event.venue.displayName}</a></td>
        <td>{event.location.city}</td>
     </tr>
-))
+  ))
 }
 
   return (
