@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import { Timeline } from 'react-twitter-widgets';
-import './css/Tweets.css';
+import './Tweets.css';
 
 
 const Tweets = props => {

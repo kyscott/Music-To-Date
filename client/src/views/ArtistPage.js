@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import MainArtistHeader from '../components/ArtistPage/MainArtistHeader';
-import TopSongs from '../components/ArtistPage/TopSongs';
-import SimilarArtists from '../components/ArtistPage/SimilarArtists';
-import EventModal from '../components/ArtistPage/EventModal';
-import GridContainer from '../components/ArtistPage/GridContainer';
-import Tweets from '../components/ArtistPage/Tweets';
-import Loader from '../components/ArtistPage/Loader';
-import AlertModal from '../components/ArtistPage/AlertModal';
+import MainArtistHeader from '../components/ArtistPage/MainArtistHeader/MainArtistHeader';
+import TopAlbums from '../components/ArtistPage/TopAlbums/TopAlbums';
+import SimilarArtists from '../components/ArtistPage/SimilarArtists/SimilarArtists';
+import EventModal from '../components/ArtistPage/EventModal/EventModal';
+import Tweets from '../components/ArtistPage/Tweets/Tweets';
+import Loader from '../components/ArtistPage/Loader/Loader';
+import AlertModal from '../components/ArtistPage/AlertModal/AlertModal';
 import axios from 'axios';
 import '../App.css';
 
@@ -182,7 +181,7 @@ class ArtistPage extends Component {
              artistName = { this.state.result.name }
           />
 
-           <TopSongs 
+           <TopAlbums 
              artistName = { this.state.result.name }
              albums = { this.state.albumResult ? this.state.albumResult.album : '' }
           />

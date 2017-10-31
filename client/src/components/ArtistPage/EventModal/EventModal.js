@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/EventModal.css';
+import './EventModal.css';
 
 import moment from 'moment';
 

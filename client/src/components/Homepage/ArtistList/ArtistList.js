@@ -8,7 +8,7 @@ import {
 import axios from 'axios';
 import './ArtistList.css';
 
-const keys = require('../../Keys.js');
+const keys = require('../../../Keys.js');
 
 class ArtistList extends Component {
    state = {

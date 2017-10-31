@@ -4,9 +4,9 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import './css/TopSongs.css';
+import './TopAlbums.css';
 
-const TopSongs = props => {
+const TopAlbums = props => {
 
   const albums = props.albums
 
@@ -34,4 +34,4 @@ const TopSongs = props => {
   )
 }
 
-export default TopSongs;
+export default TopAlbums;

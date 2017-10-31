@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LoginForm from '../components/SignInPage/LoginForm';
-import SignUpModal from '../components/SignInPage/SignUpModal';
+import LoginForm from '../components/SignInPage/LoginForm/LoginForm';
+import SignUpModal from '../components/SignInPage/SignUpModal/SignUpModal';
 
 class SignInPage extends Component {
   render() {

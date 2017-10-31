@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import axios from 'axios';
-import './css/MainArtistHeader.css';
+import './MainArtistHeader.css';
 
 
 const MainArtistHeader = props => {
