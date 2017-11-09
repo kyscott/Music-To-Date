@@ -12,18 +12,22 @@ Music To Date is an artist discovery/information app that uses the LastFM, Songk
 <br/>
 
 <h2>Technologies</h2>
-Frontend - React
-API Handling - Axios
-Backend / Server - Node.js
-Database - MySQL / Sequelize ORM
-User Authentication - Passport.js
+<em>Frontend</em> - React
+<br/>
+<em>API Handling</em> - Axios
+<br/>
+<em>Backend / Server</em> - Node.js
+<br/>
+<em>Database - MySQL</em> / Sequelize ORM
+<br/>
+<em>User Authentication</em> - Passport.js
 
 <br/>
 <br/>
 
 <h2>Collaborators</h2>
-<a href="http://www.github.com/gildonkirk">gildonkirk</a>
+<a href="http://www.github.com/gildonkirk" target="_blank">gildonkirk</a>
 <br/>
-<a href="http://www.github.com/kyscott">kyscott</a>
+<a href="http://www.github.com/kyscott" target="_blank">kyscott</a>
 <br/>
-<a href="http://www.github.com/slacus08">slacus08</a>
+<a href="http://www.github.com/slacus08" target="_blank">slacus08</a>

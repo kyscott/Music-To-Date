@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Link
 } from 'react-router-dom';
 
 import axios from 'axios';
@@ -11,7 +8,7 @@ import './MainArtistHeader.css';
 
 const MainArtistHeader = props => {
 
-  function handleFavoriteClick(event) {
+  const handleFavoriteClick = event => {
     event.preventDefault();
       axios.post("/api/artist", {
         artist: props.artistName,
@@ -19,8 +16,7 @@ const MainArtistHeader = props => {
       })
      }
 
-
-   function handleUnfavoriteClick(event) {
+   const handleUnfavoriteClick = event => {
      event.preventDefault();
      console.log('The link was UNCLICKED')
    }

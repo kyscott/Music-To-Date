@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
   Link
 } from 'react-router-dom';
 import './Nav.css';
@@ -22,7 +20,7 @@ class Nav extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
   };
-// https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Circle-icons-volume.svg/1000px-Circle-icons-volume.svg.png
+
   render() {
     return (
       <div>
