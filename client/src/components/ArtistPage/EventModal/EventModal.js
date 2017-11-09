@@ -41,9 +41,7 @@ if (events) {
                 </tr>
               </thead>
               <tbody>
-
               {eventList}
-
               </tbody>
             </table>
         </div>

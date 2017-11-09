@@ -9,9 +9,6 @@ import AlertModal from '../components/ArtistPage/AlertModal/AlertModal';
 import axios from 'axios';
 import '../App.css';
 
-import Twitter from 'twitter';
-import moment from 'moment';
-
 const keys = require('../Keys.js')
 
 class ArtistPage extends Component {
@@ -22,7 +19,6 @@ class ArtistPage extends Component {
       currentArtistName: ''
    };
 
-
    componentDidMount() {
       this.setState({
          currentArtistName: this.props.match.params.artistName
@@ -32,7 +28,6 @@ class ArtistPage extends Component {
             this.setState({
                result: res.data.artist,
             })
-            console.log(this.state.result);
          }).then(artistName => {
             axios.post('/api/get-tweets', {
                searchArtist: this.state.result.name
@@ -42,24 +37,19 @@ class ArtistPage extends Component {
                   twitterUsername: res.data[0].user.screen_name,
                   verifiedStatus: res.data[0].user.verified
                })
-               console.log(this.state.twitterResult);
                console.log(this.state.verifiedStatus);
             })
-            console.log(this.state.result)
             this.API.songkick.getEvents(this.state.result.mbid)
          }).catch(err => console.log(err));
 
       this.API.lastfm.searchTopAlbums(this.props.match.params.artistName);
       this.API.twitter.getTweets();
-
-
    }
 
    componentWillReceiveProps() {
       let newArtist = window.location.pathname;
       newArtist = newArtist.replace('/artist/', '');
       newArtist = newArtist.replace('%20', ' ');
-      console.log(newArtist);
       if (newArtist !== this.state.currentArtistName) {
          this.setState({
             currentArtistName: newArtist
@@ -69,7 +59,6 @@ class ArtistPage extends Component {
                this.setState({
                   result: res.data.artist,
                })
-               console.log(this.state.result);
             }).then(artistName => {
                axios.post('/api/get-tweets', {
                   searchArtist: newArtist
@@ -79,13 +68,10 @@ class ArtistPage extends Component {
                      twitterUsername: res.data[0].user.screen_name,
                      verifiedStatus: res.data[0].user.verified
                   })
-                  console.log(this.state.twitterResult);
                   console.log(this.state.verifiedStatus);
                })
-               console.log(this.state.result)
                this.API.songkick.getEvents(this.state.result.mbid)
             }).catch(err => console.log(err));
-
          this.API.lastfm.searchTopAlbums(newArtist);
          this.API.twitter.getTweets();
       }
@@ -118,7 +104,6 @@ class ArtistPage extends Component {
                this.setState({
                   albumResult: res.data.topalbums
                })
-               console.log(this.state.albumResult)
             }).catch(err => console.log(err));
          }
       },
@@ -129,14 +114,12 @@ class ArtistPage extends Component {
                this.setState({
                   twitterResult: res.data
                })
-               console.log(this.state.twitterResult);
             }).catch(err => console.log(err));
          }
       },
 
       songkick: {
          getEvents: query => {
-            console.log(query);
             return axios.get("http://api.songkick.com/api/3.0/artists/mbid:" + query + "/calendar.json", {
                params: {
                   apikey: keys.songkick_api_key
@@ -145,7 +128,6 @@ class ArtistPage extends Component {
                this.setState({
                   eventResult: res.data.resultsPage.results.event
                })
-               console.log(this.state.eventResult)
             }).catch(err => console.log(err));
          }
       }

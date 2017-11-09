@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Artist from '../components/Homepage/Artist/Artist';
 import ArtistList from '../components/Homepage/ArtistList/ArtistList';
 
-import axios from 'axios';
 import '../App.css';
 
 class Homepage extends Component {
