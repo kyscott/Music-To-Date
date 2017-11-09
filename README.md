@@ -12,15 +12,15 @@ Music To Date is an artist discovery/information app that uses the LastFM, Songk
 <br/>
 
 <h2>Technologies</h2>
-<em>Frontend</em> - React
+<em><strong>Frontend</strong></em> - React
 <br/>
-<em>API Handling</em> - Axios
+<em><strong>API Handling</strong></em> - Axios
 <br/>
-<em>Backend / Server</em> - Node.js
+<em><strong>Backend / Server</strong></em> - Node.js
 <br/>
-<em>Database - MySQL</em> / Sequelize ORM
+<em><strong>Database</strong></em> - MySQL / Sequelize ORM
 <br/>
-<em>User Authentication</em> - Passport.js
+<em><strong>User Authentication</strong></em> - Passport.js
 
 <br/>
 <br/>
