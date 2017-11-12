@@ -15,7 +15,7 @@ router.post('/get-tweets', (req, res) => {
    artistToSearch = req.body.searchArtist;
    let params = { q: artistToSearch };
 
-   client.get('users/search', params, function(error, tweets, response) {
+   client.get('users/search', params, (error, tweets, response) => {
       if (!error) {
          artistId = tweets[0].id;
          console.log(artistId);
@@ -69,6 +69,12 @@ router.get('/favorites', (req, res) => {
 
 //POST routes
 router.post("/artist", (req, res) => {
+
+   db.artist.destroy({
+      where: {
+         artistName: req.body.artist
+      }
+   }) 
    const user_id = req.user.id;
 
       db.artist.findOrCreate({
@@ -79,7 +85,6 @@ router.post("/artist", (req, res) => {
    })
    .then(dbartist => {
 
-      //FIND THE USER by email
       db.favorite.create({
          'userId': user_id,
          'artistId': dbartist[0].dataValues.artistId

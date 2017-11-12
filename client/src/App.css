@@ -10,6 +10,29 @@ body {
 
 .signInBtn {
   width: 105px;
+  margin: 1.5em auto;
+}
+
+.sign-up {
+  width: 105px;
+}
+
+.sign-up-btn {
+  width: 105px;
+   padding: .5em;
+   border-radius: 5em;
+   border: 1px solid lightgray;
+   transition: 1s ease-in-out;
+}
+
+.sign-up-btn:hover {
+   cursor: pointer;
+   background-color: white;
+   color: #101010;
+}
+
+.sign-up-btn:focus {
+   outline: none;
 }
 
 .App {
@@ -60,6 +83,23 @@ font-family: 'Bungee Inline', cursive;
 .heart-active {
    color: red;
    background-color: white;
+}
+
+.log-out {
+  padding: .5em;
+  background-color: #101010;
+  transition: 1s ease-in-out;
+  margin: .25em 0 0 4em;
+  font-family: 'Bungee Inline', cursive;
+}
+
+.log-out:hover {
+  cursor: pointer;
+  color: #bc0707;
+}
+
+.log-out:focus {
+   outline: none;
 }
 
 .fav-btn {
@@ -126,6 +166,12 @@ font-family: 'Bungee Inline', cursive;
 
 .btn {
    cursor: pointer;
+}
+
+.search-button {
+   font-size: .75em;
+   height: 2.5em;
+   width: 150%;
 }
 
 h4 {
@@ -274,4 +320,8 @@ a:active {}
   animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+}
+
+.favArtistHeader {
+  font-family: 'Righteous', cursive;
 }

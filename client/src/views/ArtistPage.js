@@ -6,6 +6,7 @@ import EventModal from '../components/ArtistPage/EventModal/EventModal';
 import Tweets from '../components/ArtistPage/Tweets/Tweets';
 import Loader from '../components/ArtistPage/Loader/Loader';
 import AlertModal from '../components/ArtistPage/AlertModal/AlertModal';
+import UnfavAlertModal from '../components/ArtistPage/UnfavAlertModal/UnfavAlertModal';
 import axios from 'axios';
 import '../App.css';
 
@@ -37,7 +38,6 @@ class ArtistPage extends Component {
                   twitterUsername: res.data[0].user.screen_name,
                   verifiedStatus: res.data[0].user.verified
                })
-               console.log(this.state.verifiedStatus);
             })
             this.API.songkick.getEvents(this.state.result.mbid)
          }).catch(err => console.log(err));
@@ -151,7 +151,6 @@ class ArtistPage extends Component {
              artistName = { this.state.result.name }
              artistImage = { this.state.result.image ? this.state.result.image[3]["#text"] : '' }
              bio = { this.state.result.bio ? this.state.result.bio.content.toString().substring(0, 500) : '' }
-             mbid = { this.state.result.mbid }
            />
 
            <EventModal 
@@ -160,6 +159,10 @@ class ArtistPage extends Component {
            />
 
            <AlertModal
+             artistName = { this.state.result.name }
+          />
+
+           <UnfavAlertModal
              artistName = { this.state.result.name }
           />
 

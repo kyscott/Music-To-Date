@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
         <label htmlFor="SignInPassword">Password</label>
         <input name="password" type="password" onChange={this.handleChange} className="form-control" id="SignInPassword" placeholder="Password" />
       </div>
-      <button type="submit" onClick={this.handleSubmit} className="signInBtn fav-btn favs" data-dismiss='modal'>Submit</button>
+      <button type="submit" onClick={this.handleSubmit} className="signInBtn fav-btn" data-dismiss='modal'>Log In</button>
     </form>
 
     )
