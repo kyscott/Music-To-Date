@@ -39,11 +39,16 @@ class Nav extends Component {
                     type="text"
                     placeholder="Search"
                   />
-              <Link to={`/artist/${this.state.search}`}><input
+              <Link to={`/artist/${this.state.search}`}>
+              <input
                     type="button"
-                    className="fav-btn favs"
+                    className="fav-btn favs search-button"
                     value="Search" /></Link>
+                <a
+                    href="/"
+                    className="log-out">Logout</a>
                </div>
+
             </div>
          </nav>
       </div>

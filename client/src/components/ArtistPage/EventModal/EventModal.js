@@ -10,7 +10,6 @@ let eventList = '';
 
 if (events) {
   eventList = events.map((event, i) => (
-
     <tr key={i}>
        <td><a className="event-link" href={event.uri} target="_blank">{event.displayName}</a></td>
        <td>{moment(event.start.date).format("MMM Do YY")}</td>
@@ -33,7 +32,7 @@ if (events) {
           <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Name: </th>
+                  <th>Name:</th>
                   <th>Date:</th>
                   <th>Time:</th>
                   <th>Venue:</th>
@@ -43,7 +42,7 @@ if (events) {
               <tbody>
               {eventList}
               </tbody>
-            </table>
+          </table>
         </div>
         <div className="modal-footer">
           <a href="http://www.songkick.com" target="_blank" alt="songkick.com">

@@ -11,7 +11,7 @@
    position: fixed;
    top: 0;
    left: 0;
-   background-color: #121212;
+   background-color: #101010;
    border-bottom: 1px solid #bc0707;
 }
 
@@ -22,13 +22,32 @@
 }
 
 .form-inline {
-   margin: 1em 1em;
    color: black;
    float: right;
+   margin: 1em 1em;
+}
+
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border-radius: 5px;
+  border: 0;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 10px #bc0707;
+  border: 1px solid black;
 }
 
 .btn-default {
    margin: 0 0 0 1em;
+}
+
+input.log-out {
+   margin-left: 3em;
 }
 
 input {

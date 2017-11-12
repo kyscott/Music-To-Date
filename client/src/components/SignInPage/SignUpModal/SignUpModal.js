@@ -32,8 +32,8 @@ class SignUpModal extends React.Component {
   render() {
     return (
       <div>
-        <button type="button" className="fav-btn favs" data-toggle="modal" data-target="#SignUpModal">
-          Create a Login
+        <button type="button" className="fav-btn favs sign-up" data-toggle="modal" data-target="#SignUpModal">
+          Sign Up
         </button>
 
         <div className="modal fade" id="SignUpModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -65,7 +65,7 @@ class SignUpModal extends React.Component {
                   </div>
                 </div>
                 <div className="modal-footer">
-                  <button type="submit" onClick={this.handleSubmit} className="modalSubmit fav-btn favs" data-dismiss='modal'>Sign Up</button>
+                  <button type="submit" onClick={this.handleSubmit} className="modalSubmit sign-up-btn" data-dismiss='modal'>Sign Up</button>
                 </div>
               </form>
             </div>
