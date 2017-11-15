@@ -9,6 +9,11 @@ import SignInPage from './views/SignInPage';
 import Homepage from './views/Homepage';
 import ArtistPage from './views/ArtistPage';
 
+const spinner = document.getElementById('spinner');
+
+if (spinner && !spinner.hasAttribute('hidden')) {
+  spinner.setAttribute('hidden', 'true');
+}
 
 class App extends React.Component {
   state = {
