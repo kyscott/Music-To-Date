@@ -12,7 +12,7 @@ let artistToSearch;
 let artistId;
 
     router.get("/", function (req, res) {
-      res.render("SignInPage");
+      res.send("Test");
     });
 
 router.post('/get-tweets', (req, res) => {
