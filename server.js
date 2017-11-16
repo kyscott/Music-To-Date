@@ -61,8 +61,12 @@ app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
 
 app.use('/api', routes);
 
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+// router.use(function(req, res) {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"))
+// });
+
+app.get("/", function(req, res) {
+res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 
