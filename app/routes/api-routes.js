@@ -11,10 +11,6 @@ const client = new Twitter({
 let artistToSearch;
 let artistId;
 
-    router.get("/", function (req, res) {
-      res.send("Test");
-    });
-
 router.post('/get-tweets', (req, res) => {
    artistToSearch = req.body.searchArtist;
    let params = { q: artistToSearch };
