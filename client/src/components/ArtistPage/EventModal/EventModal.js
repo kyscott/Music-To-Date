@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/EventModal.css';
+import './EventModal.css';
 
 import moment from 'moment';
 
@@ -10,7 +10,6 @@ let eventList = '';
 
 if (events) {
   eventList = events.map((event, i) => (
-
     <tr key={i}>
        <td><a className="event-link" href={event.uri} target="_blank">{event.displayName}</a></td>
        <td>{moment(event.start.date).format("MMM Do YY")}</td>
@@ -18,7 +17,7 @@ if (events) {
        <td><a className="event-link" href={event.venue.uri} target="_blank">{event.venue.displayName}</a></td>
        <td>{event.location.city}</td>
     </tr>
-))
+  ))
 }
 
   return (
@@ -33,7 +32,7 @@ if (events) {
           <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Name: </th>
+                  <th>Name:</th>
                   <th>Date:</th>
                   <th>Time:</th>
                   <th>Venue:</th>
@@ -41,11 +40,9 @@ if (events) {
                 </tr>
               </thead>
               <tbody>
-
               {eventList}
-
               </tbody>
-            </table>
+          </table>
         </div>
         <div className="modal-footer">
           <a href="http://www.songkick.com" target="_blank" alt="songkick.com">

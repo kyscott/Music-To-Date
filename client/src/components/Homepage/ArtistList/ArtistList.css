@@ -1,12 +1,12 @@
 .artist-img {
    margin: 1em 0 0 0;
    width: 100%;
-   border-radius: 100px;
+   border-radius: 150px;
 }
 
 .favorite-artists-container {
    text-align: center;
-   margin: 0 auto 5em auto;
+   margin: 1em auto 2em auto;
    padding: 0;
 }
 
@@ -22,4 +22,8 @@
 
 .artist-list {
   border: 0;
+}
+
+div.artist-list {
+  text-align: center;
 }

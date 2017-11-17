@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import './App.css';
-import Nav from './views/Nav';
+import Nav from './components/Nav/Nav';
 import SignInPage from './views/SignInPage';
 import Homepage from './views/Homepage';
 import ArtistPage from './views/ArtistPage';
-
 
 class App extends React.Component {
   state = {
