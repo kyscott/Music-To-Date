@@ -56,7 +56,7 @@ app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
 // Define any API routes before this runs
 app.use('/api', routes);
 
-app.get("/", function(req, res) {
+router.get("/", function(req, res) {
 res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
 
