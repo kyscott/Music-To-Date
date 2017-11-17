@@ -35,17 +35,13 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 //For Handlebars
-app.set('views', './app/views')
-// app.engine('html', exphbs({
-//   extname: '.html'
-// }));
-app.set('view engine', '.html');
+// app.set('views', './app/views')
+// app.set('view engine', '.html');
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
 
 app.post('/api/signup', passport.authenticate('local-signup'), (req, res) => {
   res.json(req.body);
@@ -58,13 +54,11 @@ app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
 
 // Send every request to the React app
 // Define any API routes before this runs
-
 app.use('/api', routes);
 
-// router.get("/", function(req, res) {
-// res.render(path.join(__dirname, "./client/public/index.html"));
-// });
-
+app.get("/", function(req, res) {
+res.sendFile(path.join(__dirname, "/client/build/index.html"));
+});
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
