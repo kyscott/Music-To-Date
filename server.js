@@ -56,9 +56,14 @@ app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
 // Define any API routes before this runs
 app.use('/api', routes);
 
-router.get("/", function(req, res) {
-res.sendFile(path.join(__dirname, "/client/build/index.html"));
+// router.get("/", function(req, res) {
+// res.sendFile(path.join(__dirname, "/client/build/index.html"));
+// });
+
+app.get("/", function(req, res) {
+res.sendFile(path.join(__dirname, "/client/public/index.html"));
 });
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
