@@ -1,6 +1,4 @@
 <h1><em>Music To Date</em></h1>
-![demo](http://g.recordit.co/wG3ntE3eHQ.gif)
-
 
 [![Music To Date](https://i.imgur.com/82iC2Xm.png
 )](https://youtu.be/MZwEBTP1FWM "Music To Date")
