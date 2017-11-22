@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
-    "client": "cd client && npm run start",
-    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
-    "build": "cd client && npm run build",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,6 +31,8 @@
     "mysql2": "^1.4.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "react-router-dom": "^4.2.2",
     "react-tap-event-plugin": "^3.0.2",
     "react-twitter-widgets": "^1.7.1",
