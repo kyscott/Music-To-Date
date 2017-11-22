@@ -34,15 +34,11 @@ app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-//For Handlebars
-// app.set('views', './app/views')
-// app.set('view engine', '.html');
-
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
+app.use('/api', routes);
 app.post('/api/signup', passport.authenticate('local-signup'), (req, res) => {
   res.json(req.body);
 });
@@ -54,7 +50,7 @@ app.post('/api/signin', passport.authenticate('local-signin'), (req, res) => {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.use('/api', routes);
+
 
 // router.get("/", function(req, res) {
 // res.sendFile(path.join(__dirname, "/client/build/index.html"));
