@@ -28,7 +28,7 @@ class Nav extends Component {
             <div className="navbar-header">
 
                <Link to="/home">
-                  <img src={require("./equalizer.png")} className="navbar-icon" alt="Home"/>
+                  <img src="http://localhost:5000/images/equalizer.png" className="navbar-icon" alt="Home"/>
                   <h1 className="homepageHeaderNav">Music To Date</h1>
                </Link>
 
