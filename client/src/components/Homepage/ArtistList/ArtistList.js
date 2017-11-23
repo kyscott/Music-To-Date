@@ -69,7 +69,7 @@ class ArtistList extends Component {
          });
 
       const searchArtists = (query) => {
-         return axios.get('https://ws.audioscrobbler.com/2.0/', {
+         return axios.get('//ws.audioscrobbler.com/2.0/', {
             params: {
                method: 'artist.getinfo',
                api_key: keys.lastfm_api_key,
