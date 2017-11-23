@@ -92,7 +92,7 @@ class ArtistPage extends Component {
          },
 
          searchTopAlbums: query => {
-            axios.get('http://ws.audioscrobbler.com/2.0/', {
+            axios.get('https://ws.audioscrobbler.com/2.0/', {
                params: {
                   method: 'artist.getTopAlbums',
                   api_key: keys.lastfm_api_key,
@@ -120,7 +120,7 @@ class ArtistPage extends Component {
 
       songkick: {
          getEvents: query => {
-            return axios.get("http://api.songkick.com/api/3.0/artists/mbid:" + query + "/calendar.json", {
+            return axios.get("https://api.songkick.com/api/3.0/artists/mbid:" + query + "/calendar.json", {
                params: {
                   apikey: keys.songkick_api_key
                }
