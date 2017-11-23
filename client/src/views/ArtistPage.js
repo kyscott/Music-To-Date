@@ -80,7 +80,7 @@ class ArtistPage extends Component {
    API = {
       lastfm: {
          searchArtists: query => {
-            return axios.get('http://ws.audioscrobbler.com/2.0/', {
+            return axios.get('https://ws.audioscrobbler.com/2.0/', {
                params: {
                   method: 'artist.getinfo',
                   api_key: keys.lastfm_api_key,
