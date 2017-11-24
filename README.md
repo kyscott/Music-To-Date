@@ -1,7 +1,6 @@
 <h1><em>Music To Date</em></h1>
 
-[![Music To Date](https://i.imgur.com/82iC2Xm.png
-)](https://youtu.be/MZwEBTP1FWM "Music To Date")
+[![Music To Date](https://i.imgur.com/qfoGP9E.gif)
 <br/>
 <br/>
 
@@ -13,7 +12,6 @@ To run the application:
 5. Run 'cd ..'
 6. Run 'npm start'
 
-<br/>
 <br/>
 
 <h2>Introduction</h2>
