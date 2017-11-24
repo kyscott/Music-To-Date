@@ -1,6 +1,7 @@
 <h1><em>Music To Date</em></h1>
 
-![Music To Date](https://i.imgur.com/qfoGP9E.gif)
+[![Music To Date](https://i.imgur.com/82iC2Xm.png
+)](https://i.imgur.com/qfoGP9E.gif "Music To Date")
 <br/>
 <br/>
 
