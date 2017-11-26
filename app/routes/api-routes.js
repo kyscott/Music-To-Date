@@ -67,7 +67,7 @@ router.get('/favorites', (req, res) => {
       })
 });
 
-router.delete("/artist", (req, res) => {
+router.post("/artist", (req, res) => {
    db.artist.destroy({
       where: {
          artistName: req.body.artist
