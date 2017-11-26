@@ -14,6 +14,9 @@ To run the application:
 6. Run 'npm start'
 
 <br/>
+
+To view the deployed application make sure you enable viewing mixed content in your browser and follow the link here:
+http://musictodate.herokuapp.com
 <br/>
 
 <h2>Introduction</h2>
