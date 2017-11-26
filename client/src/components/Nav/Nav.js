@@ -46,7 +46,7 @@ class Nav extends Component {
                     value="Search" /></Link>
                 <a
                     href="/"
-                    className="log-out">Logout</a>
+                    className="log-out">Logou</a>
                </div>
 
             </div>
