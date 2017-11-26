@@ -67,18 +67,15 @@ router.get('/favorites', (req, res) => {
       })
 });
 
-//POST routes
-router.post("/artist", (req, res) => {
+router.delete("/artist", (req, res) => {
    db.artist.destroy({
       where: {
-         artistName: req.body.artist,
-         artistUrl: req.body.image
+         artistName: req.body.artist
       }
-   }).then(data => {
-      res.json(data);
    }) 
 })
 
+//POST routes
 router.post("/artist", (req, res) => {
    const user_id = req.user.id;
 
