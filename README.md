@@ -1,7 +1,7 @@
 <h1><em>Music To Date</em></h1>
 
 [![Music To Date](https://i.imgur.com/82iC2Xm.png
-)](https://youtu.be/MZwEBTP1FWM "Music To Date")
+)](https://i.imgur.com/qfoGP9E.gif "Music To Date")
 <br/>
 <br/>
 
@@ -14,10 +14,13 @@ To run the application:
 6. Run 'npm start'
 
 <br/>
+<<<<<<< HEAD
 
 To view the deployed application make sure you enable viewing mixed content in your browser and follow the link here:
 http://musictodate.herokuapp.com
 <br/>
+=======
+>>>>>>> d6f8c834a41098a7ccaff25c2e5e60cdf69fa511
 
 <h2>Introduction</h2>
 Music To Date is an artist discovery/information app that uses the LastFM, Songkick & Twitter APIs in order to pull data about any artist that the user chooses to search for. Upon searching for an artist, the user has the option the 'favorite' an artist so that the artist will display on their dashboard, then they will have quick acceess to the artists Twitter feed, the artists upcoming tour dates, their top albums, and five related artists.
