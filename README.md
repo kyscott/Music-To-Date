@@ -14,6 +14,11 @@ To run the application:
 6. Run 'npm start'
 
 <br/>
+<<<<<<< HEAD
+
+To view the deployed application make sure you enable viewing mixed content in your browser and follow the link here:
+http://musictodate.herokuapp.com
+<br/>
 
 <h2>Introduction</h2>
 Music To Date is an artist discovery/information app that uses the LastFM, Songkick & Twitter APIs in order to pull data about any artist that the user chooses to search for. Upon searching for an artist, the user has the option the 'favorite' an artist so that the artist will display on their dashboard, then they will have quick acceess to the artists Twitter feed, the artists upcoming tour dates, their top albums, and five related artists.
