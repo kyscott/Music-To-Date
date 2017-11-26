@@ -41,7 +41,7 @@ const MainArtistHeader = props => {
       <div className='buttons'>
         <button onClick={handleFavoriteClick} className='fav-btn favs' data-toggle='modal' data-target='#favoritedAlert'><i className="fa fa-heart fa-1x" aria-hidden="true"></i> Favorite</button>
 
-        {/*<button onClick={handleUnfavoriteClick} className='fav-btn favs' data-toggle='modal' data-target='#unfavoritedAlert'><i className="fa fa-remove fa-1x" aria-hidden="true"></i> Remove</button>*/}
+        <button onClick={handleUnfavoriteClick} className='fav-btn favs' data-toggle='modal' data-target='#unfavoritedAlert'><i className="fa fa-remove fa-1x" aria-hidden="true"></i> Remove</button>
 
         <button type="button" className='tour-btn fav-btn favs' data-toggle='modal' data-target='#eventsModal'><i className="fa fa-calendar fa-1x" aria-hidden="true"></i> Tour Dates</button>
       </div>
