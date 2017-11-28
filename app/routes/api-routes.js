@@ -72,7 +72,9 @@ router.delete("/artist", (req, res) => {
       where: {
          artistName: req.body.artist
       }
-   }) 
+   }).then(data => {
+      res.json(data)
+   })
 })
 
 //POST routes
