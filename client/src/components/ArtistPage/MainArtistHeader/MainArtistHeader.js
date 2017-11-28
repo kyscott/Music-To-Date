@@ -18,7 +18,7 @@ const MainArtistHeader = props => {
 
    const handleUnfavoriteClick = event => {
      event.preventDefault();
-     axios.post("/api/artist", {
+     axios.delete("/api/artist", {
       artist: props.artistName,
       image: props.artistImage
      })
